@@ -9,11 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Dancing+Script:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap"
-    rel="stylesheet"
->
-
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Dancing+Script:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
 
@@ -27,31 +23,34 @@
     padding:0;
 }
 
-
 html{
     scroll-behavior:smooth;
 }
 
-
 body{
-
     min-height:100vh;
+    overflow-x:hidden;
+
+    font-family:"Poppins",sans-serif;
+    color:#fff;
 
     background:
         radial-gradient(
-            circle at top,
-            #251536 0%,
-            #100916 45%,
-            #050309 100%
+            circle at 20% 20%,
+            rgba(179,124,255,.16),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 80% 70%,
+            rgba(255,130,190,.13),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #10091d,
+            #21102f,
+            #130b20
         );
-
-    color:#f7edff;
-
-    font-family:
-        "Poppins",
-        sans-serif;
-
-    overflow-x:hidden;
 }
 
 
@@ -60,67 +59,86 @@ body{
 ========================================================= */
 
 #magicCanvas{
-
     position:fixed;
-
     inset:0;
 
     width:100%;
     height:100%;
 
     pointer-events:none;
-
-    z-index:1;
+    z-index:2;
 }
 
 
 /* =========================================================
-   FLOATING BACKGROUND
+   FLOATING EMOJIS
 ========================================================= */
 
 .floating{
-
     position:fixed;
-
-    inset:0;
-
     pointer-events:none;
+    z-index:1;
 
-    overflow:hidden;
+    opacity:.14;
 
-    z-index:0;
+    animation:floatAround linear infinite;
 }
 
-
-.float-item{
-
-    position:absolute;
-
-    font-size:
-        clamp(18px,3vw,30px);
-
-    opacity:.12;
-
-    animation:
-        floatAround
-        linear infinite;
+.f1{
+    left:8%;
+    top:18%;
+    font-size:28px;
+    animation-duration:13s;
 }
 
+.f2{
+    right:9%;
+    top:28%;
+    font-size:22px;
+    animation-duration:17s;
+}
+
+.f3{
+    left:14%;
+    bottom:17%;
+    font-size:25px;
+    animation-duration:15s;
+}
+
+.f4{
+    right:15%;
+    bottom:20%;
+    font-size:30px;
+    animation-duration:19s;
+}
+
+.f5{
+    left:48%;
+    top:8%;
+    font-size:18px;
+    animation-duration:12s;
+}
+
+.f6{
+    right:38%;
+    bottom:7%;
+    font-size:20px;
+    animation-duration:16s;
+}
 
 @keyframes floatAround{
 
-    0%{
+    0%,100%{
         transform:
-            translateY(110vh)
+            translateY(0)
             rotate(0deg);
     }
 
-    100%{
+    50%{
         transform:
-            translateY(-120vh)
-            rotate(360deg);
+            translateY(-25px)
+            rotate(12deg);
     }
-
 }
 
 
@@ -129,8 +147,10 @@ body{
 ========================================================= */
 
 .page{
-
     min-height:100vh;
+    width:100%;
+
+    padding:40px 20px;
 
     display:none;
 
@@ -139,176 +159,134 @@ body{
 
     position:relative;
 
-    z-index:2;
-
-    padding:
-        50px 20px;
+    z-index:5;
 }
-
 
 .page:target{
     display:flex;
 }
 
-
-body:not(:has(.page:target))
-#page1{
+body:not(:has(.page:target)) #page1{
     display:flex;
 }
 
-
-/* =========================================================
-   CONTENT
-========================================================= */
-
 .content{
-
-    width:100%;
-
-    max-width:900px;
-
-    margin:auto;
-
+    width:min(900px,100%);
     text-align:center;
-
-    animation:
-        pageAppear
-        1s
-        ease;
-}
-
-
-@keyframes pageAppear{
-
-    from{
-
-        opacity:0;
-
-        transform:
-            translateY(25px)
-            scale(.98);
-
-    }
-
-    to{
-
-        opacity:1;
-
-        transform:
-            translateY(0)
-            scale(1);
-
-    }
-
+    padding:45px 25px;
 }
 
 
 /* =========================================================
-   GLASS CARD
+   GLASS
 ========================================================= */
 
 .glass{
 
-    padding:
-        55px 45px;
+    background:
+        rgba(255,255,255,.07);
+
+    border:
+        1px solid rgba(255,255,255,.13);
+
+    box-shadow:
+        0 25px 70px rgba(0,0,0,.35),
+        inset 0 1px 0 rgba(255,255,255,.08);
+
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
 
     border-radius:32px;
 
-    background:
-        rgba(255,255,255,.065);
-
-    border:
-        1px solid
-        rgba(255,255,255,.12);
-
-    box-shadow:
-        0 30px 100px
-        rgba(0,0,0,.35);
-
-    backdrop-filter:
-        blur(18px);
-
-    -webkit-backdrop-filter:
-        blur(18px);
-
+    padding:45px 28px;
 }
 
 
 /* =========================================================
-   TYPOGRAPHY
+   TEXT
 ========================================================= */
 
 .small-title{
 
-    font-size:12px;
-
-    letter-spacing:5px;
-
+    font-size:13px;
+    letter-spacing:4px;
     text-transform:uppercase;
+    opacity:.65;
 
-    opacity:.55;
-
-    margin-bottom:18px;
+    margin-bottom:15px;
 }
-
-
-h1,
-h2{
-
-    font-family:
-        "Dancing Script",
-        cursive;
-
-    font-weight:600;
-
-}
-
 
 h1{
 
+    font-family:"Dancing Script",cursive;
+
     font-size:
-        clamp(55px,10vw,100px);
+        clamp(58px,12vw,105px);
 
     line-height:1;
+
+    font-weight:700;
 
     background:
         linear-gradient(
             120deg,
             #fff,
-            #e8bfff,
-            #ffc8e6
+            #e7c9ff,
+            #ffcae7
         );
 
     -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
 
-    -webkit-text-fill-color:
-        transparent;
-
+    text-shadow:
+        0 0 35px
+        rgba(210,160,255,.18);
 }
-
 
 h2{
 
+    font-family:"Dancing Script",cursive;
+
     font-size:
-        clamp(48px,8vw,78px);
+        clamp(45px,8vw,72px);
 
-    line-height:1.1;
-
-    margin-bottom:25px;
-
-    color:#f5dcff;
+    margin-bottom:20px;
 }
-
 
 p{
 
-    font-size:21px;
+    font-family:"Cormorant Garamond",serif;
 
-    line-height:1.7;
+    font-size:23px;
+
+    line-height:1.65;
 
     color:
-        rgba(255,255,255,.84);
+        rgba(255,255,255,.88);
+}
 
+.subtitle{
+    max-width:650px;
+    margin:22px auto;
+}
+
+.highlight{
+    color:#f2cfff;
+}
+
+.quote{
+
+    margin:30px auto;
+
+    max-width:650px;
+
+    font-family:"Dancing Script",cursive;
+
+    font-size:31px;
+
+    line-height:1.45;
+
+    color:#f3dcff;
 }
 
 
@@ -324,26 +302,23 @@ p{
 
     align-items:center;
 
-    gap:15px;
-
     flex-wrap:wrap;
 
-    margin-top:35px;
-}
+    gap:15px;
 
+    margin-top:30px;
+}
 
 .button{
 
     display:inline-flex;
 
     align-items:center;
-
     justify-content:center;
 
-    min-height:52px;
+    min-width:150px;
 
-    padding:
-        13px 25px;
+    padding:15px 26px;
 
     border-radius:999px;
 
@@ -351,33 +326,31 @@ p{
 
     color:white;
 
-    font-size:15px;
+    font-family:"Poppins",sans-serif;
 
-    font-weight:500;
+    font-size:14px;
+
+    letter-spacing:.5px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.18);
 
     background:
         linear-gradient(
             135deg,
-            rgba(174,111,255,.38),
-            rgba(255,121,190,.28)
+            rgba(203,157,255,.27),
+            rgba(255,157,204,.20)
         );
-
-    border:
-        1px solid
-        rgba(255,255,255,.14);
 
     box-shadow:
         0 10px 30px
         rgba(0,0,0,.2);
 
-    transition:
-        transform .3s ease,
-        background .3s ease,
-        box-shadow .3s ease;
+    transition:.35s ease;
 
     cursor:pointer;
 }
-
 
 .button:hover{
 
@@ -397,9 +370,7 @@ p{
         rgba(195,120,255,.18);
 }
 
-
 .back{
-
     opacity:.65;
 
     background:
@@ -422,7 +393,6 @@ p{
     margin-bottom:10px;
 }
 
-
 @keyframes heartbeat{
 
     0%,100%{
@@ -432,15 +402,11 @@ p{
     50%{
         transform:scale(1.12);
     }
-
 }
-
 
 .name-line{
 
-    font-family:
-        "Cormorant Garamond",
-        serif;
+    font-family:"Cormorant Garamond",serif;
 
     font-size:24px;
 
@@ -465,12 +431,9 @@ p{
         28px;
 }
 
-
 .childhood-subtitle{
 
-    font-family:
-        "Cormorant Garamond",
-        serif;
+    font-family:"Cormorant Garamond",serif;
 
     font-size:24px;
 
@@ -480,12 +443,9 @@ p{
         rgba(255,255,255,.86);
 }
 
-
 .childhood-quote{
 
-    font-family:
-        "Dancing Script",
-        cursive;
+    font-family:"Dancing Script",cursive;
 
     font-size:34px;
 
@@ -506,9 +466,9 @@ p{
     display:grid;
 
     grid-template-columns:
-        repeat(3,minmax(0,1fr));
+        repeat(3,1fr);
 
-    gap:16px;
+    gap:20px;
 
     margin-top:35px;
 }
@@ -516,9 +476,9 @@ p{
 
 .memory{
 
-    padding:8px;
+    padding:12px;
 
-    border-radius:20px;
+    border-radius:22px;
 
     background:
         rgba(255,255,255,.07);
@@ -534,32 +494,30 @@ p{
     transition:
         transform .4s ease,
         box-shadow .4s ease;
-
-    cursor:pointer;
 }
 
 
 /* Different slight rotations */
 
 .memory:nth-child(1){
-    transform:rotate(-2.5deg);
+    transform:rotate(-2deg);
 }
 
 .memory:nth-child(2){
-    transform:rotate(1.8deg);
+    transform:rotate(1.5deg);
 }
 
 .memory:nth-child(3){
-    transform:rotate(-1.5deg);
+    transform:rotate(-1deg);
 }
 
 
 .memory:hover{
 
     transform:
-        translateY(-8px)
+        translateY(-10px)
         rotate(0deg)
-        scale(1.03);
+        scale(1.02);
 
     box-shadow:
         0 20px 50px
@@ -575,140 +533,22 @@ p{
 
     object-fit:cover;
 
-    border-radius:14px;
+    border-radius:15px;
 
     display:block;
 }
 
 
-/* PHOTO LIGHTBOX */
-
-.photo-lightbox{
-
-    position:fixed;
-
-    inset:0;
-
-    z-index:100;
-
-    display:none;
-
-    align-items:center;
-
-    justify-content:center;
-
-    padding:20px;
-
-    background:
-        rgba(5,3,12,.88);
-
-    backdrop-filter:blur(12px);
-
-    -webkit-backdrop-filter:blur(12px);
-}
-
-
-.photo-lightbox.show{
-
-    display:flex;
-
-    animation:
-        photoFadeIn .35s ease forwards;
-}
-
-
-@keyframes photoFadeIn{
-
-    from{
-        opacity:0;
-    }
-
-    to{
-        opacity:1;
-    }
-
-}
-
-
-.photo-lightbox-content{
-
-    position:relative;
-
-    width:min(92vw,720px);
-
-    max-height:92vh;
-
-    overflow:auto;
-
-    padding:16px;
-
-    border-radius:24px;
-
-    background:
-        rgba(255,255,255,.09);
-
-    border:
-        1px solid
-        rgba(255,255,255,.16);
-
-    box-shadow:
-        0 25px 80px
-        rgba(0,0,0,.45);
-
-    text-align:center;
-
-    animation:
-        photoZoomIn .4s ease forwards;
-}
-
-
-@keyframes photoZoomIn{
-
-    from{
-
-        transform:scale(.88);
-
-        opacity:0;
-
-    }
-
-    to{
-
-        transform:scale(1);
-
-        opacity:1;
-
-    }
-
-}
-
-
-.photo-lightbox-image{
-
-    width:100%;
-
-    max-height:65vh;
-
-    object-fit:contain;
-
-    display:block;
-
-    border-radius:18px;
-
-    margin:auto;
-}
-
-
-.photo-lightbox-text{
+.memory-caption{
 
     padding:
-        16px
-        8px
+        14px
+        5px
         6px;
 }
 
 
-.photo-lightbox-number{
+.memory-caption .memory-number{
 
     font-size:10px;
 
@@ -716,65 +556,21 @@ p{
 
     text-transform:uppercase;
 
-    opacity:.45;
+    opacity:.4;
 
-    margin-bottom:7px;
+    margin-bottom:5px;
 }
 
 
-.photo-lightbox-caption{
+.memory-caption p{
 
-    font-family:
-        "Dancing Script",
-        cursive;
+    font-family:"Dancing Script",cursive;
 
-    font-size:27px;
+    font-size:25px;
 
-    line-height:1.35;
+    line-height:1.3;
 
     color:#f0dcff;
-}
-
-
-.photo-lightbox-close{
-
-    position:absolute;
-
-    top:10px;
-
-    right:10px;
-
-    width:40px;
-
-    height:40px;
-
-    border:0;
-
-    border-radius:50%;
-
-    background:
-        rgba(0,0,0,.45);
-
-    color:white;
-
-    font-size:22px;
-
-    cursor:pointer;
-
-    z-index:2;
-
-    transition:
-        transform .25s ease,
-        background .25s ease;
-}
-
-
-.photo-lightbox-close:hover{
-
-    transform:scale(1.08);
-
-    background:
-        rgba(0,0,0,.65);
 }
 
 
@@ -806,33 +602,24 @@ p{
         ease-in-out infinite;
 }
 
-
 @keyframes giftFloat{
 
     0%,100%{
-
         transform:
             translateY(0)
             rotate(-3deg);
-
     }
 
     50%{
-
         transform:
             translateY(-10px)
             rotate(3deg);
-
     }
-
 }
-
 
 .gift-question{
 
-    font-family:
-        "Dancing Script",
-        cursive;
+    font-family:"Dancing Script",cursive;
 
     font-size:
         clamp(38px,7vw,62px);
@@ -846,7 +633,6 @@ p{
     color:#f6e7ff;
 }
 
-
 .gift-subtext{
 
     max-width:570px;
@@ -855,7 +641,6 @@ p{
 
     font-size:21px;
 }
-
 
 .gift-buttons{
 
@@ -874,7 +659,6 @@ p{
     margin-top:30px;
 }
 
-
 .yes-button{
 
     background:
@@ -885,139 +669,171 @@ p{
         );
 
     box-shadow:
-        0 12px 35px
-        rgba(188,100,255,.2);
+        0 10px 35px
+        rgba(206,132,255,.25);
 }
-
 
 .no-button{
 
-    background:
-        rgba(255,255,255,.07);
+    position:relative;
+
+    min-width:120px;
 
     transition:
         transform .25s ease,
-        opacity .3s ease;
+        opacity .25s ease;
 }
-
 
 .gift-success{
 
     display:none;
 
-    margin-top:35px;
-
     animation:
-        successReveal
-        1s
+        successIn 1s
         ease forwards;
 }
-
 
 .gift-success.show{
     display:block;
 }
 
-
-@keyframes successReveal{
+@keyframes successIn{
 
     from{
-
         opacity:0;
 
         transform:
-            scale(.8)
-            translateY(20px);
-
+            translateY(20px)
+            scale(.95);
     }
 
     to{
-
         opacity:1;
 
         transform:
-            scale(1)
-            translateY(0);
-
+            translateY(0)
+            scale(1);
     }
-
 }
 
+.success-heart{
 
-.gift-success h2{
+    font-size:55px;
 
-    font-size:
-        clamp(40px,7vw,65px);
+    margin-bottom:10px;
 
-    margin-bottom:15px;
+    animation:
+        heartbeat 1.5s infinite;
 }
 
+.success-text{
 
-.gift-back{
+    font-family:"Dancing Script",cursive;
 
-    margin-top:25px;
+    font-size:38px;
+
+    color:#efd2ff;
+
+    margin-bottom:10px;
 }
 
 
 /* =========================================================
-   SONG PAGE
+   LITTLE THINGS
 ========================================================= */
 
-.song-icon{
+.little-things{
 
-    font-size:70px;
+    display:grid;
 
-    margin-bottom:20px;
+    grid-template-columns:
+        repeat(2,1fr);
 
-    animation:
-        musicFloat 2s
-        ease-in-out infinite;
-}
-
-
-@keyframes musicFloat{
-
-    0%,100%{
-        transform:translateY(0);
-    }
-
-    50%{
-        transform:translateY(-8px);
-    }
-
-}
-
-
-.song-message{
-
-    max-width:620px;
-
-    margin:auto;
-
-    font-family:
-        "Cormorant Garamond",
-        serif;
-
-    font-size:26px;
-
-    line-height:1.55;
-
-    color:
-        rgba(255,255,255,.88);
-}
-
-
-.music-player{
+    gap:16px;
 
     margin-top:30px;
+}
 
-    display:flex;
+.little{
 
-    justify-content:center;
+    padding:25px;
 
-    align-items:center;
+    text-align:left;
 
-    gap:15px;
+    border-radius:22px;
+
+    background:
+        rgba(255,255,255,.055);
+
+    border:
+        1px solid
+        rgba(255,255,255,.10);
+
+    transition:.3s ease;
+}
+
+.little:hover{
+
+    transform:
+        translateY(-5px);
+
+    background:
+        rgba(255,255,255,.09);
+}
+
+.number{
+
+    font-size:12px;
+
+    letter-spacing:3px;
+
+    opacity:.45;
+
+    margin-bottom:8px;
+}
+
+.little p{
+    font-size:20px;
+}
+
+
+/* =========================================================
+   SONG
+========================================================= */
+
+.song-card{
+
+    padding:35px 25px;
+
+    border-radius:30px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(166,110,255,.12),
+            rgba(255,142,202,.10)
+        );
+
+    border:
+        1px solid
+        rgba(255,255,255,.12);
+}
+
+.music-note{
+
+    font-size:50px;
+
+    margin-bottom:15px;
+
+    animation:
+        pulse 2s infinite;
+}
+
+@keyframes pulse{
+
+    50%{
+        transform:scale(1.08);
+    }
 }
 
 
@@ -1027,40 +843,48 @@ p{
 
 .letter{
 
+    text-align:left;
+
     max-width:700px;
 
-    margin:auto;
+    margin:
+        30px auto 0;
 
-    padding:
-        35px 30px;
+    padding:35px;
 
-    border-radius:25px;
+    border-radius:22px;
 
     background:
-        rgba(255,255,255,.045);
+        rgba(255,248,255,.055);
 
     border:
         1px solid
-        rgba(255,255,255,.09);
+        rgba(255,255,255,.10);
 
-    text-align:left;
+    position:relative;
 }
 
+.letter::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:20px;
+    top:20px;
+    bottom:20px;
+
+    width:1px;
+
+    background:
+        rgba(232,192,255,.22);
+}
 
 .letter p{
 
-    font-family:
-        "Cormorant Garamond",
-        serif;
+    padding-left:20px;
 
-    font-size:24px;
-
-    line-height:1.7;
-
-    margin-bottom:20px;
-
-    color:
-        rgba(255,255,255,.87);
+    margin-bottom:18px;
 }
 
 
@@ -1070,47 +894,50 @@ p{
 
 .candle-area{
 
+    margin:
+        45px auto 20px;
+
+    height:220px;
+
     display:flex;
 
-    flex-direction:column;
-
-    align-items:center;
+    align-items:flex-end;
 
     justify-content:center;
 
-    margin-top:30px;
+    position:relative;
 }
-
 
 .candle{
 
-    position:relative;
+    width:65px;
 
-    width:55px;
-
-    height:120px;
+    height:110px;
 
     border-radius:
-        10px
-        10px
-        7px
-        7px;
+        8px 8px
+        12px 12px;
 
     background:
-        linear-gradient(
+        repeating-linear-gradient(
             90deg,
-            #dca8ff,
-            #f3d7ff,
-            #c68df5
+            #e6baff 0px,
+            #e6baff 8px,
+            #d99cf9 9px,
+            #e6baff 17px
         );
 
     box-shadow:
-        0 0 40px
-        rgba(205,139,255,.18);
+        0 0 35px
+        rgba(213,155,255,.22),
+
+        inset 0 4px 10px
+        rgba(255,255,255,.2);
+
+    position:relative;
 
     cursor:pointer;
 }
-
 
 .candle::before{
 
@@ -1118,87 +945,75 @@ p{
 
     position:absolute;
 
-    top:-8px;
+    top:-7px;
 
     left:50%;
 
+    width:3px;
+
+    height:10px;
+
+    background:#3c2449;
+
     transform:
         translateX(-50%);
-
-    width:4px;
-
-    height:13px;
-
-    border-radius:5px;
-
-    background:#333;
 }
-
 
 .flame{
 
     position:absolute;
 
-    top:-45px;
-
     left:50%;
 
-    width:28px;
+    top:-62px;
 
-    height:42px;
+    width:27px;
+
+    height:43px;
 
     transform:
-        translateX(-50%)
-        rotate(45deg);
+        translateX(-50%);
 
     border-radius:
         50%
         50%
         50%
-        0;
+        50%;
 
     background:
         linear-gradient(
-            135deg,
             #fff,
-            #ffd37c,
-            #ff8a3d
+            #ffd1f1 45%,
+            #bd6dff
         );
 
     box-shadow:
-        0 0 30px
-        rgba(255,169,67,.6);
+        0 0 15px #fff,
+        0 0 35px #d37cff,
+        0 0 70px
+        rgba(206,120,255,.8);
 
     animation:
-        flameFlicker
-        .8s
-        ease-in-out
+        flicker .12s
         infinite alternate;
 }
 
-
-@keyframes flameFlicker{
+@keyframes flicker{
 
     from{
-
         transform:
             translateX(-50%)
-            rotate(42deg)
-            scale(.95);
-
+            scale(1)
+            rotate(-2deg);
     }
 
     to{
-
         transform:
             translateX(-50%)
-            rotate(48deg)
-            scale(1.05);
-
+            scale(.93)
+            rotate(3deg);
     }
-
 }
-
 
 .flame.off{
 
@@ -1208,160 +1023,361 @@ p{
         translateX(-50%)
         scale(.2);
 
-    transition:
-        .5s ease;
+    transition:.5s ease;
 }
-
-
-.candle-hint{
-
-    margin-top:55px;
-
-    font-family:
-        "Dancing Script",
-        cursive;
-
-    font-size:28px;
-
-    color:#efd8ff;
-}
-
 
 .wish-message{
 
     display:none;
 
-    margin-top:35px;
-
-    font-family:
-        "Dancing Script",
-        cursive;
-
-    font-size:
-        clamp(35px,6vw,55px);
-
-    color:#f0d7ff;
-
     animation:
-        wishReveal
-        1.3s
+        fadeUp 1.3s
         ease forwards;
 }
-
 
 .wish-message.show{
     display:block;
 }
 
-
-@keyframes wishReveal{
+@keyframes fadeUp{
 
     from{
-
         opacity:0;
 
         transform:
             translateY(25px);
-
     }
 
     to{
-
         opacity:1;
 
         transform:
             translateY(0);
-
     }
-
 }
 
 
 /* =========================================================
-   FINAL PAGE
+   MUSIC BUTTON
+========================================================= */
+
+#musicButton{
+
+    position:fixed;
+
+    right:18px;
+    bottom:18px;
+
+    width:52px;
+    height:52px;
+
+    border-radius:50%;
+
+    border:
+        1px solid
+        rgba(255,255,255,.18);
+
+    background:
+        rgba(40,20,55,.65);
+
+    color:#fff;
+
+    backdrop-filter:blur(10px);
+
+    z-index:100;
+
+    cursor:pointer;
+
+    font-size:20px;
+}
+
+
+/* =========================================================
+   EARPHONE INTRO
+========================================================= */
+
+#earphoneIntro{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:500;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:25px;
+
+    background:
+        radial-gradient(
+            circle at 50% 35%,
+            rgba(175,108,255,.18),
+            transparent 30%
+        ),
+        #0c0712;
+
+    transition:
+        opacity 1s ease,
+        visibility 1s ease;
+}
+
+#earphoneIntro.hidden{
+
+    opacity:0;
+
+    visibility:hidden;
+}
+
+.intro-card{
+
+    width:min(560px,100%);
+
+    text-align:center;
+
+    padding:48px 28px;
+
+    border-radius:32px;
+
+    background:
+        rgba(255,255,255,.065);
+
+    border:
+        1px solid
+        rgba(255,255,255,.13);
+
+    box-shadow:
+        0 30px 100px
+        rgba(0,0,0,.5);
+
+    backdrop-filter:blur(20px);
+
+    animation:
+        introIn 1s ease;
+}
+
+@keyframes introIn{
+
+    from{
+        opacity:0;
+
+        transform:
+            translateY(25px)
+            scale(.96);
+    }
+
+    to{
+        opacity:1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+.earphone-icon{
+
+    font-size:65px;
+
+    margin-bottom:20px;
+
+    animation:
+        softPulse 2.2s infinite;
+}
+
+@keyframes softPulse{
+
+    50%{
+
+        transform:scale(1.08);
+
+        filter:
+            drop-shadow(
+                0 0 18px
+                rgba(210,155,255,.5)
+            );
+    }
+}
+
+.intro-card h2{
+
+    font-size:48px;
+
+    margin-bottom:12px;
+}
+
+.intro-card p{
+
+    font-size:21px;
+
+    max-width:450px;
+
+    margin:auto;
+}
+
+.ready-button{
+    margin-top:30px;
+}
+
+.intro-note{
+
+    margin-top:18px;
+
+    font-size:11px;
+
+    letter-spacing:2px;
+
+    opacity:.4;
+}
+
+
+/* =========================================================
+   FINAL NIGHT PAGE
 ========================================================= */
 
 #page8{
 
     background:
         radial-gradient(
-            circle at 50% 20%,
-            rgba(120,70,170,.15),
-            transparent 45%
+            circle at 50% 40%,
+            rgba(110,70,160,.13),
+            transparent 32%
+        ),
+        linear-gradient(
+            180deg,
+            #05040a,
+            #090611,
+            #040308
         );
 }
 
-
-.final-night{
+.night-sky{
 
     position:absolute;
 
     inset:0;
 
+    pointer-events:none;
+
     overflow:hidden;
 }
-
 
 .star{
 
     position:absolute;
 
     width:2px;
-
     height:2px;
-
-    border-radius:50%;
 
     background:white;
 
-    opacity:.6;
+    border-radius:50%;
+
+    opacity:.5;
 
     animation:
-        starTwinkle
-        2s
-        ease-in-out
-        infinite alternate;
+        twinkle 3s
+        infinite
+        ease-in-out;
 }
 
-
-@keyframes starTwinkle{
-
-    from{
-        opacity:.15;
-    }
-
-    to{
-        opacity:.9;
-    }
-
+.star:nth-child(1){
+    left:12%;
+    top:17%;
+    animation-delay:.2s;
 }
 
+.star:nth-child(2){
+    left:25%;
+    top:28%;
+    animation-delay:1s;
+}
+
+.star:nth-child(3){
+    left:39%;
+    top:13%;
+    animation-delay:1.8s;
+}
+
+.star:nth-child(4){
+    left:57%;
+    top:22%;
+    animation-delay:.5s;
+}
+
+.star:nth-child(5){
+    left:71%;
+    top:12%;
+    animation-delay:1.4s;
+}
+
+.star:nth-child(6){
+    left:84%;
+    top:31%;
+    animation-delay:2s;
+}
+
+.star:nth-child(7){
+    left:18%;
+    top:63%;
+    animation-delay:1.2s;
+}
+
+.star:nth-child(8){
+    left:79%;
+    top:65%;
+    animation-delay:.3s;
+}
+
+.star:nth-child(9){
+    left:48%;
+    top:75%;
+    animation-delay:1.7s;
+}
+
+.star:nth-child(10){
+    left:90%;
+    top:48%;
+    animation-delay:.8s;
+}
+
+@keyframes twinkle{
+
+    0%,100%{
+        opacity:.2;
+        transform:scale(.7);
+    }
+
+    50%{
+        opacity:1;
+        transform:scale(1.6);
+    }
+}
 
 .moon{
 
     position:absolute;
 
-    width:90px;
+    top:8%;
+    right:10%;
 
+    width:90px;
     height:90px;
 
     border-radius:50%;
 
-    top:12%;
-
-    right:15%;
-
-    background:
-        rgba(255,255,255,.9);
+    background:#f6edff;
 
     box-shadow:
-        0 0 50px
+        0 0 30px
         rgba(240,220,255,.5),
 
         0 0 80px
         rgba(205,160,255,.18);
 }
-
 
 .moon::after{
 
@@ -1380,14 +1396,12 @@ p{
     background:#07050c;
 }
 
-
 .final-content{
 
     position:relative;
 
     z-index:3;
 }
-
 
 .wait-text{
 
@@ -1401,7 +1415,6 @@ p{
 
     margin-bottom:12px;
 }
-
 
 .final-title{
 
@@ -1417,7 +1430,6 @@ p{
     margin-bottom:20px;
 }
 
-
 .final-subtitle{
 
     font-family:
@@ -1431,7 +1443,6 @@ p{
     margin-bottom:35px;
 }
 
-
 .final-hidden{
 
     display:none;
@@ -1441,11 +1452,9 @@ p{
         ease forwards;
 }
 
-
 .final-hidden.show{
     display:block;
 }
-
 
 @keyframes finalReveal{
 
@@ -1457,7 +1466,6 @@ p{
             translateY(30px);
 
         filter:blur(8px);
-
     }
 
     to{
@@ -1468,11 +1476,8 @@ p{
             translateY(0);
 
         filter:blur(0);
-
     }
-
 }
-
 
 .final-message{
 
@@ -1490,7 +1495,6 @@ p{
 
     color:#f4dfff;
 }
-
 
 .final-birthday{
 
@@ -1512,7 +1516,6 @@ p{
         );
 
     -webkit-background-clip:text;
-
     -webkit-text-fill-color:transparent;
 }
 
@@ -1534,53 +1537,12 @@ p{
 
     .memory-grid{
 
-        grid-template-columns:
-            repeat(3,minmax(0,1fr));
+        grid-template-columns:1fr;
 
-        gap:9px;
-
-        max-width:100%;
+        max-width:350px;
 
         margin-left:auto;
         margin-right:auto;
-    }
-
-    .memory{
-
-        padding:5px;
-
-        border-radius:15px;
-    }
-
-    .memory img{
-
-        border-radius:11px;
-    }
-
-    .photo-lightbox{
-
-        padding:12px;
-    }
-
-    .photo-lightbox-content{
-
-        width:94vw;
-
-        padding:10px;
-
-        border-radius:20px;
-    }
-
-    .photo-lightbox-image{
-
-        max-height:62vh;
-
-        border-radius:14px;
-    }
-
-    .photo-lightbox-caption{
-
-        font-size:23px;
     }
 
     .little-things{
@@ -1624,6 +1586,10 @@ p{
         font-size:29px;
     }
 
+    .memory-caption p{
+        font-size:23px;
+    }
+
     .gift-question{
         font-size:40px;
     }
@@ -1643,49 +1609,62 @@ p{
 
 <canvas id="magicCanvas"></canvas>
 
+<div class="floating f1">💜</div>
+<div class="floating f2">✨</div>
+<div class="floating f3">🌸</div>
+<div class="floating f4">💗</div>
+<div class="floating f5">⭐</div>
+<div class="floating f6">🌷</div>
 
-<div class="floating">
 
-    <div
-        class="float-item"
-        style="left:5%;animation-duration:18s;animation-delay:0s;">
-        💜
-    </div>
+<!-- =====================================================
+     EARPHONE INTRO
+===================================================== -->
 
-    <div
-        class="float-item"
-        style="left:18%;animation-duration:22s;animation-delay:3s;">
-        ✨
-    </div>
+<div id="earphoneIntro">
 
-    <div
-        class="float-item"
-        style="left:32%;animation-duration:19s;animation-delay:7s;">
-        🌸
-    </div>
+    <div class="intro-card">
 
-    <div
-        class="float-item"
-        style="left:48%;animation-duration:24s;animation-delay:2s;">
-        💗
-    </div>
+        <div class="earphone-icon">
+            🎧
+        </div>
 
-    <div
-        class="float-item"
-        style="left:63%;animation-duration:20s;animation-delay:6s;">
-        🌷
-    </div>
+        <div class="small-title">
+            A little request...
+        </div>
 
-    <div
-        class="float-item"
-        style="left:78%;animation-duration:25s;animation-delay:4s;">
-        ⭐
-    </div>
+        <h2>
+            Before we begin
+        </h2>
 
-    <div
-        class="float-item"
-        style="left:91%;animation-duration:21s;animation-delay:9s;">
-        💜
+        <p>
+            Put on your earphones.<br>
+            Turn the volume up just a little.
+        </p>
+
+        <p style="margin-top:12px;">
+
+            There's a song here that I made
+            <span class="highlight">
+                for you.
+            </span>
+
+            💜
+
+        </p>
+
+        <button
+            id="readyButton"
+            class="button ready-button">
+
+            🎧 Listen to it
+
+        </button>
+
+        <div class="intro-note">
+            Best experienced with earphones ✨
+        </div>
+
     </div>
 
 </div>
@@ -1698,158 +1677,72 @@ p{
 <audio
     id="music"
     src="song.mp3"
+    preload="auto"
     loop>
 </audio>
 
 
 <button
     id="musicButton"
-    class="button"
-    style="
-        position:fixed;
-        right:18px;
-        bottom:18px;
-        z-index:20;
-        min-height:45px;
-        width:45px;
-        padding:0;
-        border-radius:50%;
-        font-size:18px;
-    ">
+    title="Music">
+
     🎶
+
 </button>
 
 
 <!-- =====================================================
-     INTRO OVERLAY
-===================================================== -->
-
-<div
-    id="intro"
-    style="
-        position:fixed;
-        inset:0;
-        z-index:50;
-        display:flex;
-        align-items:center;
-        justify-content:center;
-        padding:25px;
-        background:
-            radial-gradient(
-                circle at center,
-                #29163c,
-                #09050d 75%
-            );
-        text-align:center;
-        transition:
-            opacity 1s ease,
-            visibility 1s ease;
-    ">
-
-    <div
-        style="
-            max-width:600px;
-        ">
-
-        <div
-            style="
-                font-size:48px;
-                margin-bottom:20px;
-                animation:
-                    heartbeat 2s
-                    ease-in-out
-                    infinite;
-            ">
-            🎧
-        </div>
-
-        <div
-            class="small-title">
-            Before we begin
-        </div>
-
-        <h2
-            style="
-                margin-bottom:20px;
-            ">
-            Put on your earphones.
-        </h2>
-
-        <p>
-            Turn the volume up just a little.
-            There is a song here...
-            and I made it for you.
-        </p>
-
-        <button
-            id="readyButton"
-            class="button"
-            style="margin-top:30px;">
-            🎧 Listen to it
-        </button>
-
-    </div>
-
-</div>
-
-
-<!-- =====================================================
-     PAGE 1 — OPENING
+     PAGE 1
 ===================================================== -->
 
 <section
     id="page1"
     class="page">
 
-    <div class="content">
+    <div class="content glass">
 
-        <div class="glass">
+        <div class="heart-big">
+            💜
+        </div>
 
-            <div class="heart-big">
-                💜
-            </div>
+        <div class="small-title">
+            I made something for someone special
+        </div>
 
-            <div class="small-title">
-                A little something for you
-            </div>
+        <h1>
+            Mastura
+        </h1>
 
-            <h1>
-                Mastura
-            </h1>
+        <div class="name-line">
+            This little corner of the internet is yours.
+        </div>
 
-            <div class="name-line">
-                This little corner of the internet is yours.
-            </div>
+        <p class="subtitle">
 
-            <p
-                style="
-                    max-width:620px;
-                    margin:25px auto 0;
-                ">
+            I didn't want to just send you
+            a birthday wish.
 
-                I wanted to give you something
-                that wasn't wrapped in paper...
+            I wanted to make you something
+            you could actually
+            <span class="highlight">
+                feel.
+            </span>
 
-                <br>
+        </p>
 
-                something you could keep,
-                revisit,
-                and smile at.
+        <div class="quote">
+            “Some people deserve more than a message.”
+        </div>
 
-            </p>
+        <div class="button-row">
 
+            <a
+                href="#page2"
+                class="button">
 
-            <div class="button-row">
+                ✨ Open it
 
-                <a
-                    href="#page2"
-                    class="button">
-
-                    Open it 💜
-
-                </a>
-
-            </div>
+            </a>
 
         </div>
 
@@ -1866,58 +1759,59 @@ p{
     id="page2"
     class="page">
 
-    <div class="content">
+    <div class="content glass">
 
-        <div class="glass">
+        <div class="small-title">
+            Just for you
+        </div>
 
-            <div class="small-title">
-                Hey, Mastura...
-            </div>
+        <h2>
+            Hey, Mastura...
+        </h2>
 
-            <h2>
-                This is for you 🌷
-            </h2>
+        <p class="subtitle">
 
-            <p
-                style="
-                    max-width:650px;
-                    margin:auto;
-                ">
+            There are probably a thousand
+            better ways to say this...
 
-                I don't know if a website can really
-                capture everything someone means to you.
+            <br><br>
 
-                <br><br>
+            but I wanted to make something instead.
 
-                But I thought I'd try.
+            <br><br>
 
-                <br><br>
+            Something with little memories,
+            a little music,
+            a little nonsense...
 
-                So take your time.
-                There's no rush here.
+            and a lot of thought.
 
-            </p>
+        </p>
 
+        <div class="quote">
 
-            <div class="button-row">
+            “Because ordinary wishes
+            didn't feel enough for you.”
 
-                <a
-                    href="#page1"
-                    class="button back">
+        </div>
 
-                    ← Back
+        <div class="button-row">
 
-                </a>
+            <a
+                href="#page1"
+                class="button back">
 
-                <a
-                    href="#page3"
-                    class="button">
+                ← Back
 
-                    Keep going 🌷
+            </a>
 
-                </a>
+            <a
+                href="#page3"
+                class="button">
 
-            </div>
+                Keep going 🌷
+
+            </a>
 
         </div>
 
@@ -1983,45 +1877,72 @@ p{
 
                 <!-- PHOTO 1 -->
 
-                <div
-                    class="memory"
-                    data-photo="https://i.ibb.co/vxHm8VQC/Screenshot-2026-09-23-19-25-45-51-1c337646f29875672b5a61192b9010f9.jpg"
-                    data-number="Little Mastura • 01"
-                    data-caption="That smile... apparently it was there from the beginning. 💜">
+                <div class="memory">
 
                     <img
                         src="https://i.ibb.co/vxHm8VQC/Screenshot-2026-09-23-19-25-45-51-1c337646f29875672b5a61192b9010f9.jpg"
                         alt="Little Mastura smiling">
+
+                    <div class="memory-caption">
+
+                        <div class="memory-number">
+                            Little Mastura • 01
+                        </div>
+
+                        <p>
+                            That smile...
+                            apparently it was there from the beginning. 💜
+                        </p>
+
+                    </div>
 
                 </div>
 
 
                 <!-- PHOTO 2 -->
 
-                <div
-                    class="memory"
-                    data-photo="https://i.ibb.co/ycwtgqPr/IMG-20260923-194113.jpg"
-                    data-number="Little Mastura • 02"
-                    data-caption="A tiny chapter from a life that was only beginning.">
+                <div class="memory">
 
                     <img
                         src="https://i.ibb.co/ycwtgqPr/IMG-20260923-194113.jpg"
                         alt="Mastura childhood photo">
+
+                    <div class="memory-caption">
+
+                        <div class="memory-number">
+                            Little Mastura • 02
+                        </div>
+
+                        <p>
+                            A tiny chapter
+                            from a life that was only beginning.
+                        </p>
+
+                    </div>
 
                 </div>
 
 
                 <!-- PHOTO 3 -->
 
-                <div
-                    class="memory"
-                    data-photo="https://i.ibb.co/8LNhWtzf/IMG-20260923-194136.jpg"
-                    data-number="Little Mastura • 03"
-                    data-caption="And somehow, this little girl grew into you. 🌸">
+                <div class="memory">
 
                     <img
                         src="https://i.ibb.co/8LNhWtzf/IMG-20260923-194136.jpg"
                         alt="Mastura as a child">
+
+                    <div class="memory-caption">
+
+                        <div class="memory-number">
+                            Little Mastura • 03
+                        </div>
+
+                        <p>
+                            And somehow,
+                            this little girl grew into you. 🌸
+                        </p>
+
+                    </div>
 
                 </div>
 
@@ -2068,157 +1989,123 @@ p{
 
     </div>
 
-
-    <!-- PHOTO LIGHTBOX -->
-
-    <div
-        id="photoLightbox"
-        class="photo-lightbox"
-        aria-hidden="true">
-
-        <div
-            class="photo-lightbox-content"
-            role="dialog"
-            aria-modal="true"
-            aria-label="Childhood photo">
-
-            <button
-                id="photoLightboxClose"
-                class="photo-lightbox-close"
-                aria-label="Close photo">
-
-                ×
-
-            </button>
-
-            <img
-                id="photoLightboxImage"
-                class="photo-lightbox-image"
-                src=""
-                alt="">
-
-            <div class="photo-lightbox-text">
-
-                <div
-                    id="photoLightboxNumber"
-                    class="photo-lightbox-number">
-                </div>
-
-                <div
-                    id="photoLightboxCaption"
-                    class="photo-lightbox-caption">
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
 </section>
 
 
-
 <!-- =====================================================
-     PAGE 4 — GIFT
+     PAGE 4 — YES / NO
 ===================================================== -->
 
 <section
     id="page4"
     class="page">
 
-    <div class="content">
+    <div class="content glass">
 
-        <div class="glass">
+        <div class="gift-icon">
+            🎁
+        </div>
 
-            <div class="gift-icon">
-                🎁
+        <div class="small-title">
+            A very important question
+        </div>
+
+
+        <div class="gift-question">
+
+            Mastura,<br>
+
+            will you please collect
+            your birthday gift?
+
+        </div>
+
+
+        <p class="gift-subtext">
+
+            I spent a little time making
+            something for you...
+
+            so there's only one tiny thing
+            left to ask. 😌
+
+        </p>
+
+
+        <!-- YES / NO -->
+
+        <div
+            id="giftButtons"
+            class="gift-buttons">
+
+            <button
+                id="yesButton"
+                class="button yes-button">
+
+                💜 Yes, I'll collect it
+
+            </button>
+
+
+            <button
+                id="noButton"
+                class="button no-button">
+
+                😈 No
+
+            </button>
+
+        </div>
+
+
+        <!-- SUCCESS -->
+
+        <div
+            id="giftSuccess"
+            class="gift-success">
+
+            <div class="success-heart">
+                💜
             </div>
 
-            <div class="small-title">
-                A very important question
-            </div>
+            <div class="success-text">
 
-            <div class="gift-question">
-
-                Would you please collect
-                your birthday gift? 🥺
-
-            </div>
-
-            <div class="gift-subtext">
-
-                I really hope you say yes.
-
-            </div>
-
-
-            <div
-                id="giftButtons"
-                class="gift-buttons">
-
-                <button
-                    id="yesButton"
-                    class="button yes-button">
-
-                    💜 Yes, I'll collect it
-
-                </button>
-
-                <button
-                    id="noButton"
-                    class="button no-button">
-
-                    😈 No
-
-                </button>
-
-            </div>
-
-
-            <div
-                id="giftSuccess"
-                class="gift-success">
-
-                <h2>
-                    I knew you'd say yes. 💜
-                </h2>
-
-                <p>
-
-                    Then it's officially yours.
-
-                    <br>
-
-                    I hope the little gift
-                    makes your day a little brighter.
-
-                </p>
-
-                <div
-                    id="giftBack"
-                    class="button-row">
-
-                    <a
-                        href="#page3"
-                        class="button back">
-
-                        ← Back
-
-                    </a>
-
-                    <a
-                        href="#page5"
-                        class="button">
-
-                        There's something else 🎵
-
-                    </a>
-
-                </div>
+                I knew you'd say yes. 😌
 
             </div>
 
+            <p>
+                Your gift is waiting for you.
+            </p>
+
+
+            <div class="button-row">
+
+                <a
+                    href="#page5"
+                    class="button">
+
+                    🎶 There's something
+                    waiting for you
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div
+            id="giftBack"
+            class="button-row">
+
+            <a
+                href="#page3"
+                class="button back">
+
+                ← Back
+
+            </a>
 
         </div>
 
@@ -2235,71 +2122,63 @@ p{
     id="page5"
     class="page">
 
-    <div class="content">
+    <div class="content glass">
 
-        <div class="glass">
+        <div class="small-title">
+            Made especially for you
+        </div>
 
-            <div class="song-icon">
-                🎵
-            </div>
 
-            <div class="small-title">
-                I made something for you
+        <div class="song-card">
+
+            <div class="music-note">
+                🎶
             </div>
 
             <h2>
-                This song is yours.
+                A song for Mastura
             </h2>
 
-            <div class="song-message">
+            <p>
+                This isn't just a song
+                I happened to find.
+            </p>
 
-                I wanted you to have a song
-                that belonged to this moment.
+            <p style="margin-top:10px;">
 
-                <br><br>
+                I made it because I wanted
+                there to be something
+                that belonged to this little moment.
 
-                So I made one.
+            </p>
 
-                <br><br>
+            <div class="quote">
 
-                Listen to it whenever you want
-                to remember this little birthday surprise.
-
-            </div>
-
-
-            <div class="music-player">
-
-                <button
-                    id="songPlayButton"
-                    class="button">
-
-                    🎶 Play my song
-
-                </button>
+                “If words weren't enough,
+                maybe a song could say some of it.”
 
             </div>
 
+        </div>
 
-            <div class="button-row">
 
-                <a
-                    href="#page4"
-                    class="button back">
+        <div class="button-row">
 
-                    ← Back
+            <a
+                href="#page4"
+                class="button back">
 
-                </a>
+                ← Back
 
-                <a
-                    href="#page6"
-                    class="button">
+            </a>
 
-                    Read this 💌
+            <a
+                href="#page6"
+                class="button">
 
-                </a>
+                Read this 💌
 
-            </div>
+            </a>
 
         </div>
 
@@ -2316,122 +2195,110 @@ p{
     id="page6"
     class="page">
 
-    <div class="content">
+    <div class="content glass">
 
-        <div class="glass">
+        <div class="small-title">
+            Something I wanted to say
+        </div>
 
-            <div class="small-title">
-                A few words
-            </div>
-
-            <h2>
-                For you, Mastura 💌
-            </h2>
+        <h2>
+            A little letter
+        </h2>
 
 
-            <div class="letter">
+        <div class="letter">
 
-                <p>
-                    I don't know exactly where life
-                    will take us,
-                    but I'm glad that somewhere along
-                    the way, I got to know you.
-                </p>
+            <p>
+                Hey Mastura,
+            </p>
 
-                <p>
-                    There are people who come into
-                    your life quietly...
-                    and somehow leave a much bigger
-                    mark than they realize.
-                </p>
+            <p>
+                I could have just written
+                “Happy Birthday”
+                and sent it to you.
+            </p>
 
-                <p>
-                    You're one of those people.
-                </p>
+            <p>
+                But somehow that felt too small.
+            </p>
 
-                <p>
-                    And today isn't just about getting
-                    older.
-                    It's about celebrating the person
-                    you've become.
-                </p>
+            <p>
+                So I made this little place instead.
+            </p>
 
-                <p>
-                    I hope you keep that smile.
-                    I hope you keep finding reasons
-                    to laugh.
-                    And I hope life is gentle with you
-                    in all the places that matter.
-                </p>
+            <p>
+                There are memories here,
+                a song,
+                some things I wanted you to know,
+                and a few surprises.
+            </p>
 
-                <p>
-                    Looking at your childhood
-                    pictures of you...
-                </p>
+            <p>
+                And then I found those childhood
+                pictures of you...
+            </p>
 
-                <p>
-                    Looking at them made me think
-                    about how much life happened
-                    before I ever knew you.
-                </p>
+            <p>
+                Looking at them made me think
+                about how much life happened
+                before I ever knew you.
+            </p>
 
-                <p>
-                    That little girl in those pictures
-                    had no idea where life would take her.
-                </p>
+            <p>
+                That little girl in those pictures
+                had no idea where life would take her.
+            </p>
 
-                <p>
-                    And somehow,
-                    she became the Mastura
-                    I'm celebrating today.
-                </p>
+            <p>
+                And somehow,
+                she became the Mastura
+                I'm celebrating today.
+            </p>
 
-                <p>
-                    I hope this new year of your life
-                    brings you beautiful moments
-                    you don't see coming.
-                </p>
+            <p>
+                I hope this new year of your life
+                brings you beautiful moments
+                you don't see coming.
+            </p>
 
-                <p>
-                    And I hope, whenever you look back
-                    at this day, you remember that someone
-                    took the time to make something
-                    just for you.
-                </p>
+            <p>
+                And I hope, whenever you look back
+                at this day, you remember that someone
+                took the time to make something
+                just for you.
+            </p>
 
-                <p
-                    style="
-                    font-family:'Dancing Script',cursive;
-                    font-size:30px;
-                    color:#e9c9ff;
-                    ">
+            <p
+                style="
+                font-family:'Dancing Script',cursive;
+                font-size:30px;
+                color:#e9c9ff;
+                ">
 
-                    Happy Birthday, Mastura. 💜
+                Happy Birthday, Mastura. 💜
 
-                </p>
+            </p>
 
-            </div>
+        </div>
 
 
-            <div class="button-row">
+        <div class="button-row">
 
-                <a
-                    href="#page5"
-                    class="button back">
+            <a
+                href="#page5"
+                class="button back">
 
-                    ← Back
+                ← Back
 
-                </a>
+            </a>
 
-                <a
-                    href="#page7"
-                    class="button">
+            <a
+                href="#page7"
+                class="button">
 
-                    One last thing... ✨
+                One last thing... ✨
 
-                </a>
-
-            </div>
+            </a>
 
         </div>
 
@@ -2458,11 +2325,22 @@ p{
             Make a wish ✨
         </h2>
 
+        <p class="subtitle">
+
+            Close your eyes for a second.
+
+            Think of something
+            you really want.
+
+        </p>
+
+
         <div class="candle-area">
 
             <div
                 id="candle"
-                class="candle">
+                class="candle"
+                title="Tap the candle">
 
                 <div
                     id="flame"
@@ -2471,21 +2349,43 @@ p{
 
             </div>
 
-            <div
-                id="candleHint"
-                class="candle-hint">
-
-                Tap the candle. 🕯️
-
-            </div>
+        </div>
 
 
-            <div
-                id="wishMessage"
-                class="wish-message">
+        <p
+            id="candleHint"
+            style="
+                font-size:16px;
+                opacity:.5;
+            ">
 
-                I hope your wish
-                finds its way to you. 💜
+            Tap the candle
+            when you're ready...
+
+        </p>
+
+
+        <div
+            id="wishMessage"
+            class="wish-message">
+
+            <p class="quote">
+
+                ✨ I hope your wish
+                finds its way to you.
+
+            </p>
+
+            <div class="button-row">
+
+                <a
+                    href="#page8"
+                    class="button">
+
+                    Wait...
+                    there's one more thing 🌙
+
+                </a>
 
             </div>
 
@@ -2493,22 +2393,14 @@ p{
 
 
         <div
-            id="page7Back"
-            class="button-row">
+            class="button-row"
+            id="page7Back">
 
             <a
                 href="#page6"
                 class="button back">
 
                 ← Back
-
-            </a>
-
-            <a
-                href="#page8"
-                class="button">
-
-                Wait... there's one more thing 🌙
 
             </a>
 
@@ -2520,16 +2412,27 @@ p{
 
 
 <!-- =====================================================
-     PAGE 8 — FINAL SURPRISE
+     PAGE 8 — FINAL
 ===================================================== -->
 
 <section
     id="page8"
     class="page">
 
-    <div class="final-night">
+    <div class="night-sky">
 
         <div class="moon"></div>
+
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
 
     </div>
 
@@ -2540,16 +2443,62 @@ p{
             Wait...
         </div>
 
+
         <div class="final-title">
+
             There's one more thing.
+
         </div>
+
 
         <div class="final-subtitle">
-            ✨
+            🌙
         </div>
 
 
-        <div id="finalButtonArea">
+        <div
+            class="final-hidden"
+            id="finalMessage">
+
+            <div class="small-title">
+                For Mastura
+            </div>
+
+
+            <div class="final-message">
+
+                I hope this year gives you
+                a thousand reasons to smile.
+
+            </div>
+
+
+            <div class="final-birthday">
+
+                Happy Birthday, Mastura. 💜
+
+            </div>
+
+
+            <p
+                style="
+                margin-top:25px;
+                opacity:.6;
+                font-size:18px;
+                ">
+
+                Keep smiling.
+                You deserve the beautiful moments.
+
+            </p>
+
+        </div>
+
+
+        <div
+            id="finalButtonArea"
+            class="button-row"
+            style="margin-top:35px;">
 
             <button
                 id="revealFinal"
@@ -2561,26 +2510,6 @@ p{
 
         </div>
 
-
-        <div
-            id="finalMessage"
-            class="final-hidden">
-
-            <div class="final-message">
-
-                I hope this year gives you
-                a thousand reasons to smile.
-
-            </div>
-
-            <div class="final-birthday">
-
-                Happy Birthday, Mastura. 💜
-
-            </div>
-
-        </div>
-
     </div>
 
 </section>
@@ -2588,10 +2517,19 @@ p{
 
 <script>
 
-
 /* =========================================================
    MUSIC
 ========================================================= */
+
+const intro =
+    document.getElementById(
+        "earphoneIntro"
+    );
+
+const readyButton =
+    document.getElementById(
+        "readyButton"
+    );
 
 const music =
     document.getElementById(
@@ -2602,22 +2540,6 @@ const musicButton =
     document.getElementById(
         "musicButton"
     );
-
-const readyButton =
-    document.getElementById(
-        "readyButton"
-    );
-
-const intro =
-    document.getElementById(
-        "intro"
-    );
-
-const songPlayButton =
-    document.getElementById(
-        "songPlayButton"
-    );
-
 
 let musicPlaying = false;
 
@@ -2635,8 +2557,7 @@ readyButton.addEventListener(
             musicButton.textContent =
                 "🎶";
 
-        }
-        catch(error){
+        }catch(error){
 
             console.log(
                 "Audio could not start:",
@@ -2645,13 +2566,9 @@ readyButton.addEventListener(
 
         }
 
-
-        intro.style.opacity =
-            "0";
-
-        intro.style.visibility =
-            "hidden";
-
+        intro.classList.add(
+            "hidden"
+        );
 
         setTimeout(
             () => {
@@ -2667,21 +2584,15 @@ readyButton.addEventListener(
 );
 
 
+/* =========================================================
+   MUSIC TOGGLE
+========================================================= */
+
 musicButton.addEventListener(
     "click",
     async () => {
 
-        if(musicPlaying){
-
-            music.pause();
-
-            musicPlaying = false;
-
-            musicButton.textContent =
-                "🔇";
-
-        }
-        else{
+        if(music.paused){
 
             try{
 
@@ -2692,192 +2603,29 @@ musicButton.addEventListener(
                 musicButton.textContent =
                     "🎶";
 
-            }
-            catch(error){
+            }catch(error){
 
-                console.log(
-                    "Audio could not start:",
-                    error
-                );
+                console.log(error);
 
             }
 
-        }
+        }else{
 
-    }
-);
+            music.pause();
 
-
-songPlayButton.addEventListener(
-    "click",
-    async () => {
-
-        try{
-
-            await music.play();
-
-            musicPlaying = true;
+            musicPlaying = false;
 
             musicButton.textContent =
-                "🎶";
-
-            songPlayButton.textContent =
-                "🎶 Playing...";
-
-        }
-        catch(error){
-
-            console.log(
-                "Audio could not start:",
-                error
-            );
+                "🔇";
 
         }
 
     }
 );
-
 
 
 /* =========================================================
-   CHILDHOOD PHOTO LIGHTBOX
-========================================================= */
-
-const memoryPhotos =
-    document.querySelectorAll(
-        ".memory[data-photo]"
-    );
-
-
-const photoLightbox =
-    document.getElementById(
-        "photoLightbox"
-    );
-
-
-const photoLightboxImage =
-    document.getElementById(
-        "photoLightboxImage"
-    );
-
-
-const photoLightboxNumber =
-    document.getElementById(
-        "photoLightboxNumber"
-    );
-
-
-const photoLightboxCaption =
-    document.getElementById(
-        "photoLightboxCaption"
-    );
-
-
-const photoLightboxClose =
-    document.getElementById(
-        "photoLightboxClose"
-    );
-
-
-function closePhotoLightbox(){
-
-    photoLightbox.classList.remove(
-        "show"
-    );
-
-    photoLightbox.setAttribute(
-        "aria-hidden",
-        "true"
-    );
-
-    photoLightboxImage.src =
-        "";
-
-}
-
-
-memoryPhotos.forEach(
-    memory => {
-
-        memory.addEventListener(
-            "click",
-            () => {
-
-                photoLightboxImage.src =
-                    memory.dataset.photo;
-
-                photoLightboxImage.alt =
-                    memory
-                        .querySelector("img")
-                        .alt;
-
-                photoLightboxNumber.textContent =
-                    memory.dataset.number;
-
-                photoLightboxCaption.textContent =
-                    memory.dataset.caption;
-
-                photoLightbox.classList.add(
-                    "show"
-                );
-
-                photoLightbox.setAttribute(
-                    "aria-hidden",
-                    "false"
-                );
-
-            }
-        );
-
-    }
-);
-
-
-photoLightboxClose.addEventListener(
-    "click",
-    closePhotoLightbox
-);
-
-
-photoLightbox.addEventListener(
-    "click",
-    event => {
-
-        if(
-            event.target ===
-            photoLightbox
-        ){
-
-            closePhotoLightbox();
-
-        }
-
-    }
-);
-
-
-document.addEventListener(
-    "keydown",
-    event => {
-
-        if(
-            event.key === "Escape" &&
-            photoLightbox.classList.contains(
-                "show"
-            )
-        ){
-
-            closePhotoLightbox();
-
-        }
-
-    }
-);
-
-
-
-/* =========================================================
-   YES / NO GIFT
+   YES / NO
 ========================================================= */
 
 const yesButton =
@@ -2905,9 +2653,32 @@ const giftBack =
         "giftBack"
     );
 
-
 let noAttempts = 0;
 
+
+/* YES */
+
+yesButton.addEventListener(
+    "click",
+    () => {
+
+        giftButtons.style.display =
+            "none";
+
+        giftBack.style.display =
+            "none";
+
+        giftSuccess.classList.add(
+            "show"
+        );
+
+        createGiftParticles();
+
+    }
+);
+
+
+/* NO */
 
 noButton.addEventListener(
     "click",
@@ -2916,9 +2687,7 @@ noButton.addEventListener(
         noAttempts++;
 
 
-        if(
-            noAttempts < 4
-        ){
+        if(noAttempts < 4){
 
             const maxX =
                 Math.min(
@@ -2926,14 +2695,12 @@ noButton.addEventListener(
                     window.innerWidth * .28
                 );
 
-            const maxY =
-                70;
+            const maxY = 70;
 
 
             const x =
                 (Math.random()*2-1)
                 *maxX;
-
 
             const y =
                 (Math.random()*2-1)
@@ -2962,8 +2729,7 @@ noButton.addEventListener(
                     noAttempts-1
                 ];
 
-        }
-        else{
+        }else{
 
             noButton.style.opacity =
                 "0";
@@ -2988,25 +2754,40 @@ noButton.addEventListener(
 );
 
 
-yesButton.addEventListener(
-    "click",
-    () => {
+/* =========================================================
+   GIFT PARTICLES
+========================================================= */
 
-        giftButtons.style.display =
-            "none";
+function createGiftParticles(){
 
-        giftBack.style.display =
-            "none";
+    for(
+        let i=0;
+        i<80;
+        i++
+    ){
 
-        giftSuccess.classList.add(
-            "show"
+        setTimeout(
+            () => {
+
+                createParticle(
+
+                    window.innerWidth/2,
+
+                    window.innerHeight/2,
+
+                    Math.random()>.4
+                        ? "heart"
+                        : "sparkle"
+
+                );
+
+            },
+            i*10
         );
 
-        createGiftParticles();
-
     }
-);
 
+}
 
 
 /* =========================================================
@@ -3018,30 +2799,25 @@ const candle =
         "candle"
     );
 
-
 const flame =
     document.getElementById(
         "flame"
     );
-
 
 const wishMessage =
     document.getElementById(
         "wishMessage"
     );
 
-
 const candleHint =
     document.getElementById(
         "candleHint"
     );
 
-
 const page7Back =
     document.getElementById(
         "page7Back"
     );
-
 
 let candleUsed = false;
 
@@ -3088,7 +2864,6 @@ candle.addEventListener(
 );
 
 
-
 /* =========================================================
    FINAL SURPRISE
 ========================================================= */
@@ -3098,12 +2873,10 @@ const revealFinal =
         "revealFinal"
     );
 
-
 const finalMessage =
     document.getElementById(
         "finalMessage"
     );
-
 
 const finalButtonArea =
     document.getElementById(
@@ -3142,7 +2915,6 @@ revealFinal.addEventListener(
 );
 
 
-
 /* =========================================================
    PARTICLES
 ========================================================= */
@@ -3152,10 +2924,8 @@ const canvas =
         "magicCanvas"
     );
 
-
 const ctx =
     canvas.getContext("2d");
-
 
 let width;
 let height;
@@ -3220,23 +2990,27 @@ function createParticle(
 }
 
 
-
 /* =========================================================
    MOUSE
 ========================================================= */
 
 window.addEventListener(
     "mousemove",
-    event => {
+    (e) => {
 
         if(
-            Math.random() < .28
+            Math.random()<.28
         ){
 
             createParticle(
-                event.clientX,
-                event.clientY,
-                "sparkle"
+
+                e.clientX,
+                e.clientY,
+
+                Math.random()>.55
+                    ? "sparkle"
+                    : "petal"
+
             );
 
         }
@@ -3245,33 +3019,29 @@ window.addEventListener(
 );
 
 
-
 /* =========================================================
    TOUCH
 ========================================================= */
 
 window.addEventListener(
     "touchmove",
-    event => {
-
-        if(
-            !event.touches[0]
-        )
-            return;
-
+    (e) => {
 
         const touch =
-            event.touches[0];
-
+            e.touches[0];
 
         if(
-            Math.random() < .35
+            touch &&
+            Math.random()<.35
         ){
 
             createParticle(
+
                 touch.clientX,
                 touch.clientY,
+
                 "sparkle"
+
             );
 
         }
@@ -3283,12 +3053,70 @@ window.addEventListener(
 );
 
 
-
 /* =========================================================
-   DRAW PARTICLES
+   HEART
 ========================================================= */
 
-function drawParticles(){
+function drawHeart(
+    x,
+    y,
+    size
+){
+
+    ctx.save();
+
+    ctx.translate(
+        x,
+        y
+    );
+
+    ctx.scale(
+        size/10,
+        size/10
+    );
+
+
+    ctx.beginPath();
+
+    ctx.moveTo(
+        0,
+        3
+    );
+
+    ctx.bezierCurveTo(
+        -7,
+        -4,
+        -10,
+        4,
+        0,
+        10
+    );
+
+    ctx.bezierCurveTo(
+        10,
+        4,
+        7,
+        -4,
+        0,
+        3
+    );
+
+
+    ctx.fillStyle =
+        "rgba(241,178,225,.65)";
+
+    ctx.fill();
+
+    ctx.restore();
+
+}
+
+
+/* =========================================================
+   ANIMATION
+========================================================= */
+
+function animateParticles(){
 
     ctx.clearRect(
         0,
@@ -3312,11 +3140,13 @@ function drawParticles(){
 
         p.y += p.vy;
 
+        p.vy += .005;
+
         p.life -= p.decay;
 
 
         if(
-            p.life <= 0
+            p.life<=0
         ){
 
             particles.splice(
@@ -3329,84 +3159,61 @@ function drawParticles(){
         }
 
 
-        ctx.save();
+        if(
+            p.type==="heart"
+        ){
 
-        ctx.globalAlpha =
-            p.life;
+            drawHeart(
 
+                p.x,
+                p.y,
 
-        ctx.beginPath();
+                p.size*3
 
+            );
 
-        ctx.arc(
-            p.x,
-            p.y,
-            p.size,
-            0,
-            Math.PI*2
-        );
+        }else{
 
-
-        ctx.fillStyle =
-            "rgba(225,190,255,.9)";
+            ctx.beginPath();
 
 
-        ctx.fill();
+            ctx.arc(
+
+                p.x,
+                p.y,
+
+                p.size,
+
+                0,
+                Math.PI*2
+
+            );
 
 
-        ctx.restore();
+            ctx.fillStyle =
+                `rgba(
+                    226,
+                    190,
+                    255,
+                    ${p.life*.75}
+                )`;
+
+
+            ctx.fill();
+
+        }
 
     }
 
 
     requestAnimationFrame(
-        drawParticles
+        animateParticles
     );
 
 }
 
 
-drawParticles();
-
-
-
-/* =========================================================
-   GIFT PARTICLES
-========================================================= */
-
-function createGiftParticles(){
-
-    for(
-        let i=0;
-        i<35;
-        i++
-    ){
-
-        setTimeout(
-            () => {
-
-                createParticle(
-                    window.innerWidth/2
-                    +
-                    (Math.random()-.5)
-                    *220,
-
-                    window.innerHeight/2
-                    +
-                    (Math.random()-.5)
-                    *120,
-
-                    "sparkle"
-                );
-
-            },
-            i*15
-        );
-
-    }
-
-}
-
+animateParticles();
 
 
 /* =========================================================
@@ -3417,7 +3224,7 @@ function createWishParticles(){
 
     for(
         let i=0;
-        i<45;
+        i<100;
         i++
     ){
 
@@ -3425,27 +3232,24 @@ function createWishParticles(){
             () => {
 
                 createParticle(
-                    window.innerWidth/2
-                    +
-                    (Math.random()-.5)
-                    *300,
 
-                    window.innerHeight/2
-                    +
-                    (Math.random()-.5)
-                    *180,
+                    window.innerWidth/2,
 
-                    "sparkle"
+                    window.innerHeight*.55,
+
+                    Math.random()>.4
+                        ? "sparkle"
+                        : "heart"
+
                 );
 
             },
-            i*20
+            i*12
         );
 
     }
 
 }
-
 
 
 /* =========================================================
@@ -3454,45 +3258,38 @@ function createWishParticles(){
 
 function createFinalStars(){
 
-    const finalNight =
-        document.querySelector(
-            ".final-night"
-        );
-
-
     for(
         let i=0;
-        i<70;
+        i<120;
         i++
     ){
 
-        const star =
-            document.createElement(
-                "div"
-            );
+        const x =
+            window.innerWidth/2;
+
+        const y =
+            window.innerHeight/2;
 
 
-        star.className =
-            "star";
+        setTimeout(
+            () => {
 
+                createParticle(
 
-        star.style.left =
-            Math.random()*100
-            + "%";
+                    x+
+                    (Math.random()-.5)
+                    *100,
 
+                    y+
+                    (Math.random()-.5)
+                    *80,
 
-        star.style.top =
-            Math.random()*100
-            + "%";
+                    "sparkle"
 
+                );
 
-        star.style.animationDelay =
-            Math.random()*2
-            + "s";
-
-
-        finalNight.appendChild(
-            star
+            },
+            i*8
         );
 
     }
