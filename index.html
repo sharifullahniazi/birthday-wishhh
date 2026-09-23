@@ -14,7 +14,7 @@
 <style>
 
 /* =========================================================
-   BASIC
+   RESET
 ========================================================= */
 
 *{
@@ -30,13 +30,29 @@ html{
 body{
     min-height:100vh;
     overflow-x:hidden;
+
     font-family:"Poppins",sans-serif;
     color:#fff;
+
     background:
-        radial-gradient(circle at 20% 20%, rgba(179,124,255,.16), transparent 28%),
-        radial-gradient(circle at 80% 70%, rgba(255,130,190,.13), transparent 30%),
-        linear-gradient(135deg,#10091d,#21102f,#130b20);
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(179,124,255,.16),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 80% 70%,
+            rgba(255,130,190,.13),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #10091d,
+            #21102f,
+            #130b20
+        );
 }
+
 
 /* =========================================================
    MAGIC CANVAS
@@ -45,11 +61,15 @@ body{
 #magicCanvas{
     position:fixed;
     inset:0;
+
     width:100%;
     height:100%;
+
     pointer-events:none;
+
     z-index:2;
 }
+
 
 /* =========================================================
    FLOATING BACKGROUND EMOJIS
@@ -59,38 +79,87 @@ body{
     position:fixed;
     pointer-events:none;
     z-index:1;
+
     opacity:.14;
+
     animation:floatAround linear infinite;
 }
 
-.f1{left:8%;top:18%;font-size:28px;animation-duration:13s;}
-.f2{right:9%;top:28%;font-size:22px;animation-duration:17s;}
-.f3{left:14%;bottom:17%;font-size:25px;animation-duration:15s;}
-.f4{right:15%;bottom:20%;font-size:30px;animation-duration:19s;}
-.f5{left:48%;top:8%;font-size:18px;animation-duration:12s;}
-.f6{right:38%;bottom:7%;font-size:20px;animation-duration:16s;}
+.f1{
+    left:8%;
+    top:18%;
+    font-size:28px;
+    animation-duration:13s;
+}
+
+.f2{
+    right:9%;
+    top:28%;
+    font-size:22px;
+    animation-duration:17s;
+}
+
+.f3{
+    left:14%;
+    bottom:17%;
+    font-size:25px;
+    animation-duration:15s;
+}
+
+.f4{
+    right:15%;
+    bottom:20%;
+    font-size:30px;
+    animation-duration:19s;
+}
+
+.f5{
+    left:48%;
+    top:8%;
+    font-size:18px;
+    animation-duration:12s;
+}
+
+.f6{
+    right:38%;
+    bottom:7%;
+    font-size:20px;
+    animation-duration:16s;
+}
 
 @keyframes floatAround{
+
     0%,100%{
-        transform:translateY(0) rotate(0deg);
+        transform:
+            translateY(0)
+            rotate(0deg);
     }
+
     50%{
-        transform:translateY(-25px) rotate(12deg);
+        transform:
+            translateY(-25px)
+            rotate(12deg);
     }
 }
 
+
 /* =========================================================
-   PAGES
+   PAGE SYSTEM
 ========================================================= */
 
 .page{
     min-height:100vh;
     width:100%;
+
     padding:40px 20px;
+
     display:none;
+
     align-items:center;
     justify-content:center;
+
     position:relative;
+
     z-index:5;
 }
 
@@ -98,346 +167,711 @@ body{
     display:flex;
 }
 
-/* First page by default */
+
+/* First page */
+
 body:not(:has(.page:target)) #page1{
     display:flex;
 }
 
+
 .content{
     width:min(900px,100%);
+
     text-align:center;
+
     padding:45px 25px;
 }
+
 
 /* =========================================================
    GLASS CARD
 ========================================================= */
 
 .glass{
-    background:rgba(255,255,255,.07);
-    border:1px solid rgba(255,255,255,.13);
+
+    background:
+        rgba(255,255,255,.07);
+
+    border:
+        1px solid rgba(255,255,255,.13);
+
     box-shadow:
         0 25px 70px rgba(0,0,0,.35),
         inset 0 1px 0 rgba(255,255,255,.08);
+
     backdrop-filter:blur(18px);
     -webkit-backdrop-filter:blur(18px);
+
     border-radius:32px;
+
     padding:45px 28px;
 }
+
 
 /* =========================================================
    TYPOGRAPHY
 ========================================================= */
 
 .small-title{
+
     font-size:13px;
+
     letter-spacing:4px;
+
     text-transform:uppercase;
+
     opacity:.65;
+
     margin-bottom:15px;
 }
 
+
 h1{
+
     font-family:"Dancing Script",cursive;
-    font-size:clamp(58px,12vw,105px);
+
+    font-size:
+        clamp(58px,12vw,105px);
+
     line-height:1;
+
     font-weight:700;
-    background:linear-gradient(120deg,#fff,#e7c9ff,#ffcae7);
+
+    background:
+        linear-gradient(
+            120deg,
+            #fff,
+            #e7c9ff,
+            #ffcae7
+        );
+
     -webkit-background-clip:text;
     -webkit-text-fill-color:transparent;
-    text-shadow:0 0 35px rgba(210,160,255,.18);
+
+    text-shadow:
+        0 0 35px
+        rgba(210,160,255,.18);
 }
 
+
 h2{
+
     font-family:"Dancing Script",cursive;
-    font-size:clamp(45px,8vw,72px);
+
+    font-size:
+        clamp(45px,8vw,72px);
+
     margin-bottom:20px;
 }
 
+
 h3{
+
     font-family:"Cormorant Garamond",serif;
+
     font-size:30px;
+
     font-weight:600;
 }
 
+
 p{
+
     font-family:"Cormorant Garamond",serif;
+
     font-size:23px;
+
     line-height:1.65;
-    color:rgba(255,255,255,.88);
+
+    color:
+        rgba(255,255,255,.88);
 }
 
+
 .subtitle{
+
     max-width:650px;
+
     margin:22px auto;
 }
+
 
 .highlight{
     color:#f2cfff;
 }
+
+
+.quote{
+
+    margin:30px auto;
+
+    max-width:650px;
+
+    font-family:"Dancing Script",cursive;
+
+    font-size:31px;
+
+    line-height:1.45;
+
+    color:#f3dcff;
+}
+
 
 /* =========================================================
    BUTTONS
 ========================================================= */
 
 .button-row{
+
     display:flex;
+
     justify-content:center;
+
+    align-items:center;
+
     flex-wrap:wrap;
+
     gap:15px;
+
     margin-top:30px;
 }
 
+
 .button{
+
     display:inline-flex;
+
     align-items:center;
+
     justify-content:center;
+
     min-width:150px;
+
     padding:15px 26px;
+
     border-radius:999px;
+
     text-decoration:none;
+
     color:white;
+
     font-family:"Poppins",sans-serif;
+
     font-size:14px;
+
     letter-spacing:.5px;
-    border:1px solid rgba(255,255,255,.18);
-    background:linear-gradient(135deg,rgba(203,157,255,.27),rgba(255,157,204,.20));
-    box-shadow:0 10px 30px rgba(0,0,0,.2);
+
+    border:
+        1px solid rgba(255,255,255,.18);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(203,157,255,.27),
+            rgba(255,157,204,.20)
+        );
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.2);
+
     transition:.35s ease;
+
     cursor:pointer;
 }
 
+
 .button:hover{
-    transform:translateY(-4px) scale(1.03);
-    background:linear-gradient(135deg,rgba(203,157,255,.42),rgba(255,157,204,.32));
-    box-shadow:0 15px 40px rgba(195,120,255,.18);
+
+    transform:
+        translateY(-4px)
+        scale(1.03);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(203,157,255,.42),
+            rgba(255,157,204,.32)
+        );
+
+    box-shadow:
+        0 15px 40px
+        rgba(195,120,255,.18);
 }
 
+
 .back{
+
     opacity:.65;
-    background:rgba(255,255,255,.05);
+
+    background:
+        rgba(255,255,255,.05);
 }
+
 
 /* =========================================================
    PAGE 1
 ========================================================= */
 
 .heart-big{
+
     font-size:52px;
-    animation:heartbeat 2s ease-in-out infinite;
+
+    animation:
+        heartbeat 2s
+        ease-in-out infinite;
+
     margin-bottom:10px;
 }
 
+
 @keyframes heartbeat{
-    0%,100%{transform:scale(1);}
-    50%{transform:scale(1.12);}
+
+    0%,100%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.12);
+    }
 }
 
+
 .name-line{
+
     font-family:"Cormorant Garamond",serif;
+
     font-size:24px;
+
     letter-spacing:2px;
+
     margin-top:15px;
+
     opacity:.8;
 }
 
-/* =========================================================
-   PERSONAL MESSAGE
-========================================================= */
-
-.quote{
-    margin:30px auto;
-    max-width:650px;
-    font-family:"Dancing Script",cursive;
-    font-size:31px;
-    line-height:1.45;
-    color:#f3dcff;
-}
 
 /* =========================================================
    MEMORY CARDS
 ========================================================= */
 
 .memory-grid{
+
     display:grid;
-    grid-template-columns:repeat(3,1fr);
+
+    grid-template-columns:
+        repeat(3,1fr);
+
     gap:20px;
+
     margin-top:35px;
 }
 
+
 .memory{
+
     padding:12px;
+
     border-radius:20px;
-    background:rgba(255,255,255,.07);
-    border:1px solid rgba(255,255,255,.12);
+
+    background:
+        rgba(255,255,255,.07);
+
+    border:
+        1px solid rgba(255,255,255,.12);
+
     transform:rotate(-1deg);
+
     transition:.4s ease;
 }
+
 
 .memory:nth-child(2){
     transform:rotate(1.5deg);
 }
 
+
 .memory:nth-child(3){
     transform:rotate(-1.5deg);
 }
 
+
 .memory:hover{
-    transform:translateY(-8px) rotate(0);
+
+    transform:
+        translateY(-8px)
+        rotate(0);
 }
 
+
 .memory img{
+
     width:100%;
+
     aspect-ratio:4/5;
+
     object-fit:cover;
+
     border-radius:14px;
+
     display:block;
 }
 
+
 .memory p{
+
     font-size:19px;
-    margin:12px 5px 5px;
+
+    margin:
+        12px
+        5px
+        5px;
 }
+
+
+/* =========================================================
+   YES / NO GIFT SECTION
+========================================================= */
+
+.gift-icon{
+
+    font-size:68px;
+
+    margin-bottom:15px;
+
+    animation:
+        giftFloat 2.5s
+        ease-in-out infinite;
+}
+
+
+@keyframes giftFloat{
+
+    0%,100%{
+        transform:
+            translateY(0)
+            rotate(-3deg);
+    }
+
+    50%{
+        transform:
+            translateY(-10px)
+            rotate(3deg);
+    }
+}
+
+
+.gift-question{
+
+    font-family:"Dancing Script",cursive;
+
+    font-size:
+        clamp(38px,7vw,62px);
+
+    line-height:1.2;
+
+    margin:
+        15px auto
+        20px;
+
+    color:#f6e7ff;
+}
+
+
+.gift-subtext{
+
+    max-width:570px;
+
+    margin:auto;
+
+    font-size:21px;
+}
+
+
+.gift-buttons{
+
+    position:relative;
+
+    min-height:90px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:18px;
+
+    margin-top:30px;
+}
+
+
+.yes-button{
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(191,125,255,.55),
+            rgba(255,130,195,.42)
+        );
+
+    box-shadow:
+        0 10px 35px
+        rgba(206,132,255,.25);
+}
+
+
+.no-button{
+
+    position:relative;
+
+    min-width:120px;
+
+    transition:
+        transform .25s ease,
+        opacity .25s ease;
+}
+
+
+.gift-success{
+
+    display:none;
+
+    animation:
+        successIn 1s ease forwards;
+}
+
+
+.gift-success.show{
+    display:block;
+}
+
+
+@keyframes successIn{
+
+    from{
+        opacity:0;
+        transform:
+            translateY(20px)
+            scale(.95);
+    }
+
+    to{
+        opacity:1;
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+.success-heart{
+
+    font-size:55px;
+
+    margin-bottom:10px;
+
+    animation:
+        heartbeat 1.5s infinite;
+}
+
+
+.success-text{
+
+    font-family:"Dancing Script",cursive;
+
+    font-size:38px;
+
+    color:#efd2ff;
+
+    margin-bottom:10px;
+}
+
 
 /* =========================================================
    LITTLE THINGS
 ========================================================= */
 
 .little-things{
+
     display:grid;
-    grid-template-columns:repeat(2,1fr);
+
+    grid-template-columns:
+        repeat(2,1fr);
+
     gap:16px;
+
     margin-top:30px;
 }
 
+
 .little{
+
     padding:25px;
+
     text-align:left;
+
     border-radius:22px;
-    background:rgba(255,255,255,.055);
-    border:1px solid rgba(255,255,255,.10);
+
+    background:
+        rgba(255,255,255,.055);
+
+    border:
+        1px solid rgba(255,255,255,.10);
+
     transition:.3s ease;
 }
 
+
 .little:hover{
-    transform:translateY(-5px);
-    background:rgba(255,255,255,.09);
+
+    transform:
+        translateY(-5px);
+
+    background:
+        rgba(255,255,255,.09);
 }
 
+
 .number{
+
     font-size:12px;
+
     letter-spacing:3px;
+
     opacity:.45;
+
     margin-bottom:8px;
 }
+
 
 .little p{
     font-size:20px;
 }
+
 
 /* =========================================================
    SONG
 ========================================================= */
 
 .song-card{
+
     padding:35px 25px;
+
     border-radius:30px;
-    background:linear-gradient(
-        135deg,
-        rgba(166,110,255,.12),
-        rgba(255,142,202,.10)
-    );
-    border:1px solid rgba(255,255,255,.12);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(166,110,255,.12),
+            rgba(255,142,202,.10)
+        );
+
+    border:
+        1px solid rgba(255,255,255,.12);
 }
+
 
 .music-note{
+
     font-size:50px;
+
     margin-bottom:15px;
-    animation:pulse 2s infinite;
+
+    animation:
+        pulse 2s infinite;
 }
 
+
 @keyframes pulse{
-    50%{transform:scale(1.08);}
+
+    50%{
+        transform:scale(1.08);
+    }
 }
+
 
 /* =========================================================
    LETTER
 ========================================================= */
 
 .letter{
+
     text-align:left;
+
     max-width:700px;
+
     margin:30px auto 0;
+
     padding:35px;
+
     border-radius:22px;
-    background:rgba(255,248,255,.055);
-    border:1px solid rgba(255,255,255,.10);
+
+    background:
+        rgba(255,248,255,.055);
+
+    border:
+        1px solid rgba(255,255,255,.10);
+
     position:relative;
 }
 
+
 .letter::before{
+
     content:"";
+
     position:absolute;
+
     left:20px;
     top:20px;
     bottom:20px;
+
     width:1px;
-    background:rgba(232,192,255,.22);
+
+    background:
+        rgba(232,192,255,.22);
 }
 
+
 .letter p{
+
     padding-left:20px;
+
     margin-bottom:18px;
 }
 
-/* =========================================================
-   COUNTDOWN
-========================================================= */
-
-.countdown{
-    display:flex;
-    justify-content:center;
-    gap:12px;
-    flex-wrap:wrap;
-    margin:30px 0;
-}
-
-.time-box{
-    width:100px;
-    padding:20px 10px;
-    border-radius:20px;
-    background:rgba(255,255,255,.06);
-    border:1px solid rgba(255,255,255,.11);
-}
-
-.time-box strong{
-    display:block;
-    font-size:28px;
-}
-
-.time-box span{
-    font-size:11px;
-    letter-spacing:2px;
-    opacity:.5;
-}
 
 /* =========================================================
-   CANDLE PAGE
+   CANDLE
 ========================================================= */
 
 .candle-area{
+
     margin:45px auto 20px;
+
     height:220px;
+
     display:flex;
+
     align-items:flex-end;
+
     justify-content:center;
+
     position:relative;
 }
 
+
 .candle{
+
     width:65px;
+
     height:110px;
-    border-radius:8px 8px 12px 12px;
+
+    border-radius:
+        8px 8px
+        12px 12px;
+
     background:
         repeating-linear-gradient(
             90deg,
@@ -446,324 +880,629 @@ p{
             #d99cf9 9px,
             #e6baff 17px
         );
+
     box-shadow:
-        0 0 35px rgba(213,155,255,.22),
-        inset 0 4px 10px rgba(255,255,255,.2);
+        0 0 35px
+        rgba(213,155,255,.22),
+
+        inset 0 4px 10px
+        rgba(255,255,255,.2);
+
     position:relative;
+
     cursor:pointer;
 }
 
+
 .candle::before{
+
     content:"";
+
     position:absolute;
+
     top:-7px;
+
     left:50%;
+
     width:3px;
+
     height:10px;
+
     background:#3c2449;
-    transform:translateX(-50%);
+
+    transform:
+        translateX(-50%);
 }
 
+
 .flame{
+
     position:absolute;
+
     left:50%;
+
     top:-62px;
+
     width:27px;
+
     height:43px;
-    transform:translateX(-50%);
-    border-radius:50% 50% 50% 50%;
-    background:linear-gradient(#fff,#ffd1f1 45%,#bd6dff);
+
+    transform:
+        translateX(-50%);
+
+    border-radius:
+        50%
+        50%
+        50%
+        50%;
+
+    background:
+        linear-gradient(
+            #fff,
+            #ffd1f1 45%,
+            #bd6dff
+        );
+
     box-shadow:
         0 0 15px #fff,
         0 0 35px #d37cff,
-        0 0 70px rgba(206,120,255,.8);
-    animation:flicker .12s infinite alternate;
+        0 0 70px
+        rgba(206,120,255,.8);
+
+    animation:
+        flicker .12s
+        infinite alternate;
 }
+
 
 @keyframes flicker{
-    from{transform:translateX(-50%) scale(1) rotate(-2deg);}
-    to{transform:translateX(-50%) scale(.93) rotate(3deg);}
+
+    from{
+        transform:
+            translateX(-50%)
+            scale(1)
+            rotate(-2deg);
+    }
+
+    to{
+        transform:
+            translateX(-50%)
+            scale(.93)
+            rotate(3deg);
+    }
 }
 
+
 .flame.off{
+
     opacity:0;
-    transform:translateX(-50%) scale(.2);
+
+    transform:
+        translateX(-50%)
+        scale(.2);
+
     transition:.5s ease;
 }
 
+
 .wish-message{
+
     display:none;
-    animation:fadeUp 1.3s ease forwards;
+
+    animation:
+        fadeUp 1.3s
+        ease forwards;
 }
+
 
 .wish-message.show{
     display:block;
 }
 
+
 @keyframes fadeUp{
+
     from{
         opacity:0;
-        transform:translateY(25px);
+        transform:
+            translateY(25px);
     }
+
     to{
         opacity:1;
-        transform:translateY(0);
+        transform:
+            translateY(0);
     }
 }
 
-/* =========================================================
-   NO BUTTON
-========================================================= */
-
-.no-button{
-    position:relative;
-}
-
-#noButton{
-    transition:.2s ease;
-}
 
 /* =========================================================
    MUSIC BUTTON
 ========================================================= */
 
 #musicButton{
+
     position:fixed;
+
     right:18px;
     bottom:18px;
+
     width:52px;
     height:52px;
+
     border-radius:50%;
-    border:1px solid rgba(255,255,255,.18);
-    background:rgba(40,20,55,.65);
+
+    border:
+        1px solid
+        rgba(255,255,255,.18);
+
+    background:
+        rgba(40,20,55,.65);
+
     color:#fff;
+
     backdrop-filter:blur(10px);
+
     z-index:100;
+
     cursor:pointer;
+
     font-size:20px;
 }
+
 
 /* =========================================================
    EARPHONE INTRO
 ========================================================= */
 
 #earphoneIntro{
+
     position:fixed;
+
     inset:0;
+
     z-index:500;
+
     display:flex;
+
     align-items:center;
+
     justify-content:center;
+
     padding:25px;
+
     background:
-        radial-gradient(circle at 50% 35%,rgba(175,108,255,.18),transparent 30%),
+        radial-gradient(
+            circle at 50% 35%,
+            rgba(175,108,255,.18),
+            transparent 30%
+        ),
         #0c0712;
-    transition:opacity 1s ease,visibility 1s ease;
+
+    transition:
+        opacity 1s ease,
+        visibility 1s ease;
 }
 
+
 #earphoneIntro.hidden{
+
     opacity:0;
+
     visibility:hidden;
 }
 
+
 .intro-card{
+
     width:min(560px,100%);
+
     text-align:center;
+
     padding:48px 28px;
+
     border-radius:32px;
-    background:rgba(255,255,255,.065);
-    border:1px solid rgba(255,255,255,.13);
-    box-shadow:0 30px 100px rgba(0,0,0,.5);
+
+    background:
+        rgba(255,255,255,.065);
+
+    border:
+        1px solid
+        rgba(255,255,255,.13);
+
+    box-shadow:
+        0 30px 100px
+        rgba(0,0,0,.5);
+
     backdrop-filter:blur(20px);
-    animation:introIn 1s ease;
+
+    animation:
+        introIn 1s ease;
 }
+
 
 @keyframes introIn{
+
     from{
         opacity:0;
-        transform:translateY(25px) scale(.96);
+
+        transform:
+            translateY(25px)
+            scale(.96);
     }
+
     to{
         opacity:1;
-        transform:translateY(0) scale(1);
+
+        transform:
+            translateY(0)
+            scale(1);
     }
 }
+
 
 .earphone-icon{
+
     font-size:65px;
+
     margin-bottom:20px;
-    animation:softPulse 2.2s infinite;
+
+    animation:
+        softPulse 2.2s infinite;
 }
 
+
 @keyframes softPulse{
+
     50%{
+
         transform:scale(1.08);
-        filter:drop-shadow(0 0 18px rgba(210,155,255,.5));
+
+        filter:
+            drop-shadow(
+                0 0 18px
+                rgba(210,155,255,.5)
+            );
     }
 }
 
+
 .intro-card h2{
+
     font-size:48px;
+
     margin-bottom:12px;
 }
 
+
 .intro-card p{
+
     font-size:21px;
+
     max-width:450px;
+
     margin:auto;
 }
+
 
 .ready-button{
     margin-top:30px;
 }
 
+
 .intro-note{
+
     margin-top:18px;
+
     font-size:11px;
+
     letter-spacing:2px;
+
     opacity:.4;
 }
 
+
 /* =========================================================
-   FINAL SURPRISE
+   FINAL NIGHT PAGE
 ========================================================= */
 
 #page8{
+
     background:
         radial-gradient(
             circle at 50% 40%,
             rgba(110,70,160,.13),
             transparent 32%
         ),
-        linear-gradient(180deg,#05040a,#090611,#040308);
+        linear-gradient(
+            180deg,
+            #05040a,
+            #090611,
+            #040308
+        );
 }
 
-/* stars */
 
 .night-sky{
+
     position:absolute;
+
     inset:0;
+
     pointer-events:none;
+
     overflow:hidden;
 }
 
+
 .star{
+
     position:absolute;
+
     width:2px;
+
     height:2px;
+
     background:white;
+
     border-radius:50%;
+
     opacity:.5;
-    animation:twinkle 3s infinite ease-in-out;
+
+    animation:
+        twinkle 3s
+        infinite
+        ease-in-out;
 }
 
-.star:nth-child(1){left:12%;top:17%;animation-delay:.2s;}
-.star:nth-child(2){left:25%;top:28%;animation-delay:1s;}
-.star:nth-child(3){left:39%;top:13%;animation-delay:1.8s;}
-.star:nth-child(4){left:57%;top:22%;animation-delay:.5s;}
-.star:nth-child(5){left:71%;top:12%;animation-delay:1.4s;}
-.star:nth-child(6){left:84%;top:31%;animation-delay:2s;}
-.star:nth-child(7){left:18%;top:63%;animation-delay:1.2s;}
-.star:nth-child(8){left:79%;top:65%;animation-delay:.3s;}
-.star:nth-child(9){left:48%;top:75%;animation-delay:1.7s;}
-.star:nth-child(10){left:90%;top:48%;animation-delay:.8s;}
+
+.star:nth-child(1){
+    left:12%;
+    top:17%;
+    animation-delay:.2s;
+}
+
+.star:nth-child(2){
+    left:25%;
+    top:28%;
+    animation-delay:1s;
+}
+
+.star:nth-child(3){
+    left:39%;
+    top:13%;
+    animation-delay:1.8s;
+}
+
+.star:nth-child(4){
+    left:57%;
+    top:22%;
+    animation-delay:.5s;
+}
+
+.star:nth-child(5){
+    left:71%;
+    top:12%;
+    animation-delay:1.4s;
+}
+
+.star:nth-child(6){
+    left:84%;
+    top:31%;
+    animation-delay:2s;
+}
+
+.star:nth-child(7){
+    left:18%;
+    top:63%;
+    animation-delay:1.2s;
+}
+
+.star:nth-child(8){
+    left:79%;
+    top:65%;
+    animation-delay:.3s;
+}
+
+.star:nth-child(9){
+    left:48%;
+    top:75%;
+    animation-delay:1.7s;
+}
+
+.star:nth-child(10){
+    left:90%;
+    top:48%;
+    animation-delay:.8s;
+}
+
 
 @keyframes twinkle{
-    0%,100%{opacity:.2;transform:scale(.7);}
-    50%{opacity:1;transform:scale(1.6);}
+
+    0%,100%{
+        opacity:.2;
+        transform:scale(.7);
+    }
+
+    50%{
+        opacity:1;
+        transform:scale(1.6);
+    }
 }
+
 
 .moon{
+
     position:absolute;
+
     top:8%;
     right:10%;
+
     width:90px;
     height:90px;
+
     border-radius:50%;
+
     background:#f6edff;
+
     box-shadow:
-        0 0 30px rgba(240,220,255,.5),
-        0 0 80px rgba(205,160,255,.18);
+        0 0 30px
+        rgba(240,220,255,.5),
+
+        0 0 80px
+        rgba(205,160,255,.18);
 }
 
+
 .moon::after{
+
     content:"";
+
     position:absolute;
+
     top:-5px;
     left:22px;
+
     width:90px;
     height:90px;
+
     border-radius:50%;
+
     background:#07050c;
 }
 
-/* final content */
 
 .final-content{
+
     position:relative;
+
     z-index:3;
 }
 
+
 .wait-text{
-    font-family:"Cormorant Garamond",serif;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
     font-size:23px;
+
     opacity:.7;
+
     margin-bottom:12px;
 }
 
+
 .final-title{
-    font-family:"Dancing Script",cursive;
-    font-size:clamp(48px,10vw,82px);
+
+    font-family:
+        "Dancing Script",
+        cursive;
+
+    font-size:
+        clamp(48px,10vw,82px);
+
     color:white;
+
     margin-bottom:20px;
 }
 
+
 .final-subtitle{
-    font-family:"Cormorant Garamond",serif;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
     font-size:27px;
+
     color:#ead9f4;
+
     margin-bottom:35px;
 }
 
+
 .final-hidden{
+
     display:none;
-    animation:finalReveal 2s ease forwards;
+
+    animation:
+        finalReveal 2s
+        ease forwards;
 }
+
 
 .final-hidden.show{
     display:block;
 }
 
+
 @keyframes finalReveal{
+
     from{
+
         opacity:0;
-        transform:translateY(30px);
+
+        transform:
+            translateY(30px);
+
         filter:blur(8px);
     }
+
     to{
+
         opacity:1;
-        transform:translateY(0);
+
+        transform:
+            translateY(0);
+
         filter:blur(0);
     }
 }
 
+
 .final-message{
+
     max-width:600px;
+
     margin:30px auto;
-    font-family:"Dancing Script",cursive;
+
+    font-family:
+        "Dancing Script",
+        cursive;
+
     font-size:38px;
+
     line-height:1.4;
+
     color:#f4dfff;
 }
 
+
 .final-birthday{
-    font-family:"Dancing Script",cursive;
-    font-size:clamp(45px,9vw,75px);
+
+    font-family:
+        "Dancing Script",
+        cursive;
+
+    font-size:
+        clamp(45px,9vw,75px);
+
     margin-top:25px;
-    background:linear-gradient(120deg,#fff,#e8bfff,#ffc8e6);
+
+    background:
+        linear-gradient(
+            120deg,
+            #fff,
+            #e8bfff,
+            #ffc8e6
+        );
+
     -webkit-background-clip:text;
     -webkit-text-fill-color:transparent;
 }
+
 
 /* =========================================================
    RESPONSIVE
@@ -781,8 +1520,11 @@ p{
     }
 
     .memory-grid{
+
         grid-template-columns:1fr;
+
         max-width:350px;
+
         margin-left:auto;
         margin-right:auto;
     }
@@ -797,6 +1539,10 @@ p{
 
     .letter{
         padding:25px 18px;
+    }
+
+    .gift-buttons{
+        min-height:150px;
     }
 
     .time-box{
@@ -815,6 +1561,7 @@ p{
         height:65px;
         left:17px;
     }
+
 }
 
 </style>
@@ -822,6 +1569,7 @@ p{
 
 
 <body>
+
 
 <!-- =====================================================
      BACKGROUND
@@ -845,13 +1593,17 @@ p{
 
     <div class="intro-card">
 
-        <div class="earphone-icon">🎧</div>
+        <div class="earphone-icon">
+            🎧
+        </div>
 
         <div class="small-title">
             A little request...
         </div>
 
-        <h2>Before we begin</h2>
+        <h2>
+            Before we begin
+        </h2>
 
         <p>
             Put on your earphones.<br>
@@ -859,12 +1611,22 @@ p{
         </p>
 
         <p style="margin-top:12px;">
+
             There's a song here that I made
-            <span class="highlight">for you.</span> 💜
+            <span class="highlight">
+                for you.
+            </span>
+
+            💜
+
         </p>
 
-        <button id="readyButton" class="button ready-button">
+        <button
+            id="readyButton"
+            class="button ready-button">
+
             🎧 Listen to it
+
         </button>
 
         <div class="intro-note">
@@ -887,8 +1649,13 @@ p{
     loop>
 </audio>
 
-<button id="musicButton" title="Music">
+
+<button
+    id="musicButton"
+    title="Music">
+
     🎶
+
 </button>
 
 
@@ -896,26 +1663,39 @@ p{
      PAGE 1
 ===================================================== -->
 
-<section id="page1" class="page">
+<section
+    id="page1"
+    class="page">
 
     <div class="content glass">
 
-        <div class="heart-big">💜</div>
+        <div class="heart-big">
+            💜
+        </div>
 
         <div class="small-title">
             I made something for someone special
         </div>
 
-        <h1>Mastura</h1>
+        <h1>
+            Mastura
+        </h1>
 
         <div class="name-line">
             This little corner of the internet is yours.
         </div>
 
         <p class="subtitle">
-            I didn't want to just send you a birthday wish.
-            I wanted to make you something you could actually
-            <span class="highlight">feel.</span>
+
+            I didn't want to just send you
+            a birthday wish.
+
+            I wanted to make you something
+            you could actually
+            <span class="highlight">
+                feel.
+            </span>
+
         </p>
 
         <div class="quote">
@@ -924,8 +1704,12 @@ p{
 
         <div class="button-row">
 
-            <a href="#page2" class="button">
+            <a
+                href="#page2"
+                class="button">
+
                 ✨ Open it
+
             </a>
 
         </div>
@@ -936,10 +1720,12 @@ p{
 
 
 <!-- =====================================================
-     PAGE 2 — PERSONAL
+     PAGE 2
 ===================================================== -->
 
-<section id="page2" class="page">
+<section
+    id="page2"
+    class="page">
 
     <div class="content glass">
 
@@ -947,12 +1733,14 @@ p{
             Just for you
         </div>
 
-        <h2>Hey, Mastura...</h2>
+        <h2>
+            Hey, Mastura...
+        </h2>
 
         <p class="subtitle">
 
-            There are probably a thousand better ways
-            to say this...
+            There are probably a thousand
+            better ways to say this...
 
             <br><br>
 
@@ -969,17 +1757,28 @@ p{
         </p>
 
         <div class="quote">
-            “Because ordinary wishes didn't feel enough for you.”
+
+            “Because ordinary wishes
+            didn't feel enough for you.”
+
         </div>
 
         <div class="button-row">
 
-            <a href="#page1" class="button back">
+            <a
+                href="#page1"
+                class="button back">
+
                 ← Back
+
             </a>
 
-            <a href="#page3" class="button">
+            <a
+                href="#page3"
+                class="button">
+
                 Keep going 🌷
+
             </a>
 
         </div>
@@ -993,7 +1792,9 @@ p{
      PAGE 3 — MEMORIES
 ===================================================== -->
 
-<section id="page3" class="page">
+<section
+    id="page3"
+    class="page">
 
     <div class="content">
 
@@ -1003,19 +1804,28 @@ p{
                 Little moments
             </div>
 
-            <h2>Things worth remembering</h2>
+            <h2>
+                Things worth remembering
+            </h2>
 
             <p class="subtitle">
-                Some moments are ordinary when they happen...
-                until you realize later that you wanted to keep them.
+
+                Some moments are ordinary
+                when they happen...
+
+                until you realize later
+                that you wanted to keep them.
+
             </p>
 
 
             <div class="memory-grid">
 
+
                 <div class="memory">
 
-                    <img src="https://i.postimg.cc/y6Zg9SHW/IMG-20260918-WA0030.jpg">
+                    <img
+                        src="https://i.postimg.cc/y6Zg9SHW/IMG-20260918-WA0030.jpg">
 
                     <p>
                         A moment I wanted to keep. 💜
@@ -1026,7 +1836,8 @@ p{
 
                 <div class="memory">
 
-                    <img src="https://i.postimg.cc/tJN9kbk2/IMG-20260918-WA0021.jpg">
+                    <img
+                        src="https://i.postimg.cc/tJN9kbk2/IMG-20260918-WA0021.jpg">
 
                     <p>
                         One of those little memories.
@@ -1037,7 +1848,8 @@ p{
 
                 <div class="memory">
 
-                    <img src="https://i.postimg.cc/J4pTkgm0/IMG-20260918-WA0017.jpg">
+                    <img
+                        src="https://i.postimg.cc/J4pTkgm0/IMG-20260918-WA0017.jpg">
 
                     <p>
                         And this one...
@@ -1046,17 +1858,26 @@ p{
 
                 </div>
 
+
             </div>
 
 
             <div class="button-row">
 
-                <a href="#page2" class="button back">
+                <a
+                    href="#page2"
+                    class="button back">
+
                     ← Back
+
                 </a>
 
-                <a href="#page4" class="button">
+                <a
+                    href="#page4"
+                    class="button">
+
                     There's more 💗
+
                 </a>
 
             </div>
@@ -1069,89 +1890,113 @@ p{
 
 
 <!-- =====================================================
-     PAGE 4 — LITTLE THINGS
+     PAGE 4 — YES / NO GIFT
 ===================================================== -->
 
-<section id="page4" class="page">
+<section
+    id="page4"
+    class="page">
 
     <div class="content glass">
 
-        <div class="small-title">
-            The little things
+        <div class="gift-icon">
+            🎁
         </div>
 
-        <h2>Things I notice about you</h2>
+        <div class="small-title">
+            A very important question
+        </div>
 
-        <p class="subtitle">
-            It's funny how the smallest things can become
-            the things you remember the most.
+
+        <div class="gift-question">
+
+            Mastura,<br>
+            will you please collect your birthday gift?
+
+        </div>
+
+
+        <p class="gift-subtext">
+
+            I spent a little time making something for you...
+            so there's only one tiny thing left to ask. 😌
+
         </p>
 
 
-        <div class="little-things">
+        <!-- YES / NO -->
 
-            <div class="little">
+        <div
+            id="giftButtons"
+            class="gift-buttons">
 
-                <div class="number">
-                    01
-                </div>
+            <button
+                id="yesButton"
+                class="button yes-button">
 
-                <p>
-                    The little expressions you make without realizing it.
-                </p>
+                💜 Yes, I'll collect it
+
+            </button>
+
+
+            <button
+                id="noButton"
+                class="button no-button">
+
+                😈 No
+
+            </button>
+
+        </div>
+
+
+        <!-- SUCCESS MESSAGE -->
+
+        <div
+            id="giftSuccess"
+            class="gift-success">
+
+            <div class="success-heart">
+                💜
+            </div>
+
+            <div class="success-text">
+
+                I knew you'd say yes. 😌
 
             </div>
 
+            <p>
 
-            <div class="little">
+                Your gift is waiting for you.
 
-                <div class="number">
-                    02
-                </div>
+            </p>
 
-                <p>
-                    The way one small moment with you can stay in my mind.
-                </p>
+            <div class="button-row">
 
-            </div>
+                <a
+                    href="#page5"
+                    class="button">
 
+                    🎶 There's something waiting for you
 
-            <div class="little">
-
-                <div class="number">
-                    03
-                </div>
-
-                <p>
-                    The random conversations that somehow become memories.
-                </p>
-
-            </div>
-
-
-            <div class="little">
-
-                <div class="number">
-                    04
-                </div>
-
-                <p>
-                    And all those tiny things you probably don't even realize I remember.
-                </p>
+                </a>
 
             </div>
 
         </div>
 
 
-        <div class="button-row">
+        <div
+            id="giftBack"
+            class="button-row">
 
-            <a href="#page3" class="button back">
+            <a
+                href="#page3"
+                class="button back">
+
                 ← Back
-            </a>
 
-            <a href="#page5" class="button">
-                One more thing 🎶
             </a>
 
         </div>
@@ -1165,7 +2010,9 @@ p{
      PAGE 5 — SONG
 ===================================================== -->
 
-<section id="page5" class="page">
+<section
+    id="page5"
+    class="page">
 
     <div class="content glass">
 
@@ -1173,26 +2020,35 @@ p{
             Made especially for you
         </div>
 
+
         <div class="song-card">
 
             <div class="music-note">
                 🎶
             </div>
 
-            <h2>A song for Mastura</h2>
+            <h2>
+                A song for Mastura
+            </h2>
 
             <p>
-                This isn't just a song I happened to find.
+                This isn't just a song
+                I happened to find.
             </p>
 
             <p style="margin-top:10px;">
-                I made it because I wanted there to be
-                something that belonged to this little moment.
+
+                I made it because I wanted
+                there to be something
+                that belonged to this little moment.
+
             </p>
 
             <div class="quote">
+
                 “If words weren't enough,
                 maybe a song could say some of it.”
+
             </div>
 
         </div>
@@ -1200,12 +2056,20 @@ p{
 
         <div class="button-row">
 
-            <a href="#page4" class="button back">
+            <a
+                href="#page4"
+                class="button back">
+
                 ← Back
+
             </a>
 
-            <a href="#page6" class="button">
+            <a
+                href="#page6"
+                class="button">
+
                 Read this 💌
+
             </a>
 
         </div>
@@ -1219,7 +2083,9 @@ p{
      PAGE 6 — LETTER
 ===================================================== -->
 
-<section id="page6" class="page">
+<section
+    id="page6"
+    class="page">
 
     <div class="content glass">
 
@@ -1227,7 +2093,9 @@ p{
             Something I wanted to say
         </div>
 
-        <h2>A little letter</h2>
+        <h2>
+            A little letter
+        </h2>
 
 
         <div class="letter">
@@ -1237,7 +2105,8 @@ p{
             </p>
 
             <p>
-                I could have just written “Happy Birthday”
+                I could have just written
+                “Happy Birthday”
                 and sent it to you.
             </p>
 
@@ -1263,18 +2132,27 @@ p{
             </p>
 
             <p>
-                I hope this new year of your life brings you
-                beautiful moments you don't see coming.
+                I hope this new year of your life
+                brings you beautiful moments
+                you don't see coming.
             </p>
 
             <p>
-                And I hope, whenever you look back at this day,
-                you remember that someone took the time
-                to make something just for you.
+                And I hope, whenever you look back
+                at this day, you remember that someone
+                took the time to make something
+                just for you.
             </p>
 
-            <p style="font-family:'Dancing Script',cursive;font-size:30px;color:#e9c9ff;">
+            <p
+                style="
+                font-family:'Dancing Script',cursive;
+                font-size:30px;
+                color:#e9c9ff;
+                ">
+
                 Happy Birthday, Mastura. 💜
+
             </p>
 
         </div>
@@ -1282,12 +2160,20 @@ p{
 
         <div class="button-row">
 
-            <a href="#page5" class="button back">
+            <a
+                href="#page5"
+                class="button back">
+
                 ← Back
+
             </a>
 
-            <a href="#page7" class="button">
+            <a
+                href="#page7"
+                class="button">
+
                 One last thing... ✨
+
             </a>
 
         </div>
@@ -1301,7 +2187,9 @@ p{
      PAGE 7 — CANDLE
 ===================================================== -->
 
-<section id="page7" class="page">
+<section
+    id="page7"
+    class="page">
 
     <div class="content glass">
 
@@ -1309,11 +2197,17 @@ p{
             Before you go...
         </div>
 
-        <h2>Make a wish ✨</h2>
+        <h2>
+            Make a wish ✨
+        </h2>
 
         <p class="subtitle">
+
             Close your eyes for a second.
-            Think of something you really want.
+
+            Think of something
+            you really want.
+
         </p>
 
 
@@ -1323,7 +2217,7 @@ p{
                 id="candle"
                 class="candle"
                 title="Tap the candle">
-                
+
                 <div
                     id="flame"
                     class="flame">
@@ -1336,8 +2230,14 @@ p{
 
         <p
             id="candleHint"
-            style="font-size:16px;opacity:.5;">
-            Tap the candle when you're ready...
+            style="
+                font-size:16px;
+                opacity:.5;
+            ">
+
+            Tap the candle
+            when you're ready...
+
         </p>
 
 
@@ -1346,13 +2246,20 @@ p{
             class="wish-message">
 
             <p class="quote">
-                ✨ I hope your wish finds its way to you.
+
+                ✨ I hope your wish
+                finds its way to you.
+
             </p>
 
             <div class="button-row">
 
-                <a href="#page8" class="button">
+                <a
+                    href="#page8"
+                    class="button">
+
                     Wait... there's one more thing 🌙
+
                 </a>
 
             </div>
@@ -1364,8 +2271,12 @@ p{
             class="button-row"
             id="page7Back">
 
-            <a href="#page6" class="button back">
+            <a
+                href="#page6"
+                class="button back">
+
                 ← Back
+
             </a>
 
         </div>
@@ -1379,7 +2290,9 @@ p{
      PAGE 8 — FINAL SURPRISE
 ===================================================== -->
 
-<section id="page8" class="page">
+<section
+    id="page8"
+    class="page">
 
     <div class="night-sky">
 
@@ -1405,37 +2318,53 @@ p{
             Wait...
         </div>
 
+
         <div class="final-title">
+
             There's one more thing.
+
         </div>
+
 
         <div class="final-subtitle">
             🌙
         </div>
 
 
-        <div class="final-hidden" id="finalMessage">
+        <div
+            class="final-hidden"
+            id="finalMessage">
 
             <div class="small-title">
                 For Mastura
             </div>
 
+
             <div class="final-message">
+
                 I hope this year gives you
                 a thousand reasons to smile.
+
             </div>
+
 
             <div class="final-birthday">
+
                 Happy Birthday, Mastura. 💜
+
             </div>
 
-            <p style="
+
+            <p
+                style="
                 margin-top:25px;
                 opacity:.6;
                 font-size:18px;
-            ">
+                ">
+
                 Keep smiling.
                 You deserve the beautiful moments.
+
             </p>
 
         </div>
@@ -1449,7 +2378,9 @@ p{
             <button
                 id="revealFinal"
                 class="button">
+
                 ✨ There's something here
+
             </button>
 
         </div>
@@ -1465,177 +2396,434 @@ p{
    MUSIC
 ========================================================= */
 
-const intro = document.getElementById("earphoneIntro");
-const readyButton = document.getElementById("readyButton");
-const music = document.getElementById("music");
-const musicButton = document.getElementById("musicButton");
+const intro =
+    document.getElementById("earphoneIntro");
+
+const readyButton =
+    document.getElementById("readyButton");
+
+const music =
+    document.getElementById("music");
+
+const musicButton =
+    document.getElementById("musicButton");
 
 let musicPlaying = false;
 
 
-/* Start music after user interaction */
-
-readyButton.addEventListener("click", async () => {
-
-    try{
-
-        await music.play();
-
-        musicPlaying = true;
-
-        musicButton.textContent = "🎶";
-
-    }catch(error){
-
-        console.log("Audio could not start:",error);
-
-    }
-
-    intro.classList.add("hidden");
-
-    setTimeout(() => {
-
-        intro.style.display = "none";
-
-    },1100);
-
-});
-
-
-/* Music toggle */
-
-musicButton.addEventListener("click",async()=>{
-
-    if(music.paused){
+readyButton.addEventListener(
+    "click",
+    async () => {
 
         try{
 
             await music.play();
 
             musicPlaying = true;
+
             musicButton.textContent = "🎶";
 
         }catch(error){
 
-            console.log(error);
+            console.log(
+                "Audio could not start:",
+                error
+            );
 
         }
 
-    }else{
 
-        music.pause();
+        intro.classList.add("hidden");
 
-        musicPlaying = false;
 
-        musicButton.textContent = "🔇";
+        setTimeout(
+            () => {
+
+                intro.style.display = "none";
+
+            },
+            1100
+        );
+
+    }
+);
+
+
+/* =========================================================
+   MUSIC TOGGLE
+========================================================= */
+
+musicButton.addEventListener(
+    "click",
+    async () => {
+
+        if(music.paused){
+
+            try{
+
+                await music.play();
+
+                musicPlaying = true;
+
+                musicButton.textContent = "🎶";
+
+            }catch(error){
+
+                console.log(error);
+
+            }
+
+        }else{
+
+            music.pause();
+
+            musicPlaying = false;
+
+            musicButton.textContent = "🔇";
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   YES / NO GIFT
+========================================================= */
+
+const yesButton =
+    document.getElementById("yesButton");
+
+const noButton =
+    document.getElementById("noButton");
+
+const giftButtons =
+    document.getElementById("giftButtons");
+
+const giftSuccess =
+    document.getElementById("giftSuccess");
+
+const giftBack =
+    document.getElementById("giftBack");
+
+let noAttempts = 0;
+
+
+/*
+   YES BUTTON
+*/
+
+yesButton.addEventListener(
+    "click",
+    () => {
+
+        giftButtons.style.display = "none";
+
+        giftBack.style.display = "none";
+
+        giftSuccess.classList.add("show");
+
+        createGiftParticles();
+
+    }
+);
+
+
+/*
+   NO BUTTON
+*/
+
+noButton.addEventListener(
+    "click",
+    () => {
+
+        noAttempts++;
+
+
+        /*
+           First few attempts:
+           Move the button somewhere else.
+        */
+
+        if(noAttempts < 4){
+
+            const maxX =
+                Math.min(
+                    130,
+                    window.innerWidth * .28
+                );
+
+            const maxY = 70;
+
+            const x =
+                (Math.random() * 2 - 1)
+                * maxX;
+
+            const y =
+                (Math.random() * 2 - 1)
+                * maxY;
+
+
+            noButton.style.transform =
+                `translate(${x}px,${y}px)`;
+
+
+            /*
+               Change the text to make it playful.
+            */
+
+            const messages = [
+
+                "Are you sure? 😭",
+
+                "Really? 👀",
+
+                "Nice try 😂",
+
+                "You can't escape 😌"
+
+            ];
+
+            noButton.textContent =
+                messages[noAttempts - 1];
+
+        }
+
+
+        /*
+           After the fourth attempt,
+           the No button disappears.
+        */
+
+        else{
+
+            noButton.style.opacity = "0";
+
+            noButton.style.transform =
+                "scale(.2)";
+
+            setTimeout(
+                () => {
+
+                    noButton.style.display =
+                        "none";
+
+                },
+                300
+            );
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   GIFT PARTICLES
+========================================================= */
+
+function createGiftParticles(){
+
+    for(let i=0;i<80;i++){
+
+        setTimeout(
+            () => {
+
+                createParticle(
+
+                    window.innerWidth / 2,
+
+                    window.innerHeight / 2,
+
+                    Math.random() > .4
+                        ? "heart"
+                        : "sparkle"
+
+                );
+
+            },
+            i * 10
+        );
 
     }
 
-});
+}
 
 
 /* =========================================================
    CANDLE
 ========================================================= */
 
-const candle = document.getElementById("candle");
-const flame = document.getElementById("flame");
-const wishMessage = document.getElementById("wishMessage");
-const candleHint = document.getElementById("candleHint");
-const page7Back = document.getElementById("page7Back");
+const candle =
+    document.getElementById("candle");
+
+const flame =
+    document.getElementById("flame");
+
+const wishMessage =
+    document.getElementById("wishMessage");
+
+const candleHint =
+    document.getElementById("candleHint");
+
+const page7Back =
+    document.getElementById("page7Back");
 
 let candleUsed = false;
 
-candle.addEventListener("click",()=>{
 
-    if(candleUsed) return;
+candle.addEventListener(
+    "click",
+    () => {
 
-    candleUsed = true;
+        if(candleUsed)
+            return;
 
-    flame.classList.add("off");
+        candleUsed = true;
 
-    candleHint.style.opacity = "0";
 
-    setTimeout(()=>{
+        flame.classList.add("off");
 
-        candleHint.style.display = "none";
 
-        wishMessage.classList.add("show");
+        candleHint.style.opacity = "0";
 
-        page7Back.style.display = "none";
 
-        createWishParticles();
+        setTimeout(
+            () => {
 
-    },700);
+                candleHint.style.display =
+                    "none";
 
-});
+                wishMessage.classList.add(
+                    "show"
+                );
+
+                page7Back.style.display =
+                    "none";
+
+                createWishParticles();
+
+            },
+            700
+        );
+
+    }
+);
 
 
 /* =========================================================
    FINAL SURPRISE
 ========================================================= */
 
-const revealFinal = document.getElementById("revealFinal");
-const finalMessage = document.getElementById("finalMessage");
-const finalButtonArea = document.getElementById("finalButtonArea");
+const revealFinal =
+    document.getElementById("revealFinal");
 
-revealFinal.addEventListener("click",()=>{
+const finalMessage =
+    document.getElementById("finalMessage");
 
-    revealFinal.style.transform = "scale(.8)";
-    revealFinal.style.opacity = "0";
+const finalButtonArea =
+    document.getElementById(
+        "finalButtonArea"
+    );
 
-    setTimeout(()=>{
 
-        finalButtonArea.style.display = "none";
+revealFinal.addEventListener(
+    "click",
+    () => {
 
-        finalMessage.classList.add("show");
+        revealFinal.style.transform =
+            "scale(.8)";
 
-        createFinalStars();
+        revealFinal.style.opacity =
+            "0";
 
-    },500);
 
-});
+        setTimeout(
+            () => {
+
+                finalButtonArea.style.display =
+                    "none";
+
+                finalMessage.classList.add(
+                    "show"
+                );
+
+                createFinalStars();
+
+            },
+            500
+        );
+
+    }
+);
 
 
 /* =========================================================
    MAGIC PARTICLES
 ========================================================= */
 
-const canvas = document.getElementById("magicCanvas");
-const ctx = canvas.getContext("2d");
+const canvas =
+    document.getElementById("magicCanvas");
+
+const ctx =
+    canvas.getContext("2d");
 
 let width;
 let height;
 
+
 function resizeCanvas(){
 
-    width = canvas.width = window.innerWidth;
-    height = canvas.height = window.innerHeight;
+    width =
+        canvas.width =
+        window.innerWidth;
+
+    height =
+        canvas.height =
+        window.innerHeight;
 
 }
 
+
 resizeCanvas();
 
-window.addEventListener("resize",resizeCanvas);
+
+window.addEventListener(
+    "resize",
+    resizeCanvas
+);
 
 
 const particles = [];
 
-function createParticle(x,y,type="sparkle"){
+
+function createParticle(
+    x,
+    y,
+    type="sparkle"
+){
 
     particles.push({
 
         x:x,
+
         y:y,
 
-        vx:(Math.random()-.5)*1.2,
-        vy:(Math.random()-.5)*1.2,
+        vx:
+            (Math.random()-.5)
+            *1.2,
 
-        size:Math.random()*3+1,
+        vy:
+            (Math.random()-.5)
+            *1.2,
+
+        size:
+            Math.random()*3+1,
 
         life:1,
 
-        decay:Math.random()*.015+.008,
+        decay:
+            Math.random()*.015+.008,
 
         type:type
 
@@ -1644,82 +2832,124 @@ function createParticle(x,y,type="sparkle"){
 }
 
 
-function burst(x,y,count=25){
+/* =========================================================
+   MOUSE PARTICLES
+========================================================= */
 
-    for(let i=0;i<count;i++){
+window.addEventListener(
+    "mousemove",
+    (e) => {
 
-        createParticle(
-            x+(Math.random()-.5)*20,
-            y+(Math.random()-.5)*20,
-            Math.random()>.5 ? "sparkle":"heart"
-        );
+        if(Math.random()<.28){
 
-    }
+            createParticle(
 
-}
+                e.clientX,
 
+                e.clientY,
 
-/* Mouse */
+                Math.random()>.55
+                    ? "sparkle"
+                    : "petal"
 
-window.addEventListener("mousemove",(e)=>{
+            );
 
-    if(Math.random()<.28){
-
-        createParticle(
-            e.clientX,
-            e.clientY,
-            Math.random()>.55 ? "sparkle":"petal"
-        );
+        }
 
     }
+);
 
-});
 
+/* =========================================================
+   TOUCH PARTICLES
+========================================================= */
 
-/* Touch */
+window.addEventListener(
+    "touchmove",
+    (e) => {
 
-window.addEventListener("touchmove",(e)=>{
+        const touch =
+            e.touches[0];
 
-    const touch=e.touches[0];
+        if(
+            touch &&
+            Math.random()<.35
+        ){
 
-    if(touch && Math.random()<.35){
+            createParticle(
 
-        createParticle(
-            touch.clientX,
-            touch.clientY,
-            "sparkle"
-        );
+                touch.clientX,
 
+                touch.clientY,
+
+                "sparkle"
+
+            );
+
+        }
+
+    },
+    {
+        passive:true
     }
+);
 
-},{passive:true});
 
+/* =========================================================
+   DRAW HEART
+========================================================= */
 
-function drawHeart(x,y,size){
+function drawHeart(
+    x,
+    y,
+    size
+){
 
     ctx.save();
 
-    ctx.translate(x,y);
+    ctx.translate(
+        x,
+        y
+    );
 
-    ctx.scale(size/10,size/10);
+    ctx.scale(
+        size/10,
+        size/10
+    );
+
 
     ctx.beginPath();
 
-    ctx.moveTo(0,3);
 
-    ctx.bezierCurveTo(
-        -7,-4,
-        -10,4,
-        0,10
+    ctx.moveTo(
+        0,
+        3
     );
 
+
     ctx.bezierCurveTo(
-        10,4,
-        7,-4,
-        0,3
+        -7,
+        -4,
+        -10,
+        4,
+        0,
+        10
     );
 
-    ctx.fillStyle="rgba(241,178,225,.65)";
+
+    ctx.bezierCurveTo(
+        10,
+        4,
+        7,
+        -4,
+        0,
+        3
+    );
+
+
+    ctx.fillStyle =
+        "rgba(241,178,225,.65)";
+
 
     ctx.fill();
 
@@ -1728,51 +2958,90 @@ function drawHeart(x,y,size){
 }
 
 
+/* =========================================================
+   PARTICLE ANIMATION
+========================================================= */
+
 function animateParticles(){
 
-    ctx.clearRect(0,0,width,height);
+    ctx.clearRect(
+        0,
+        0,
+        width,
+        height
+    );
 
-    for(let i=particles.length-1;i>=0;i--){
 
-        const p=particles[i];
+    for(
+        let i=particles.length-1;
+        i>=0;
+        i--
+    ){
 
-        p.x+=p.vx;
-        p.y+=p.vy;
+        const p =
+            particles[i];
 
-        p.vy+=.005;
 
-        p.life-=p.decay;
+        p.x += p.vx;
+
+        p.y += p.vy;
+
+        p.vy += .005;
+
+        p.life -= p.decay;
+
 
         if(p.life<=0){
 
-            particles.splice(i,1);
+            particles.splice(
+                i,
+                1
+            );
 
             continue;
 
         }
 
+
         if(p.type==="heart"){
 
             drawHeart(
+
                 p.x,
+
                 p.y,
+
                 p.size*3
+
             );
 
         }else{
 
             ctx.beginPath();
 
+
             ctx.arc(
+
                 p.x,
+
                 p.y,
+
                 p.size,
+
                 0,
                 Math.PI*2
+
             );
 
-            ctx.fillStyle=
-                `rgba(226,190,255,${p.life*.75})`;
+
+            ctx.fillStyle =
+                `rgba(
+                    226,
+                    190,
+                    255,
+                    ${p.life*.75}
+                )`;
+
 
             ctx.fill();
 
@@ -1780,9 +3049,13 @@ function animateParticles(){
 
     }
 
-    requestAnimationFrame(animateParticles);
+
+    requestAnimationFrame(
+        animateParticles
+    );
 
 }
+
 
 animateParticles();
 
@@ -1793,17 +3066,30 @@ animateParticles();
 
 function createWishParticles(){
 
-    for(let i=0;i<100;i++){
+    for(
+        let i=0;
+        i<100;
+        i++
+    ){
 
-        setTimeout(()=>{
+        setTimeout(
+            () => {
 
-            createParticle(
-                window.innerWidth/2,
-                window.innerHeight*.55,
-                Math.random()>.4 ? "sparkle":"heart"
-            );
+                createParticle(
 
-        },i*12);
+                    window.innerWidth/2,
+
+                    window.innerHeight*.55,
+
+                    Math.random()>.4
+                        ? "sparkle"
+                        : "heart"
+
+                );
+
+            },
+            i*12
+        );
 
     }
 
@@ -1816,104 +3102,43 @@ function createWishParticles(){
 
 function createFinalStars(){
 
-    for(let i=0;i<120;i++){
+    for(
+        let i=0;
+        i<120;
+        i++
+    ){
 
-        const x=window.innerWidth/2;
-        const y=window.innerHeight/2;
+        const x =
+            window.innerWidth/2;
 
-        setTimeout(()=>{
-
-            createParticle(
-                x+(Math.random()-.5)*100,
-                y+(Math.random()-.5)*80,
-                "sparkle"
-            );
-
-        },i*8);
-
-    }
-
-}
+        const y =
+            window.innerHeight/2;
 
 
-/* =========================================================
-   PLAYFUL NO BUTTON
-   You can use this later if you want a Yes/No page.
-========================================================= */
+        setTimeout(
+            () => {
 
-let noClicks=0;
+                createParticle(
 
-function moveNoButton(button){
+                    x+
+                    (Math.random()-.5)
+                    *100,
 
-    noClicks++;
+                    y+
+                    (Math.random()-.5)
+                    *80,
 
-    if(noClicks>=4){
+                    "sparkle"
 
-        button.style.display="none";
+                );
 
-        return;
+            },
+            i*8
+        );
 
     }
 
-    const x=(Math.random()-.5)*220;
-    const y=(Math.random()-.5)*120;
-
-    button.style.transform=
-        `translate(${x}px,${y}px)`;
-
 }
-
-
-/* =========================================================
-   COUNTDOWN
-   Birthday: November 12, 2026
-========================================================= */
-
-const birthdayDate =
-    new Date("2026-11-12T00:00:00").getTime();
-
-
-function updateCountdown(){
-
-    const now=new Date().getTime();
-
-    const distance=birthdayDate-now;
-
-    if(distance<=0) return;
-
-    const days=Math.floor(
-        distance/(1000*60*60*24)
-    );
-
-    const hours=Math.floor(
-        (distance%(1000*60*60*24))/
-        (1000*60*60)
-    );
-
-    const minutes=Math.floor(
-        (distance%(1000*60*60))/
-        (1000*60)
-    );
-
-    const seconds=Math.floor(
-        (distance%(1000*60))/1000
-    );
-
-    const d=document.getElementById("days");
-    const h=document.getElementById("hours");
-    const m=document.getElementById("minutes");
-    const s=document.getElementById("seconds");
-
-    if(d) d.textContent=days;
-    if(h) h.textContent=hours;
-    if(m) m.textContent=minutes;
-    if(s) s.textContent=seconds;
-
-}
-
-setInterval(updateCountdown,1000);
-
-updateCountdown();
 
 </script>
 
