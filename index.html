@@ -9,7 +9,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Dancing+Script:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Dancing+Script:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap"
+    rel="stylesheet"
+>
 
 <style>
 
@@ -28,29 +31,36 @@ html{
 }
 
 body{
-    min-height:100vh;
-    overflow-x:hidden;
 
-    font-family:"Poppins",sans-serif;
-    color:#fff;
+    min-height:100vh;
 
     background:
         radial-gradient(
             circle at 20% 20%,
-            rgba(179,124,255,.16),
-            transparent 28%
+            rgba(150,90,200,.18),
+            transparent 35%
         ),
+
         radial-gradient(
-            circle at 80% 70%,
-            rgba(255,130,190,.13),
-            transparent 30%
+            circle at 80% 80%,
+            rgba(255,120,190,.12),
+            transparent 35%
         ),
+
         linear-gradient(
             135deg,
-            #10091d,
-            #21102f,
-            #130b20
+            #0b0612,
+            #160b22,
+            #0d0717
         );
+
+    color:#f8efff;
+
+    font-family:
+        "Poppins",
+        sans-serif;
+
+    overflow-x:hidden;
 }
 
 
@@ -59,14 +69,17 @@ body{
 ========================================================= */
 
 #magicCanvas{
+
     position:fixed;
+
     inset:0;
 
     width:100%;
     height:100%;
 
     pointer-events:none;
-    z-index:2;
+
+    z-index:0;
 }
 
 
@@ -75,58 +88,64 @@ body{
 ========================================================= */
 
 .floating{
+
     position:fixed;
+
     pointer-events:none;
-    z-index:1;
 
-    opacity:.14;
+    opacity:.12;
 
-    animation:floatAround linear infinite;
+    z-index:0;
+
+    animation:
+        floatEmoji
+        linear
+        infinite;
 }
 
 .f1{
     left:8%;
-    top:18%;
-    font-size:28px;
+    top:15%;
+    font-size:25px;
     animation-duration:13s;
 }
 
 .f2{
-    right:9%;
-    top:28%;
-    font-size:22px;
+    left:85%;
+    top:20%;
+    font-size:20px;
     animation-duration:17s;
 }
 
 .f3{
-    left:14%;
-    bottom:17%;
-    font-size:25px;
+    left:15%;
+    top:75%;
+    font-size:23px;
     animation-duration:15s;
 }
 
 .f4{
-    right:15%;
-    bottom:20%;
-    font-size:30px;
-    animation-duration:19s;
+    left:80%;
+    top:70%;
+    font-size:26px;
+    animation-duration:18s;
 }
 
 .f5{
-    left:48%;
-    top:8%;
+    left:50%;
+    top:10%;
     font-size:18px;
     animation-duration:12s;
 }
 
 .f6{
-    right:38%;
-    bottom:7%;
-    font-size:20px;
+    left:55%;
+    top:85%;
+    font-size:24px;
     animation-duration:16s;
 }
 
-@keyframes floatAround{
+@keyframes floatEmoji{
 
     0%,100%{
         transform:
@@ -137,8 +156,9 @@ body{
     50%{
         transform:
             translateY(-25px)
-            rotate(12deg);
+            rotate(10deg);
     }
+
 }
 
 
@@ -147,10 +167,8 @@ body{
 ========================================================= */
 
 .page{
-    min-height:100vh;
-    width:100%;
 
-    padding:40px 20px;
+    min-height:100vh;
 
     display:none;
 
@@ -159,134 +177,206 @@ body{
 
     position:relative;
 
-    z-index:5;
+    z-index:2;
+
+    padding:40px 20px;
 }
 
 .page:target{
     display:flex;
 }
 
-body:not(:has(.page:target)) #page1{
+body:not(:has(.page:target))
+#page1{
     display:flex;
-}
-
-.content{
-    width:min(900px,100%);
-    text-align:center;
-    padding:45px 25px;
 }
 
 
 /* =========================================================
-   GLASS
+   CONTENT
 ========================================================= */
+
+.content{
+
+    width:min(
+        900px,
+        100%
+    );
+
+    text-align:center;
+}
 
 .glass{
 
     background:
-        rgba(255,255,255,.07);
+        rgba(255,255,255,.055);
 
     border:
-        1px solid rgba(255,255,255,.13);
+        1px solid
+        rgba(255,255,255,.11);
 
     box-shadow:
-        0 25px 70px rgba(0,0,0,.35),
-        inset 0 1px 0 rgba(255,255,255,.08);
+        0 25px 80px
+        rgba(0,0,0,.3);
 
-    backdrop-filter:blur(18px);
-    -webkit-backdrop-filter:blur(18px);
+    backdrop-filter:
+        blur(18px);
 
-    border-radius:32px;
+    -webkit-backdrop-filter:
+        blur(18px);
 
-    padding:45px 28px;
+    border-radius:35px;
+
+    padding:
+        55px 45px;
 }
 
 
 /* =========================================================
-   TEXT
+   TYPOGRAPHY
 ========================================================= */
 
 .small-title{
 
-    font-size:13px;
-    letter-spacing:4px;
+    font-size:11px;
+
     text-transform:uppercase;
-    opacity:.65;
+
+    letter-spacing:5px;
+
+    opacity:.5;
 
     margin-bottom:15px;
 }
 
 h1{
 
-    font-family:"Dancing Script",cursive;
+    font-family:
+        "Dancing Script",
+        cursive;
 
     font-size:
-        clamp(58px,12vw,105px);
+        clamp(
+            75px,
+            14vw,
+            140px
+        );
+
+    font-weight:600;
 
     line-height:1;
 
-    font-weight:700;
-
     background:
         linear-gradient(
-            120deg,
+            135deg,
             #fff,
-            #e7c9ff,
-            #ffcae7
+            #dfb7ff,
+            #ffcaec
         );
 
     -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
+    background-clip:text;
 
-    text-shadow:
-        0 0 35px
-        rgba(210,160,255,.18);
+    color:transparent;
+
+    margin-bottom:15px;
 }
 
 h2{
 
-    font-family:"Dancing Script",cursive;
+    font-family:
+        "Dancing Script",
+        cursive;
 
     font-size:
-        clamp(45px,8vw,72px);
+        clamp(
+            48px,
+            8vw,
+            78px
+        );
+
+    font-weight:600;
+
+    color:#f8eaff;
 
     margin-bottom:20px;
 }
 
 p{
 
-    font-family:"Cormorant Garamond",serif;
+    font-size:17px;
 
-    font-size:23px;
-
-    line-height:1.65;
+    line-height:1.8;
 
     color:
-        rgba(255,255,255,.88);
+        rgba(
+            248,
+            239,
+            255,
+            .8
+        );
 }
 
 .subtitle{
+
     max-width:650px;
-    margin:22px auto;
+
+    margin:
+        25px auto;
+
+    font-size:18px;
+
+    line-height:1.9;
 }
 
 .highlight{
-    color:#f2cfff;
+
+    color:#e6b7ff;
+
+    font-weight:500;
+}
+
+.name-line{
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:22px;
+
+    opacity:.65;
+
+    letter-spacing:2px;
 }
 
 .quote{
 
-    margin:30px auto;
+    max-width:600px;
 
-    max-width:650px;
+    margin:
+        30px auto;
 
-    font-family:"Dancing Script",cursive;
+    padding:
+        20px 25px;
 
-    font-size:31px;
+    border-left:
+        2px solid
+        rgba(
+            211,
+            157,
+            255,
+            .5
+        );
 
-    line-height:1.45;
+    font-family:
+        "Dancing Script",
+        cursive;
 
-    color:#f3dcff;
+    font-size:27px;
+
+    line-height:1.4;
+
+    color:#e8caff;
 }
 
 
@@ -302,11 +392,11 @@ p{
 
     align-items:center;
 
-    flex-wrap:wrap;
-
     gap:15px;
 
-    margin-top:30px;
+    flex-wrap:wrap;
+
+    margin-top:35px;
 }
 
 .button{
@@ -314,19 +404,23 @@ p{
     display:inline-flex;
 
     align-items:center;
+
     justify-content:center;
 
-    min-width:150px;
+    min-width:170px;
 
-    padding:15px 26px;
+    padding:
+        14px 25px;
 
-    border-radius:999px;
+    border-radius:50px;
 
     text-decoration:none;
 
-    color:white;
+    color:#fff;
 
-    font-family:"Poppins",sans-serif;
+    font-family:
+        "Poppins",
+        sans-serif;
 
     font-size:14px;
 
@@ -334,145 +428,166 @@ p{
 
     border:
         1px solid
-        rgba(255,255,255,.18);
+        rgba(
+            255,
+            255,
+            255,
+            .15
+        );
 
     background:
         linear-gradient(
             135deg,
-            rgba(203,157,255,.27),
-            rgba(255,157,204,.20)
+            rgba(172,110,235,.35),
+            rgba(255,130,205,.18)
         );
 
     box-shadow:
         0 10px 30px
-        rgba(0,0,0,.2);
-
-    transition:.35s ease;
+        rgba(
+            140,
+            70,
+            190,
+            .2
+        );
 
     cursor:pointer;
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease,
+        background .3s ease;
 }
 
 .button:hover{
 
     transform:
-        translateY(-4px)
-        scale(1.03);
+        translateY(-4px);
+
+    box-shadow:
+        0 15px 40px
+        rgba(
+            170,
+            100,
+            230,
+            .35
+        );
 
     background:
         linear-gradient(
             135deg,
-            rgba(203,157,255,.42),
-            rgba(255,157,204,.32)
+            rgba(185,125,245,.45),
+            rgba(255,145,215,.25)
         );
-
-    box-shadow:
-        0 15px 40px
-        rgba(195,120,255,.18);
 }
 
-.back{
-    opacity:.65;
+.button.back{
 
     background:
-        rgba(255,255,255,.05);
+        rgba(
+            255,
+            255,
+            255,
+            .05
+        );
 }
 
 
 /* =========================================================
-   PAGE 1
+   HEART
 ========================================================= */
 
 .heart-big{
 
-    font-size:52px;
-
-    animation:
-        heartbeat 2s
-        ease-in-out infinite;
+    font-size:65px;
 
     margin-bottom:10px;
+
+    animation:
+        heartPulse
+        2.5s
+        ease-in-out
+        infinite;
 }
 
-@keyframes heartbeat{
+@keyframes heartPulse{
 
     0%,100%{
         transform:scale(1);
     }
 
     50%{
-        transform:scale(1.12);
+        transform:scale(1.1);
     }
-}
 
-.name-line{
-
-    font-family:"Cormorant Garamond",serif;
-
-    font-size:24px;
-
-    letter-spacing:2px;
-
-    margin-top:15px;
-
-    opacity:.8;
 }
 
 
 /* =========================================================
-   CHILDHOOD PHOTO SECTION
+   CHILDHOOD SECTION
 ========================================================= */
 
 .childhood-intro{
 
-    max-width:680px;
+    max-width:700px;
 
     margin:
-        0 auto
-        28px;
+        0 auto;
 }
 
 .childhood-subtitle{
 
-    font-family:"Cormorant Garamond",serif;
+    font-family:
+        "Cormorant Garamond",
+        serif;
 
     font-size:24px;
 
     line-height:1.55;
 
     color:
-        rgba(255,255,255,.86);
+        rgba(
+            248,
+            239,
+            255,
+            .78
+        );
 }
 
 .childhood-quote{
 
-    font-family:"Dancing Script",cursive;
+    font-family:
+        "Dancing Script",
+        cursive;
 
-    font-size:34px;
+    font-size:36px;
 
-    line-height:1.4;
+    color:#e6c5ff;
 
-    color:#efd5ff;
-
-    max-width:650px;
-
-    margin:28px auto 10px;
+    margin-top:25px;
 }
 
 
-/* PHOTO GRID */
+/* =========================================================
+   MEMORY GRID
+========================================================= */
 
 .memory-grid{
 
     display:grid;
 
     grid-template-columns:
-        repeat(3,1fr);
+        repeat(3,minmax(0,1fr));
 
-    gap:20px;
+    gap:16px;
 
     margin-top:35px;
 }
 
+
+/* =========================================================
+   MEMORY CARDS
+========================================================= */
 
 .memory{
 
@@ -481,15 +596,30 @@ p{
     border-radius:22px;
 
     background:
-        rgba(255,255,255,.07);
+        rgba(
+            255,
+            255,
+            255,
+            .07
+        );
 
     border:
         1px solid
-        rgba(255,255,255,.12);
+        rgba(
+            255,
+            255,
+            255,
+            .12
+        );
 
     box-shadow:
         0 15px 35px
-        rgba(0,0,0,.18);
+        rgba(
+            0,
+            0,
+            0,
+            .18
+        );
 
     transition:
         transform .4s ease,
@@ -500,15 +630,21 @@ p{
 /* Different slight rotations */
 
 .memory:nth-child(1){
-    transform:rotate(-2deg);
+
+    transform:
+        rotate(-2deg);
 }
 
 .memory:nth-child(2){
-    transform:rotate(1.5deg);
+
+    transform:
+        rotate(1.5deg);
 }
 
 .memory:nth-child(3){
-    transform:rotate(-1deg);
+
+    transform:
+        rotate(-1deg);
 }
 
 
@@ -521,9 +657,18 @@ p{
 
     box-shadow:
         0 20px 50px
-        rgba(180,120,255,.18);
+        rgba(
+            180,
+            120,
+            255,
+            .18
+        );
 }
 
+
+/* =========================================================
+   PHOTO CLICK EFFECT
+========================================================= */
 
 .memory img{
 
@@ -536,8 +681,175 @@ p{
     border-radius:15px;
 
     display:block;
+
+    cursor:pointer;
+
+    transition:
+        transform .35s ease,
+        filter .35s ease;
 }
 
+.memory img:hover{
+
+    transform:
+        scale(1.025);
+
+    filter:
+        brightness(1.06);
+}
+
+
+/* =========================================================
+   ENLARGED CHILDHOOD PHOTO
+========================================================= */
+
+.photo-modal{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:1000;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:24px;
+
+    background:
+        rgba(
+            8,
+            4,
+            18,
+            .88
+        );
+
+    backdrop-filter:
+        blur(10px);
+
+    -webkit-backdrop-filter:
+        blur(10px);
+
+    opacity:0;
+
+    visibility:hidden;
+
+    pointer-events:none;
+
+    transition:
+        opacity .3s ease,
+        visibility .3s ease;
+}
+
+.photo-modal.show{
+
+    opacity:1;
+
+    visibility:visible;
+
+    pointer-events:auto;
+}
+
+.photo-modal img{
+
+    max-width:
+        min(
+            92vw,
+            700px
+        );
+
+    max-height:86vh;
+
+    width:auto;
+
+    height:auto;
+
+    object-fit:contain;
+
+    border-radius:22px;
+
+    border:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            .18
+        );
+
+    box-shadow:
+        0 25px 80px
+        rgba(
+            0,
+            0,
+            0,
+            .55
+        );
+
+    transform:
+        scale(.88);
+
+    transition:
+        transform .35s ease;
+}
+
+.photo-modal.show img{
+
+    transform:
+        scale(1);
+}
+
+.photo-modal-close{
+
+    position:absolute;
+
+    top:20px;
+
+    right:20px;
+
+    width:44px;
+
+    height:44px;
+
+    border:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            .18
+        );
+
+    border-radius:50%;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            .09
+        );
+
+    color:#fff;
+
+    font-size:25px;
+
+    cursor:pointer;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+}
+
+
+/* =========================================================
+   MEMORY CAPTIONS
+========================================================= */
 
 .memory-caption{
 
@@ -546,7 +858,6 @@ p{
         5px
         6px;
 }
-
 
 .memory-caption .memory-number{
 
@@ -561,10 +872,11 @@ p{
     margin-bottom:5px;
 }
 
-
 .memory-caption p{
 
-    font-family:"Dancing Script",cursive;
+    font-family:
+        "Dancing Script",
+        cursive;
 
     font-size:25px;
 
@@ -572,7 +884,6 @@ p{
 
     color:#f0dcff;
 }
-
 
 .childhood-ending{
 
@@ -598,19 +909,23 @@ p{
     margin-bottom:15px;
 
     animation:
-        giftFloat 2.5s
-        ease-in-out infinite;
+        giftFloat
+        2.5s
+        ease-in-out
+        infinite;
 }
 
 @keyframes giftFloat{
 
     0%,100%{
+
         transform:
             translateY(0)
             rotate(-3deg);
     }
 
     50%{
+
         transform:
             translateY(-10px)
             rotate(3deg);
@@ -619,10 +934,16 @@ p{
 
 .gift-question{
 
-    font-family:"Dancing Script",cursive;
+    font-family:
+        "Dancing Script",
+        cursive;
 
     font-size:
-        clamp(38px,7vw,62px);
+        clamp(
+            38px,
+            7vw,
+            62px
+        );
 
     line-height:1.2;
 
@@ -639,75 +960,60 @@ p{
 
     margin:auto;
 
-    font-size:21px;
+    opacity:.65;
+
+    font-size:16px;
 }
 
 .gift-buttons{
 
     position:relative;
 
-    min-height:90px;
-
     display:flex;
-
-    justify-content:center;
 
     align-items:center;
 
+    justify-content:center;
+
     gap:18px;
 
+    flex-wrap:wrap;
+
+    min-height:100px;
+
     margin-top:30px;
-}
-
-.yes-button{
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(191,125,255,.55),
-            rgba(255,130,195,.42)
-        );
-
-    box-shadow:
-        0 10px 35px
-        rgba(206,132,255,.25);
-}
-
-.no-button{
-
-    position:relative;
-
-    min-width:120px;
-
-    transition:
-        transform .25s ease,
-        opacity .25s ease;
 }
 
 .gift-success{
 
     display:none;
 
+    margin-top:25px;
+
     animation:
-        successIn 1s
+        successIn
+        .7s
         ease forwards;
 }
 
 .gift-success.show{
+
     display:block;
 }
 
 @keyframes successIn{
 
     from{
+
         opacity:0;
 
         transform:
-            translateY(20px)
-            scale(.95);
+            translateY(15px)
+            scale(.96);
     }
 
     to{
+
         opacity:1;
 
         transform:
@@ -716,124 +1022,74 @@ p{
     }
 }
 
-.success-heart{
+.gift-success-text{
 
-    font-size:55px;
+    font-family:
+        "Dancing Script",
+        cursive;
 
-    margin-bottom:10px;
-
-    animation:
-        heartbeat 1.5s infinite;
-}
-
-.success-text{
-
-    font-family:"Dancing Script",cursive;
-
-    font-size:38px;
-
-    color:#efd2ff;
-
-    margin-bottom:10px;
-}
-
-
-/* =========================================================
-   LITTLE THINGS
-========================================================= */
-
-.little-things{
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(2,1fr);
-
-    gap:16px;
-
-    margin-top:30px;
-}
-
-.little{
-
-    padding:25px;
-
-    text-align:left;
-
-    border-radius:22px;
-
-    background:
-        rgba(255,255,255,.055);
-
-    border:
-        1px solid
-        rgba(255,255,255,.10);
-
-    transition:.3s ease;
-}
-
-.little:hover{
-
-    transform:
-        translateY(-5px);
-
-    background:
-        rgba(255,255,255,.09);
-}
-
-.number{
-
-    font-size:12px;
-
-    letter-spacing:3px;
-
-    opacity:.45;
-
-    margin-bottom:8px;
-}
-
-.little p{
-    font-size:20px;
-}
-
-
-/* =========================================================
-   SONG
-========================================================= */
-
-.song-card{
-
-    padding:35px 25px;
-
-    border-radius:30px;
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(166,110,255,.12),
-            rgba(255,142,202,.10)
+    font-size:
+        clamp(
+            35px,
+            6vw,
+            55px
         );
 
-    border:
-        1px solid
-        rgba(255,255,255,.12);
+    color:#eacaff;
 }
 
-.music-note{
+.gift-back{
 
-    font-size:50px;
+    margin-top:25px;
+}
+
+
+/* =========================================================
+   SONG PAGE
+========================================================= */
+
+.song-icon{
+
+    font-size:70px;
 
     margin-bottom:15px;
 
     animation:
-        pulse 2s infinite;
+        musicFloat
+        2.5s
+        ease-in-out
+        infinite;
 }
 
-@keyframes pulse{
+@keyframes musicFloat{
+
+    0%,100%{
+
+        transform:
+            translateY(0)
+            rotate(-4deg);
+    }
 
     50%{
-        transform:scale(1.08);
+
+        transform:
+            translateY(-8px)
+            rotate(4deg);
     }
+}
+
+.song-note{
+
+    font-family:
+        "Dancing Script",
+        cursive;
+
+    font-size:30px;
+
+    color:#e4c1ff;
+
+    margin:
+        25px auto;
 }
 
 
@@ -843,48 +1099,67 @@ p{
 
 .letter{
 
-    text-align:left;
-
     max-width:700px;
 
-    margin:
-        30px auto 0;
+    margin:auto;
 
-    padding:35px;
-
-    border-radius:22px;
-
-    background:
-        rgba(255,248,255,.055);
+    padding:
+        35px;
 
     border:
         1px solid
-        rgba(255,255,255,.10);
-
-    position:relative;
-}
-
-.letter::before{
-
-    content:"";
-
-    position:absolute;
-
-    left:20px;
-    top:20px;
-    bottom:20px;
-
-    width:1px;
+        rgba(
+            255,
+            255,
+            255,
+            .08
+        );
 
     background:
-        rgba(232,192,255,.22);
+        rgba(
+            255,
+            255,
+            255,
+            .035
+        );
+
+    border-radius:25px;
+
+    text-align:left;
 }
 
 .letter p{
 
-    padding-left:20px;
+    font-family:
+        "Cormorant Garamond",
+        serif;
 
-    margin-bottom:18px;
+    font-size:23px;
+
+    line-height:1.65;
+
+    color:
+        rgba(
+            250,
+            241,
+            255,
+            .8
+        );
+
+    margin-bottom:20px;
+}
+
+.letter-sign{
+
+    text-align:right;
+
+    font-family:
+        "Dancing Script",
+        cursive;
+
+    font-size:32px;
+
+    color:#dfb6ff;
 }
 
 
@@ -895,7 +1170,8 @@ p{
 .candle-area{
 
     margin:
-        45px auto 20px;
+        45px auto
+        20px;
 
     height:220px;
 
@@ -929,10 +1205,20 @@ p{
 
     box-shadow:
         0 0 35px
-        rgba(213,155,255,.22),
+        rgba(
+            213,
+            155,
+            255,
+            .22
+        ),
 
         inset 0 4px 10px
-        rgba(255,255,255,.2);
+        rgba(
+            255,
+            255,
+            255,
+            .2
+        );
 
     position:relative;
 
@@ -990,27 +1276,30 @@ p{
     box-shadow:
         0 0 15px #fff,
         0 0 35px #d37cff,
-        0 0 70px
-        rgba(206,120,255,.8);
+        0 0 65px #a84cff;
 
     animation:
-        flicker .12s
+        flicker
+        .8s
+        ease-in-out
         infinite alternate;
 }
 
 @keyframes flicker{
 
     from{
+
         transform:
             translateX(-50%)
             scale(1)
-            rotate(-2deg);
+            rotate(-3deg);
     }
 
     to{
+
         transform:
             translateX(-50%)
-            scale(.93)
+            scale(1.08)
             rotate(3deg);
     }
 }
@@ -1023,37 +1312,224 @@ p{
         translateX(-50%)
         scale(.2);
 
-    transition:.5s ease;
+    transition:
+        opacity .5s ease,
+        transform .5s ease;
+}
+
+.candle-hint{
+
+    font-size:14px;
+
+    opacity:.45;
+
+    margin-top:15px;
+
+    transition:
+        opacity .5s ease;
 }
 
 .wish-message{
 
     display:none;
 
-    animation:
-        fadeUp 1.3s
-        ease forwards;
+    font-family:
+        "Dancing Script",
+        cursive;
+
+    font-size:
+        clamp(
+            35px,
+            6vw,
+            55px
+        );
+
+    color:#eacaff;
+
+    margin-top:25px;
 }
 
 .wish-message.show{
+
     display:block;
+
+    animation:
+        successIn
+        .8s
+        ease forwards;
 }
 
-@keyframes fadeUp{
 
-    from{
-        opacity:0;
+/* =========================================================
+   FINAL NIGHT SKY
+========================================================= */
 
-        transform:
-            translateY(25px);
-    }
+.final-page{
 
-    to{
-        opacity:1;
+    background:
+        radial-gradient(
+            circle at 50% 20%,
+            rgba(
+                133,
+                82,
+                180,
+                .18
+            ),
+            transparent 35%
+        );
+}
+
+.moon{
+
+    position:absolute;
+
+    width:85px;
+
+    height:85px;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle at 35% 35%,
+            #fff,
+            #dfc7ff 50%,
+            #aa7bda
+        );
+
+    top:12%;
+
+    right:12%;
+
+    box-shadow:
+        0 0 40px
+        rgba(
+            226,
+            192,
+            255,
+            .4
+        );
+
+    animation:
+        moonFloat
+        5s
+        ease-in-out
+        infinite;
+}
+
+.moon::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:85px;
+
+    height:85px;
+
+    border-radius:50%;
+
+    background:
+        #0d0717;
+
+    left:22px;
+
+    top:-8px;
+}
+
+@keyframes moonFloat{
+
+    0%,100%{
 
         transform:
             translateY(0);
     }
+
+    50%{
+
+        transform:
+            translateY(-12px);
+    }
+}
+
+.final-question{
+
+    font-family:
+        "Dancing Script",
+        cursive;
+
+    font-size:
+        clamp(
+            42px,
+            7vw,
+            70px
+        );
+
+    color:#e6c5ff;
+}
+
+.final-message{
+
+    display:none;
+
+    animation:
+        finalReveal
+        1.2s
+        ease forwards;
+}
+
+.final-message.show{
+
+    display:block;
+}
+
+@keyframes finalReveal{
+
+    from{
+
+        opacity:0;
+
+        transform:
+            scale(.95)
+            translateY(15px);
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+            scale(1)
+            translateY(0);
+    }
+}
+
+.final-message h2{
+
+    font-size:
+        clamp(
+            42px,
+            7vw,
+            70px
+        );
+
+    margin-bottom:20px;
+}
+
+.final-message p{
+
+    font-family:
+        "Dancing Script",
+        cursive;
+
+    font-size:
+        clamp(
+            30px,
+            5vw,
+            46px
+        );
+
+    color:#edcfff;
 }
 
 
@@ -1065,30 +1541,55 @@ p{
 
     position:fixed;
 
-    right:18px;
-    bottom:18px;
+    bottom:20px;
 
-    width:52px;
-    height:52px;
+    right:20px;
+
+    width:48px;
+
+    height:48px;
 
     border-radius:50%;
 
     border:
         1px solid
-        rgba(255,255,255,.18);
+        rgba(
+            255,
+            255,
+            255,
+            .15
+        );
 
     background:
-        rgba(40,20,55,.65);
+        rgba(
+            255,
+            255,
+            255,
+            .08
+        );
 
     color:#fff;
 
-    backdrop-filter:blur(10px);
-
-    z-index:100;
+    font-size:20px;
 
     cursor:pointer;
 
-    font-size:20px;
+    z-index:100;
+
+    backdrop-filter:
+        blur(10px);
+
+    -webkit-backdrop-filter:
+        blur(10px);
+
+    transition:
+        transform .3s ease;
+}
+
+#musicButton:hover{
+
+    transform:
+        scale(1.1);
 }
 
 
@@ -1102,7 +1603,7 @@ p{
 
     inset:0;
 
-    z-index:500;
+    z-index:999;
 
     display:flex;
 
@@ -1110,15 +1611,21 @@ p{
 
     justify-content:center;
 
-    padding:25px;
+    padding:20px;
 
     background:
         radial-gradient(
-            circle at 50% 35%,
-            rgba(175,108,255,.18),
-            transparent 30%
+            circle at 50% 40%,
+            rgba(
+                144,
+                79,
+                190,
+                .2
+            ),
+            transparent 40%
         ),
-        #0c0712;
+
+        #0a0510;
 
     transition:
         opacity 1s ease,
@@ -1134,92 +1641,98 @@ p{
 
 .intro-card{
 
-    width:min(560px,100%);
+    width:min(
+        500px,
+        100%
+    );
+
+    padding:
+        45px 30px;
 
     text-align:center;
 
-    padding:48px 28px;
-
-    border-radius:32px;
-
     background:
-        rgba(255,255,255,.065);
+        rgba(
+            255,
+            255,
+            255,
+            .055
+        );
 
     border:
         1px solid
-        rgba(255,255,255,.13);
+        rgba(
+            255,
+            255,
+            255,
+            .1
+        );
+
+    border-radius:30px;
 
     box-shadow:
-        0 30px 100px
-        rgba(0,0,0,.5);
+        0 30px 90px
+        rgba(
+            0,
+            0,
+            0,
+            .45
+        );
 
-    backdrop-filter:blur(20px);
+    backdrop-filter:
+        blur(20px);
 
-    animation:
-        introIn 1s ease;
-}
-
-@keyframes introIn{
-
-    from{
-        opacity:0;
-
-        transform:
-            translateY(25px)
-            scale(.96);
-    }
-
-    to{
-        opacity:1;
-
-        transform:
-            translateY(0)
-            scale(1);
-    }
+    -webkit-backdrop-filter:
+        blur(20px);
 }
 
 .earphone-icon{
 
     font-size:65px;
 
-    margin-bottom:20px;
+    margin-bottom:15px;
 
     animation:
-        softPulse 2.2s infinite;
+        headphoneFloat
+        2.5s
+        ease-in-out
+        infinite;
 }
 
-@keyframes softPulse{
+@keyframes headphoneFloat{
+
+    0%,100%{
+
+        transform:
+            translateY(0);
+    }
 
     50%{
 
-        transform:scale(1.08);
-
-        filter:
-            drop-shadow(
-                0 0 18px
-                rgba(210,155,255,.5)
-            );
+        transform:
+            translateY(-10px);
     }
 }
 
 .intro-card h2{
 
-    font-size:48px;
-
-    margin-bottom:12px;
+    margin-bottom:15px;
 }
 
 .intro-card p{
 
-    font-size:21px;
+    font-size:16px;
 
-    max-width:450px;
-
-    margin:auto;
+    line-height:1.7;
 }
 
 .ready-button{
-    margin-top:30px;
+
+    margin-top:25px;
+
+    border:none;
+
+    font-size:15px;
 }
 
 .intro-note{
@@ -1228,295 +1741,9 @@ p{
 
     font-size:11px;
 
-    letter-spacing:2px;
+    opacity:.35;
 
-    opacity:.4;
-}
-
-
-/* =========================================================
-   FINAL NIGHT PAGE
-========================================================= */
-
-#page8{
-
-    background:
-        radial-gradient(
-            circle at 50% 40%,
-            rgba(110,70,160,.13),
-            transparent 32%
-        ),
-        linear-gradient(
-            180deg,
-            #05040a,
-            #090611,
-            #040308
-        );
-}
-
-.night-sky{
-
-    position:absolute;
-
-    inset:0;
-
-    pointer-events:none;
-
-    overflow:hidden;
-}
-
-.star{
-
-    position:absolute;
-
-    width:2px;
-    height:2px;
-
-    background:white;
-
-    border-radius:50%;
-
-    opacity:.5;
-
-    animation:
-        twinkle 3s
-        infinite
-        ease-in-out;
-}
-
-.star:nth-child(1){
-    left:12%;
-    top:17%;
-    animation-delay:.2s;
-}
-
-.star:nth-child(2){
-    left:25%;
-    top:28%;
-    animation-delay:1s;
-}
-
-.star:nth-child(3){
-    left:39%;
-    top:13%;
-    animation-delay:1.8s;
-}
-
-.star:nth-child(4){
-    left:57%;
-    top:22%;
-    animation-delay:.5s;
-}
-
-.star:nth-child(5){
-    left:71%;
-    top:12%;
-    animation-delay:1.4s;
-}
-
-.star:nth-child(6){
-    left:84%;
-    top:31%;
-    animation-delay:2s;
-}
-
-.star:nth-child(7){
-    left:18%;
-    top:63%;
-    animation-delay:1.2s;
-}
-
-.star:nth-child(8){
-    left:79%;
-    top:65%;
-    animation-delay:.3s;
-}
-
-.star:nth-child(9){
-    left:48%;
-    top:75%;
-    animation-delay:1.7s;
-}
-
-.star:nth-child(10){
-    left:90%;
-    top:48%;
-    animation-delay:.8s;
-}
-
-@keyframes twinkle{
-
-    0%,100%{
-        opacity:.2;
-        transform:scale(.7);
-    }
-
-    50%{
-        opacity:1;
-        transform:scale(1.6);
-    }
-}
-
-.moon{
-
-    position:absolute;
-
-    top:8%;
-    right:10%;
-
-    width:90px;
-    height:90px;
-
-    border-radius:50%;
-
-    background:#f6edff;
-
-    box-shadow:
-        0 0 30px
-        rgba(240,220,255,.5),
-
-        0 0 80px
-        rgba(205,160,255,.18);
-}
-
-.moon::after{
-
-    content:"";
-
-    position:absolute;
-
-    top:-5px;
-    left:22px;
-
-    width:90px;
-    height:90px;
-
-    border-radius:50%;
-
-    background:#07050c;
-}
-
-.final-content{
-
-    position:relative;
-
-    z-index:3;
-}
-
-.wait-text{
-
-    font-family:
-        "Cormorant Garamond",
-        serif;
-
-    font-size:23px;
-
-    opacity:.7;
-
-    margin-bottom:12px;
-}
-
-.final-title{
-
-    font-family:
-        "Dancing Script",
-        cursive;
-
-    font-size:
-        clamp(48px,10vw,82px);
-
-    color:white;
-
-    margin-bottom:20px;
-}
-
-.final-subtitle{
-
-    font-family:
-        "Cormorant Garamond",
-        serif;
-
-    font-size:27px;
-
-    color:#ead9f4;
-
-    margin-bottom:35px;
-}
-
-.final-hidden{
-
-    display:none;
-
-    animation:
-        finalReveal 2s
-        ease forwards;
-}
-
-.final-hidden.show{
-    display:block;
-}
-
-@keyframes finalReveal{
-
-    from{
-
-        opacity:0;
-
-        transform:
-            translateY(30px);
-
-        filter:blur(8px);
-    }
-
-    to{
-
-        opacity:1;
-
-        transform:
-            translateY(0);
-
-        filter:blur(0);
-    }
-}
-
-.final-message{
-
-    max-width:600px;
-
-    margin:30px auto;
-
-    font-family:
-        "Dancing Script",
-        cursive;
-
-    font-size:38px;
-
-    line-height:1.4;
-
-    color:#f4dfff;
-}
-
-.final-birthday{
-
-    font-family:
-        "Dancing Script",
-        cursive;
-
-    font-size:
-        clamp(45px,9vw,75px);
-
-    margin-top:25px;
-
-    background:
-        linear-gradient(
-            120deg,
-            #fff,
-            #e8bfff,
-            #ffc8e6
-        );
-
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
+    letter-spacing:1px;
 }
 
 
@@ -1527,49 +1754,103 @@ p{
 @media(max-width:700px){
 
     .content{
-        padding:20px 5px;
+
+        padding:
+            20px 5px;
     }
 
     .glass{
-        padding:35px 18px;
+
+        padding:
+            35px 18px;
+
         border-radius:25px;
     }
 
     .memory-grid{
 
-        grid-template-columns:1fr;
+        grid-template-columns:
+            repeat(3,minmax(0,1fr));
 
-        max-width:350px;
+        gap:9px;
+
+        max-width:100%;
 
         margin-left:auto;
+
         margin-right:auto;
     }
 
+    .memory{
+
+        padding:7px;
+
+        border-radius:16px;
+    }
+
+    .memory img{
+
+        border-radius:11px;
+
+        aspect-ratio:4/5;
+    }
+
+    .memory-caption{
+
+        padding:
+            8px 2px 3px;
+    }
+
+    .memory-caption .memory-number{
+
+        font-size:7px;
+
+        letter-spacing:1.5px;
+    }
+
+    .memory-caption p{
+
+        font-size:15px;
+
+        line-height:1.2;
+    }
+
     .little-things{
+
         grid-template-columns:1fr;
     }
 
     p{
+
         font-size:21px;
     }
 
     .letter{
-        padding:25px 18px;
+
+        padding:
+            25px 18px;
     }
 
     .gift-buttons{
+
         min-height:150px;
     }
 
     .moon{
+
         width:65px;
+
         height:65px;
+
         right:8%;
     }
 
     .moon::after{
+
         width:65px;
+
         height:65px;
+
         left:17px;
     }
 
@@ -1583,14 +1864,17 @@ p{
 @media(max-width:400px){
 
     .childhood-quote{
+
         font-size:29px;
     }
 
     .memory-caption p{
+
         font-size:23px;
     }
 
     .gift-question{
+
         font-size:40px;
     }
 
@@ -1955,12 +2239,8 @@ p{
                 I don't know what she was dreaming about
                 back then...
 
-                <br>
-
                 but I'm glad life eventually
-                brought her this far.
-
-                💜
+                brought her this far. 💜
 
             </div>
 
@@ -1979,7 +2259,7 @@ p{
                     href="#page4"
                     class="button">
 
-                    There's a little gift 🎁
+                    There's more 🎁
 
                 </a>
 
@@ -1993,7 +2273,7 @@ p{
 
 
 <!-- =====================================================
-     PAGE 4 — YES / NO
+     PAGE 4 — GIFT
 ===================================================== -->
 
 <section
@@ -2007,32 +2287,22 @@ p{
         </div>
 
         <div class="small-title">
-            A very important question
+            One tiny question...
         </div>
 
+        <h2 class="gift-question">
 
-        <div class="gift-question">
+            Will you collect
+            your birthday gift? 💜
 
-            Mastura,<br>
-
-            will you please collect
-            your birthday gift?
-
-        </div>
-
+        </h2>
 
         <p class="gift-subtext">
 
-            I spent a little time making
-            something for you...
-
-            so there's only one tiny thing
-            left to ask. 😌
+            I promise it's meant to make you smile.
 
         </p>
 
-
-        <!-- YES / NO -->
 
         <div
             id="giftButtons"
@@ -2040,16 +2310,15 @@ p{
 
             <button
                 id="yesButton"
-                class="button yes-button">
+                class="button">
 
                 💜 Yes, I'll collect it
 
             </button>
 
-
             <button
                 id="noButton"
-                class="button no-button">
+                class="button">
 
                 😈 No
 
@@ -2058,52 +2327,42 @@ p{
         </div>
 
 
-        <!-- SUCCESS -->
-
         <div
             id="giftSuccess"
             class="gift-success">
 
-            <div class="success-heart">
-                💜
-            </div>
+            <div class="gift-success-text">
 
-            <div class="success-text">
-
-                I knew you'd say yes. 😌
+                I knew you'd say yes. 😌💜
 
             </div>
 
-            <p>
-                Your gift is waiting for you.
+            <p style="margin-top:15px;">
+
+                Your gift is waiting for you. 🎁
+
             </p>
-
-
-            <div class="button-row">
-
-                <a
-                    href="#page5"
-                    class="button">
-
-                    🎶 There's something
-                    waiting for you
-
-                </a>
-
-            </div>
 
         </div>
 
 
-        <div
+        <a
             id="giftBack"
-            class="button-row">
+            href="#page3"
+            class="button back gift-back">
+
+            ← Back
+
+        </a>
+
+
+        <div class="button-row">
 
             <a
-                href="#page3"
-                class="button back">
+                href="#page5"
+                class="button">
 
-                ← Back
+                Continue 🎵
 
             </a>
 
@@ -2124,43 +2383,36 @@ p{
 
     <div class="content glass">
 
+        <div class="song-icon">
+            🎵
+        </div>
+
         <div class="small-title">
-            Made especially for you
+            I made this one for you
         </div>
 
+        <h2>
+            Listen closely...
+        </h2>
 
-        <div class="song-card">
+        <p class="subtitle">
 
-            <div class="music-note">
-                🎶
-            </div>
+            This isn't just a random song.
 
-            <h2>
-                A song for Mastura
-            </h2>
+            <br><br>
 
-            <p>
-                This isn't just a song
-                I happened to find.
-            </p>
+            I made it thinking about you,
+            and somehow every little part
+            ended up feeling like something
+            I wanted you to hear.
 
-            <p style="margin-top:10px;">
+        </p>
 
-                I made it because I wanted
-                there to be something
-                that belonged to this little moment.
+        <div class="song-note">
 
-            </p>
-
-            <div class="quote">
-
-                “If words weren't enough,
-                maybe a song could say some of it.”
-
-            </div>
+            “So this one is yours.”
 
         </div>
-
 
         <div class="button-row">
 
@@ -2176,7 +2428,7 @@ p{
                 href="#page6"
                 class="button">
 
-                Read this 💌
+                Keep going 💌
 
             </a>
 
@@ -2198,86 +2450,64 @@ p{
     <div class="content glass">
 
         <div class="small-title">
-            Something I wanted to say
+            A few words
         </div>
 
         <h2>
-            A little letter
+            For Mastura 💜
         </h2>
 
 
         <div class="letter">
 
             <p>
-                Hey Mastura,
+
+                I hope you know that you are
+                more special than you probably
+                realize.
+
             </p>
 
             <p>
-                I could have just written
-                “Happy Birthday”
-                and sent it to you.
+
+                I hope this birthday isn't just
+                another date on the calendar.
+
+                I hope you actually stop for a
+                moment and realize how much
+                you've grown, how many little
+                moments brought you here,
+                and how many beautiful moments
+                are still waiting for you.
+
             </p>
 
             <p>
-                But somehow that felt too small.
+
+                And if this little website
+                managed to make you smile even
+                once...
+
+                then honestly,
+                it was worth making.
+
             </p>
 
             <p>
-                So I made this little place instead.
-            </p>
 
-            <p>
-                There are memories here,
-                a song,
-                some things I wanted you to know,
-                and a few surprises.
-            </p>
+                Happy Birthday, Mastura.
 
-            <p>
-                And then I found those childhood
-                pictures of you...
-            </p>
-
-            <p>
-                Looking at them made me think
-                about how much life happened
-                before I ever knew you.
-            </p>
-
-            <p>
-                That little girl in those pictures
-                had no idea where life would take her.
-            </p>
-
-            <p>
-                And somehow,
-                she became the Mastura
-                I'm celebrating today.
-            </p>
-
-            <p>
-                I hope this new year of your life
-                brings you beautiful moments
-                you don't see coming.
-            </p>
-
-            <p>
-                And I hope, whenever you look back
-                at this day, you remember that someone
-                took the time to make something
-                just for you.
-            </p>
-
-            <p
-                style="
-                font-family:'Dancing Script',cursive;
-                font-size:30px;
-                color:#e9c9ff;
-                ">
-
-                Happy Birthday, Mastura. 💜
+                I hope you have a beautiful year.
 
             </p>
+
+
+            <div class="letter-sign">
+
+                — from someone who wanted
+                to make you smile 💜
+
+            </div>
 
         </div>
 
@@ -2329,8 +2559,13 @@ p{
 
             Close your eyes for a second.
 
-            Think of something
-            you really want.
+            <br>
+
+            Think of something you really want.
+
+            <br>
+
+            Then tap the candle.
 
         </p>
 
@@ -2339,8 +2574,7 @@ p{
 
             <div
                 id="candle"
-                class="candle"
-                title="Tap the candle">
+                class="candle">
 
                 <div
                     id="flame"
@@ -2352,55 +2586,42 @@ p{
         </div>
 
 
-        <p
+        <div
             id="candleHint"
-            style="
-                font-size:16px;
-                opacity:.5;
-            ">
+            class="candle-hint">
 
-            Tap the candle
-            when you're ready...
+            Tap the candle when you're ready 🕯️
 
-        </p>
+        </div>
 
 
         <div
             id="wishMessage"
             class="wish-message">
 
-            <p class="quote">
-
-                ✨ I hope your wish
-                finds its way to you.
-
-            </p>
-
-            <div class="button-row">
-
-                <a
-                    href="#page8"
-                    class="button">
-
-                    Wait...
-                    there's one more thing 🌙
-
-                </a>
-
-            </div>
+            I hope your wish
+            finds its way to you. 💜
 
         </div>
 
 
-        <div
-            class="button-row"
-            id="page7Back">
+        <a
+            id="page7Back"
+            href="#page6"
+            class="button back"
+            style="margin-top:30px;">
+
+            ← Back
+
+        </a>
+
+        <div class="button-row">
 
             <a
-                href="#page6"
-                class="button back">
+                href="#page8"
+                class="button">
 
-                ← Back
+                Wait... there's more 🌙
 
             </a>
 
@@ -2417,88 +2638,26 @@ p{
 
 <section
     id="page8"
-    class="page">
+    class="page final-page">
 
-    <div class="night-sky">
+    <div class="moon"></div>
 
-        <div class="moon"></div>
+    <div class="content glass">
 
-        <div class="star"></div>
-        <div class="star"></div>
-        <div class="star"></div>
-        <div class="star"></div>
-        <div class="star"></div>
-        <div class="star"></div>
-        <div class="star"></div>
-        <div class="star"></div>
-        <div class="star"></div>
-        <div class="star"></div>
-
-    </div>
-
-
-    <div class="content final-content">
-
-        <div class="wait-text">
+        <div class="small-title">
             Wait...
         </div>
 
-
-        <div class="final-title">
+        <h2 class="final-question">
 
             There's one more thing.
 
-        </div>
-
-
-        <div class="final-subtitle">
-            🌙
-        </div>
-
-
-        <div
-            class="final-hidden"
-            id="finalMessage">
-
-            <div class="small-title">
-                For Mastura
-            </div>
-
-
-            <div class="final-message">
-
-                I hope this year gives you
-                a thousand reasons to smile.
-
-            </div>
-
-
-            <div class="final-birthday">
-
-                Happy Birthday, Mastura. 💜
-
-            </div>
-
-
-            <p
-                style="
-                margin-top:25px;
-                opacity:.6;
-                font-size:18px;
-                ">
-
-                Keep smiling.
-                You deserve the beautiful moments.
-
-            </p>
-
-        </div>
+        </h2>
 
 
         <div
             id="finalButtonArea"
-            class="button-row"
-            style="margin-top:35px;">
+            class="button-row">
 
             <button
                 id="revealFinal"
@@ -2510,26 +2669,63 @@ p{
 
         </div>
 
+
+        <div
+            id="finalMessage"
+            class="final-message">
+
+            <h2>
+
+                I hope this year gives you
+                a thousand reasons to smile.
+
+            </h2>
+
+            <p>
+
+                Happy Birthday, Mastura. 💜
+
+            </p>
+
+        </div>
+
     </div>
 
 </section>
 
 
+<!-- =====================================================
+     CHILDHOOD PHOTO LIGHTBOX
+===================================================== -->
+
+<div
+    id="photoModal"
+    class="photo-modal"
+    aria-hidden="true">
+
+    <button
+        id="photoModalClose"
+        class="photo-modal-close"
+        aria-label="Close photo">
+
+        ×
+
+    </button>
+
+    <img
+        id="photoModalImage"
+        src=""
+        alt="Enlarged childhood photo">
+
+</div>
+
+
 <script>
+
 
 /* =========================================================
    MUSIC
 ========================================================= */
-
-const intro =
-    document.getElementById(
-        "earphoneIntro"
-    );
-
-const readyButton =
-    document.getElementById(
-        "readyButton"
-    );
 
 const music =
     document.getElementById(
@@ -2539,6 +2735,16 @@ const music =
 const musicButton =
     document.getElementById(
         "musicButton"
+    );
+
+const readyButton =
+    document.getElementById(
+        "readyButton"
+    );
+
+const intro =
+    document.getElementById(
+        "earphoneIntro"
     );
 
 let musicPlaying = false;
@@ -2566,9 +2772,11 @@ readyButton.addEventListener(
 
         }
 
+
         intro.classList.add(
             "hidden"
         );
+
 
         setTimeout(
             () => {
@@ -2584,39 +2792,42 @@ readyButton.addEventListener(
 );
 
 
-/* =========================================================
-   MUSIC TOGGLE
-========================================================= */
-
 musicButton.addEventListener(
     "click",
     async () => {
 
-        if(music.paused){
+        if(
+            musicPlaying
+        ){
+
+            music.pause();
+
+            musicPlaying =
+                false;
+
+            musicButton.textContent =
+                "🔇";
+
+        }else{
 
             try{
 
                 await music.play();
 
-                musicPlaying = true;
+                musicPlaying =
+                    true;
 
                 musicButton.textContent =
                     "🎶";
 
             }catch(error){
 
-                console.log(error);
+                console.log(
+                    "Audio could not start:",
+                    error
+                );
 
             }
-
-        }else{
-
-            music.pause();
-
-            musicPlaying = false;
-
-            musicButton.textContent =
-                "🔇";
 
         }
 
@@ -2625,7 +2836,7 @@ musicButton.addEventListener(
 
 
 /* =========================================================
-   YES / NO
+   YES / NO GIFT
 ========================================================= */
 
 const yesButton =
@@ -2687,7 +2898,9 @@ noButton.addEventListener(
         noAttempts++;
 
 
-        if(noAttempts < 4){
+        if(
+            noAttempts < 4
+        ){
 
             const maxX =
                 Math.min(
@@ -3295,6 +3508,114 @@ function createFinalStars(){
     }
 
 }
+
+
+/* =========================================================
+   CHILDHOOD PHOTO LIGHTBOX
+========================================================= */
+
+const photoModal =
+    document.getElementById(
+        "photoModal"
+    );
+
+const photoModalImage =
+    document.getElementById(
+        "photoModalImage"
+    );
+
+const photoModalClose =
+    document.getElementById(
+        "photoModalClose"
+    );
+
+const childhoodPhotos =
+    document.querySelectorAll(
+        ".memory img"
+    );
+
+childhoodPhotos.forEach(
+    (photo) => {
+
+        photo.addEventListener(
+            "click",
+            () => {
+
+                photoModalImage.src =
+                    photo.src;
+
+                photoModalImage.alt =
+                    photo.alt;
+
+                photoModal.classList.add(
+                    "show"
+                );
+
+                photoModal.setAttribute(
+                    "aria-hidden",
+                    "false"
+                );
+
+                document.body.style.overflow =
+                    "hidden";
+
+            }
+        );
+
+    }
+);
+
+function closePhotoModal(){
+
+    photoModal.classList.remove(
+        "show"
+    );
+
+    photoModal.setAttribute(
+        "aria-hidden",
+        "true"
+    );
+
+    document.body.style.overflow =
+        "";
+
+}
+
+photoModalClose.addEventListener(
+    "click",
+    closePhotoModal
+);
+
+photoModal.addEventListener(
+    "click",
+    (event) => {
+
+        if(
+            event.target === photoModal
+        ){
+
+            closePhotoModal();
+
+        }
+
+    }
+);
+
+document.addEventListener(
+    "keydown",
+    (event) => {
+
+        if(
+            event.key === "Escape" &&
+            photoModal.classList.contains("show")
+        ){
+
+            closePhotoModal();
+
+        }
+
+    }
+);
 
 </script>
 
