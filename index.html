@@ -4,9 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>For You, With Love 💜</title>
+<title>A Little Something For You 💜</title>
 
-<!-- Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -15,7 +14,7 @@
 <style>
 
 /* =========================================================
-   GLOBAL
+   RESET
 ========================================================= */
 
 * {
@@ -34,17 +33,30 @@ body {
 
     font-family: "Poppins", sans-serif;
 
-    background:
-        radial-gradient(circle at 20% 20%, rgba(220, 170, 255, 0.22), transparent 30%),
-        radial-gradient(circle at 80% 80%, rgba(255, 170, 220, 0.20), transparent 30%),
-        linear-gradient(135deg, #160d22, #251336, #170c25);
+    color: white;
 
-    color: #fff;
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(202, 151, 255, 0.18),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 80% 80%,
+            rgba(255, 158, 215, 0.15),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #12091c,
+            #21102f,
+            #13091d
+        );
 }
 
 
 /* =========================================================
-   MAGIC BACKGROUND
+   BACKGROUND
 ========================================================= */
 
 .background-glow {
@@ -52,19 +64,20 @@ body {
     inset: 0;
 
     pointer-events: none;
-    z-index: 0;
 
     background:
         radial-gradient(
             circle at 50% 50%,
-            rgba(190, 130, 255, 0.08),
-            transparent 50%
+            rgba(190, 130, 255, 0.07),
+            transparent 55%
         );
+
+    z-index: 0;
 }
 
 
 /* =========================================================
-   SPARKLE CANVAS
+   MAGIC CURSOR CANVAS
 ========================================================= */
 
 #sparkleCanvas {
@@ -83,8 +96,6 @@ body {
 
 /* =========================================================
    PAGE SYSTEM
-   IMPORTANT:
-   Navigation uses normal anchor links.
 ========================================================= */
 
 .page {
@@ -108,14 +119,13 @@ body {
     display: flex;
 }
 
-/* Show first page when there is no #pageX */
 body:not(:has(.page:target)) #page1 {
     display: flex;
 }
 
 
 /* =========================================================
-   CONTENT
+   GENERAL CONTENT
 ========================================================= */
 
 .content {
@@ -131,15 +141,17 @@ body:not(:has(.page:target)) #page1 {
 }
 
 @keyframes pageIn {
+
     from {
         opacity: 0;
-        transform: translateY(20px) scale(0.98);
+        transform: translateY(20px) scale(.98);
     }
 
     to {
         opacity: 1;
         transform: translateY(0) scale(1);
     }
+
 }
 
 
@@ -147,76 +159,66 @@ body:not(:has(.page:target)) #page1 {
    TYPOGRAPHY
 ========================================================= */
 
-.script {
+h1,
+h2 {
     font-family: "Dancing Script", cursive;
-}
 
-.serif {
-    font-family: "Cormorant Garamond", serif;
+    text-shadow:
+        0 0 15px rgba(220, 180, 255, .4),
+        0 0 35px rgba(190, 130, 255, .15);
 }
 
 h1 {
-    font-family: "Dancing Script", cursive;
-
     font-size: clamp(3.2rem, 10vw, 7rem);
-
     line-height: 1.05;
+}
 
-    color: #fff;
-
-    text-shadow:
-        0 0 15px rgba(225, 190, 255, 0.45),
-        0 0 35px rgba(200, 150, 255, 0.2);
+h2 {
+    font-size: clamp(2.5rem, 8vw, 5rem);
 
     margin-bottom: 20px;
 }
 
-h2 {
-    font-family: "Dancing Script", cursive;
-
-    font-size: clamp(2.5rem, 8vw, 5rem);
-
-    margin-bottom: 25px;
-
-    text-shadow:
-        0 0 15px rgba(230, 190, 255, 0.4);
-}
-
 .subtitle {
-    font-size: clamp(1rem, 3vw, 1.3rem);
-
-    color: rgba(255,255,255,0.82);
-
-    line-height: 1.8;
-
     max-width: 650px;
 
     margin: 0 auto 30px;
+
+    color: rgba(255,255,255,.8);
+
+    line-height: 1.8;
+
+    font-size: clamp(1rem,3vw,1.2rem);
 }
 
 
 /* =========================================================
-   GLASS CARD
+   GLASS
 ========================================================= */
 
 .glass {
-    background: rgba(255,255,255,0.075);
+    background:
+        rgba(255,255,255,.065);
 
-    border: 1px solid rgba(255,255,255,0.15);
+    border:
+        1px solid rgba(255,255,255,.14);
 
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter:
+        blur(18px);
+
+    -webkit-backdrop-filter:
+        blur(18px);
 
     border-radius: 28px;
 
     box-shadow:
-        0 20px 60px rgba(0,0,0,0.35),
-        inset 0 1px 0 rgba(255,255,255,0.1);
+        0 25px 70px rgba(0,0,0,.4),
+        inset 0 1px 0 rgba(255,255,255,.08);
 }
 
 
 /* =========================================================
-   BUTTONS
+   BUTTON
 ========================================================= */
 
 .button {
@@ -231,47 +233,300 @@ h2 {
 
     border-radius: 999px;
 
-    text-decoration: none;
+    border: 1px solid rgba(255,255,255,.2);
 
     color: white;
 
-    font-size: 1rem;
+    text-decoration: none;
+
     font-weight: 500;
 
     cursor: pointer;
 
-    border: 1px solid rgba(255,255,255,0.25);
-
     background:
         linear-gradient(
             135deg,
-            rgba(193, 140, 255, 0.65),
-            rgba(238, 139, 202, 0.55)
+            rgba(190,140,255,.7),
+            rgba(238,140,202,.58)
         );
 
     box-shadow:
-        0 10px 30px rgba(150, 80, 200, 0.25);
+        0 10px 30px rgba(170,90,230,.25);
 
     transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease,
-        background 0.3s ease;
+        transform .3s ease,
+        box-shadow .3s ease;
 }
 
 .button:hover {
     transform: translateY(-4px) scale(1.03);
 
     box-shadow:
-        0 15px 40px rgba(200, 120, 255, 0.35);
+        0 15px 40px rgba(200,120,255,.35);
 }
 
 .button:active {
-    transform: scale(0.96);
+    transform: scale(.96);
 }
 
 
 /* =========================================================
-   PAGE 1 — ENTRANCE
+   =========================================================
+   EARPHONE INTRO SCREEN
+   =========================================================
+========================================================= */
+
+#earphoneIntro {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 20000;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 25px;
+
+    background:
+        radial-gradient(
+            circle at 50% 35%,
+            rgba(190,130,255,.20),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #100719,
+            #21102f,
+            #12081b
+        );
+
+    transition:
+        opacity 1s ease,
+        visibility 1s ease;
+}
+
+
+#earphoneIntro.hidden {
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+}
+
+
+/* floating glow */
+
+.intro-orb {
+    position: absolute;
+
+    width: 350px;
+    height: 350px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(190,130,255,.08);
+
+    filter: blur(60px);
+
+    animation: orbPulse 4s ease-in-out infinite;
+}
+
+@keyframes orbPulse {
+
+    0%,100% {
+        transform: scale(.9);
+        opacity: .5;
+    }
+
+    50% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+
+}
+
+
+/* announcement card */
+
+.earphone-card {
+
+    position: relative;
+
+    width: min(500px, 100%);
+
+    padding:
+        45px 28px 38px;
+
+    text-align: center;
+
+    border-radius: 30px;
+
+    background:
+        rgba(255,255,255,.075);
+
+    border:
+        1px solid rgba(255,255,255,.16);
+
+    backdrop-filter:
+        blur(20px);
+
+    -webkit-backdrop-filter:
+        blur(20px);
+
+    box-shadow:
+        0 30px 100px rgba(0,0,0,.45),
+        inset 0 1px 0 rgba(255,255,255,.08);
+
+    animation:
+        introCard 1s cubic-bezier(.2,.8,.2,1);
+}
+
+@keyframes introCard {
+
+    from {
+        opacity: 0;
+        transform:
+            translateY(35px)
+            scale(.94);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+}
+
+
+/* earphone icon */
+
+.earphone-icon {
+
+    font-size: 4.5rem;
+
+    margin-bottom: 15px;
+
+    display: inline-block;
+
+    filter:
+        drop-shadow(
+            0 0 18px
+            rgba(210,170,255,.65)
+        );
+
+    animation:
+        headphoneFloat 3s ease-in-out infinite;
+}
+
+@keyframes headphoneFloat {
+
+    0%,100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+
+}
+
+
+.earphone-small {
+
+    font-size: .75rem;
+
+    letter-spacing: 4px;
+
+    text-transform: uppercase;
+
+    color:
+        rgba(255,255,255,.48);
+
+    margin-bottom: 12px;
+}
+
+
+.earphone-title {
+
+    font-family:
+        "Dancing Script",
+        cursive;
+
+    font-size:
+        clamp(2.5rem, 8vw, 4rem);
+
+    margin-bottom: 20px;
+
+    color: white;
+}
+
+
+.earphone-text {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        clamp(1.25rem, 4vw, 1.55rem);
+
+    line-height: 1.65;
+
+    color:
+        rgba(255,255,255,.86);
+
+    margin-bottom: 28px;
+}
+
+
+.earphone-highlight {
+
+    color: #e3c4ff;
+
+    font-family:
+        "Dancing Script",
+        cursive;
+
+    font-size: 1.7rem;
+}
+
+
+.ready-button {
+
+    margin-top: 8px;
+
+    width: 100%;
+
+    min-height: 55px;
+
+    font-size: 1rem;
+
+    border: none;
+}
+
+
+.volume-note {
+
+    margin-top: 18px;
+
+    font-size: .75rem;
+
+    color:
+        rgba(255,255,255,.42);
+}
+
+
+/* =========================================================
+   PAGE 1
 ========================================================= */
 
 #page1 .content {
@@ -279,26 +534,31 @@ h2 {
 }
 
 .small-line {
-    font-size: 0.85rem;
+
+    font-size: .8rem;
 
     letter-spacing: 4px;
 
     text-transform: uppercase;
 
-    color: rgba(255,255,255,0.55);
+    color:
+        rgba(255,255,255,.5);
 
     margin-bottom: 20px;
 }
 
 .entrance-heart {
+
     font-size: 4rem;
 
     margin-bottom: 15px;
 
-    animation: heartbeat 2s infinite;
+    animation:
+        heartbeat 2s infinite;
 }
 
 @keyframes heartbeat {
+
     0%,100% {
         transform: scale(1);
     }
@@ -318,26 +578,31 @@ h2 {
     60% {
         transform: scale(1);
     }
+
 }
 
 
 /* =========================================================
-   PAGE 2 — BIRTHDAY
+   PAGE 2
 ========================================================= */
 
 .birthday-card {
+
     padding: 40px 25px;
 }
 
 .cake {
+
     font-size: 5rem;
 
     margin-bottom: 10px;
 
-    animation: cakeFloat 3s ease-in-out infinite;
+    animation:
+        cakeFloat 3s ease-in-out infinite;
 }
 
 @keyframes cakeFloat {
+
     0%,100% {
         transform: translateY(0);
     }
@@ -345,35 +610,39 @@ h2 {
     50% {
         transform: translateY(-10px);
     }
+
 }
 
 .countdown {
+
     display: flex;
 
     justify-content: center;
 
-    gap: 12px;
-
     flex-wrap: wrap;
 
-    margin: 30px auto;
+    gap: 12px;
 
-    max-width: 650px;
+    margin: 30px auto;
 }
 
 .time-box {
+
     width: 90px;
 
     padding: 16px 10px;
 
     border-radius: 18px;
 
-    background: rgba(255,255,255,0.08);
+    background:
+        rgba(255,255,255,.07);
 
-    border: 1px solid rgba(255,255,255,0.12);
+    border:
+        1px solid rgba(255,255,255,.1);
 }
 
 .time-number {
+
     display: block;
 
     font-size: 1.8rem;
@@ -382,23 +651,26 @@ h2 {
 }
 
 .time-label {
+
     display: block;
 
-    font-size: 0.7rem;
+    font-size: .7rem;
 
     text-transform: uppercase;
 
     letter-spacing: 1px;
 
-    color: rgba(255,255,255,0.55);
+    color:
+        rgba(255,255,255,.5);
 }
 
 
 /* =========================================================
-   PAGE 3 — LETTER
+   PAGE 3
 ========================================================= */
 
 .letter-card {
+
     padding: 45px 30px;
 
     max-width: 700px;
@@ -407,73 +679,92 @@ h2 {
 }
 
 .letter-card p {
-    font-family: "Cormorant Garamond", serif;
 
-    font-size: clamp(1.25rem, 3vw, 1.55rem);
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        clamp(1.25rem,3vw,1.55rem);
 
     line-height: 1.8;
 
-    color: rgba(255,255,255,0.9);
+    color:
+        rgba(255,255,255,.9);
 
     margin-bottom: 20px;
 }
 
 .signature {
-    font-family: "Dancing Script", cursive;
+
+    font-family:
+        "Dancing Script",
+        cursive;
 
     font-size: 2rem;
 
     color: #e5c6ff;
 
-    margin-top: 25px;
+    margin: 25px 0;
 }
 
 
 /* =========================================================
-   PAGE 4 — APPRECIATION
+   PAGE 4
 ========================================================= */
 
 .cards {
+
     display: grid;
 
     grid-template-columns:
-        repeat(auto-fit, minmax(220px, 1fr));
+        repeat(auto-fit,minmax(220px,1fr));
 
     gap: 18px;
 
-    margin: 35px auto;
-
     max-width: 800px;
+
+    margin: 35px auto;
 }
 
 .appreciation-card {
+
     padding: 30px 20px;
 
     border-radius: 24px;
 
-    background: rgba(255,255,255,0.065);
+    background:
+        rgba(255,255,255,.06);
 
-    border: 1px solid rgba(255,255,255,0.12);
+    border:
+        1px solid rgba(255,255,255,.1);
 
     transition:
-        transform 0.3s ease,
-        background 0.3s ease;
+        transform .3s ease,
+        background .3s ease;
 }
 
 .appreciation-card:hover {
-    transform: translateY(-7px);
 
-    background: rgba(255,255,255,0.10);
+    transform:
+        translateY(-7px);
+
+    background:
+        rgba(255,255,255,.1);
 }
 
 .card-icon {
+
     font-size: 2.5rem;
 
     margin-bottom: 15px;
 }
 
 .appreciation-card h3 {
-    font-family: "Cormorant Garamond", serif;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
 
     font-size: 1.6rem;
 
@@ -481,23 +772,26 @@ h2 {
 }
 
 .appreciation-card p {
-    color: rgba(255,255,255,0.7);
+
+    color:
+        rgba(255,255,255,.7);
 
     line-height: 1.6;
 
-    font-size: 0.9rem;
+    font-size: .9rem;
 }
 
 
 /* =========================================================
-   PAGE 5 — MEMORIES
+   PAGE 5
 ========================================================= */
 
 .memory-grid {
+
     display: grid;
 
     grid-template-columns:
-        repeat(auto-fit, minmax(220px, 1fr));
+        repeat(auto-fit,minmax(220px,1fr));
 
     gap: 20px;
 
@@ -507,19 +801,20 @@ h2 {
 }
 
 .memory {
+
     padding: 10px;
 
-    background: #fff;
+    background: white;
 
     border-radius: 6px;
 
     box-shadow:
-        0 15px 40px rgba(0,0,0,0.35);
+        0 15px 40px rgba(0,0,0,.35);
 
     transform: rotate(-2deg);
 
     transition:
-        transform 0.4s ease;
+        transform .4s ease;
 }
 
 .memory:nth-child(2) {
@@ -531,12 +826,14 @@ h2 {
 }
 
 .memory:hover {
+
     transform:
-        rotate(0deg)
+        rotate(0)
         scale(1.04);
 }
 
 .memory img {
+
     width: 100%;
 
     aspect-ratio: 1 / 1;
@@ -547,9 +844,12 @@ h2 {
 }
 
 .memory-caption {
+
     color: #4b3555;
 
-    font-family: "Dancing Script", cursive;
+    font-family:
+        "Dancing Script",
+        cursive;
 
     font-size: 1.25rem;
 
@@ -558,10 +858,11 @@ h2 {
 
 
 /* =========================================================
-   PAGE 6 — CANDLE
+   PAGE 6
 ========================================================= */
 
 .candle-card {
+
     padding: 45px 25px;
 
     max-width: 650px;
@@ -570,9 +871,20 @@ h2 {
 }
 
 .candle {
+
     width: 75px;
 
     height: 170px;
+
+    margin:
+        55px auto 35px;
+
+    position: relative;
+
+    cursor: pointer;
+
+    border-radius:
+        12px 12px 7px 7px;
 
     background:
         linear-gradient(
@@ -582,47 +894,47 @@ h2 {
             #ead4ff
         );
 
-    border-radius: 12px 12px 7px 7px;
-
-    margin: 55px auto 35px;
-
-    position: relative;
-
-    cursor: pointer;
-
     box-shadow:
-        0 15px 40px rgba(200,140,255,0.25);
+        0 15px 40px
+        rgba(200,140,255,.25);
 }
 
 .candle::before {
+
     content: "";
 
     position: absolute;
 
     top: -8px;
+
     left: 50%;
 
     width: 4px;
     height: 14px;
 
-    transform: translateX(-50%);
+    transform:
+        translateX(-50%);
 
-    background: #33203b;
+    background:
+        #33203b;
 }
 
 .flame {
+
     position: absolute;
 
     top: -60px;
+
     left: 50%;
 
-    transform: translateX(-50%);
+    transform:
+        translateX(-50%);
 
     width: 30px;
     height: 55px;
 
     border-radius:
-        50% 50% 50% 50%;
+        50%;
 
     background:
         radial-gradient(
@@ -634,17 +946,25 @@ h2 {
         );
 
     filter:
-        drop-shadow(0 0 15px #d9aaff)
-        drop-shadow(0 0 30px #a95fff);
+        drop-shadow(
+            0 0 15px #d9aaff
+        )
+        drop-shadow(
+            0 0 30px #a95fff
+        );
 
-    animation: flame 0.8s ease-in-out infinite alternate;
+    animation:
+        flame .8s
+        ease-in-out
+        infinite alternate;
 }
 
 @keyframes flame {
+
     from {
         transform:
             translateX(-50%)
-            scale(0.9)
+            scale(.9)
             rotate(-3deg);
     }
 
@@ -654,27 +974,34 @@ h2 {
             scale(1.08)
             rotate(3deg);
     }
+
 }
 
 .wish-message {
+
     display: none;
 
-    font-family: "Dancing Script", cursive;
+    font-family:
+        "Dancing Script",
+        cursive;
 
     font-size: 2rem;
 
     color: #e7caff;
 
     margin-top: 25px;
-
-    animation: fadeIn 1s ease;
 }
 
 .wish-message.show {
+
     display: block;
+
+    animation:
+        fadeIn 1s ease;
 }
 
 @keyframes fadeIn {
+
     from {
         opacity: 0;
     }
@@ -682,14 +1009,16 @@ h2 {
     to {
         opacity: 1;
     }
+
 }
 
 
 /* =========================================================
-   PAGE 7 — GIFT
+   PAGE 7
 ========================================================= */
 
 .gift-card {
+
     padding: 45px 25px;
 
     max-width: 700px;
@@ -698,27 +1027,39 @@ h2 {
 }
 
 .gift {
+
     font-size: 5rem;
 
     margin-bottom: 20px;
 
-    animation: giftFloat 3s ease-in-out infinite;
+    animation:
+        giftFloat 3s ease-in-out infinite;
 }
 
 @keyframes giftFloat {
+
     0%,100% {
-        transform: translateY(0) rotate(-2deg);
+        transform:
+            translateY(0)
+            rotate(-2deg);
     }
 
     50% {
-        transform: translateY(-10px) rotate(2deg);
+        transform:
+            translateY(-10px)
+            rotate(2deg);
     }
+
 }
 
 .question {
-    font-family: "Cormorant Garamond", serif;
 
-    font-size: clamp(1.7rem, 4vw, 2.3rem);
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        clamp(1.7rem,4vw,2.3rem);
 
     line-height: 1.5;
 
@@ -726,41 +1067,38 @@ h2 {
 }
 
 .answer-area {
+
     position: relative;
 
     min-height: 90px;
 
     display: flex;
 
-    justify-content: center;
-
     align-items: center;
+
+    justify-content: center;
 
     gap: 15px;
 }
 
 .no-button {
-    position: relative;
 
-    background: rgba(255,255,255,0.08);
+    background:
+        rgba(255,255,255,.07);
 
-    color: rgba(255,255,255,0.75);
-
-    border: 1px solid rgba(255,255,255,0.18);
+    color:
+        rgba(255,255,255,.75);
 
     box-shadow: none;
 }
 
-.no-button:hover {
-    background: rgba(255,255,255,0.12);
-}
-
 
 /* =========================================================
-   PAGE 8 — FINAL
+   PAGE 8
 ========================================================= */
 
 .final-card {
+
     padding: 50px 25px;
 
     max-width: 750px;
@@ -769,25 +1107,35 @@ h2 {
 }
 
 .final-heart {
+
     font-size: 4rem;
 
     margin-bottom: 15px;
 
-    animation: heartbeat 2s infinite;
+    animation:
+        heartbeat 2s infinite;
 }
 
 .final-text {
-    font-family: "Cormorant Garamond", serif;
 
-    font-size: clamp(1.3rem, 3vw, 1.7rem);
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        clamp(1.3rem,3vw,1.7rem);
 
     line-height: 1.8;
 
-    color: rgba(255,255,255,0.9);
+    color:
+        rgba(255,255,255,.9);
 }
 
 .final-signature {
-    font-family: "Dancing Script", cursive;
+
+    font-family:
+        "Dancing Script",
+        cursive;
 
     font-size: 2.4rem;
 
@@ -802,6 +1150,7 @@ h2 {
 ========================================================= */
 
 .music-button {
+
     position: fixed;
 
     right: 18px;
@@ -812,11 +1161,14 @@ h2 {
 
     border-radius: 50%;
 
-    border: 1px solid rgba(255,255,255,0.2);
+    border:
+        1px solid rgba(255,255,255,.2);
 
-    background: rgba(255,255,255,0.10);
+    background:
+        rgba(255,255,255,.1);
 
-    backdrop-filter: blur(10px);
+    backdrop-filter:
+        blur(10px);
 
     color: white;
 
@@ -825,20 +1177,15 @@ h2 {
     z-index: 10000;
 
     font-size: 1.2rem;
-
-    transition: transform 0.3s ease;
-}
-
-.music-button:hover {
-    transform: scale(1.1);
 }
 
 
 /* =========================================================
-   FLOATING BACKGROUND EMOJIS
+   FLOATING EMOJIS
 ========================================================= */
 
 .floating {
+
     position: fixed;
 
     bottom: -40px;
@@ -849,32 +1196,34 @@ h2 {
 
     opacity: 0;
 
-    animation: floatUp linear forwards;
+    animation:
+        floatUp linear forwards;
 }
 
 @keyframes floatUp {
+
     0% {
         opacity: 0;
         transform:
             translateY(0)
-            rotate(0deg);
+            rotate(0);
     }
 
     10% {
-        opacity: 0.45;
+        opacity: .45;
     }
 
     80% {
-        opacity: 0.25;
+        opacity: .25;
     }
 
     100% {
         opacity: 0;
-
         transform:
             translateY(-110vh)
             rotate(360deg);
     }
+
 }
 
 
@@ -882,7 +1231,7 @@ h2 {
    MOBILE
 ========================================================= */
 
-@media (max-width: 600px) {
+@media(max-width:600px) {
 
     .page {
         padding: 25px 15px;
@@ -908,9 +1257,15 @@ h2 {
         min-width: 160px;
     }
 
-    .answer-area {
-        gap: 10px;
+    .earphone-card {
+        padding:
+            40px 22px 32px;
     }
+
+    .earphone-icon {
+        font-size: 3.8rem;
+    }
+
 }
 
 </style>
@@ -919,18 +1274,88 @@ h2 {
 
 <body>
 
+
+<!-- =======================================================
+     BACKGROUND
+======================================================= -->
+
 <div class="background-glow"></div>
 
 
 <!-- =======================================================
-     MAGIC CANVAS
+     MAGIC TRAIL
 ======================================================= -->
 
 <canvas id="sparkleCanvas"></canvas>
 
 
+
 <!-- =======================================================
-     PAGE 1 — ENTRANCE
+     🎧 EARPHONE ANNOUNCEMENT
+======================================================= -->
+
+<div id="earphoneIntro">
+
+    <div class="intro-orb"></div>
+
+
+    <div class="earphone-card">
+
+        <div class="earphone-icon">
+            🎧
+        </div>
+
+        <div class="earphone-small">
+            Before we begin
+        </div>
+
+
+        <div class="earphone-title">
+            A little request...
+        </div>
+
+
+        <div class="earphone-text">
+
+            Put on your earphones.
+
+            <br>
+
+            Turn the volume up
+            <span class="earphone-highlight">
+                just a little.
+            </span>
+
+            <br><br>
+
+            <span class="earphone-highlight">
+                I made something for you. 💜
+            </span>
+
+        </div>
+
+
+        <button
+            class="button ready-button"
+            id="readyButton"
+            type="button"
+        >
+            🎧 I'm ready
+        </button>
+
+
+        <div class="volume-note">
+            Best experienced with earphones ✨
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =======================================================
+     PAGE 1
 ======================================================= -->
 
 <section class="page" id="page1">
@@ -950,14 +1375,14 @@ h2 {
         </h1>
 
         <p class="subtitle">
-            I made something special.<br>
+            I made something special.
+            <br>
             Just for you. ✨
         </p>
 
         <a
             href="#page2"
             class="button"
-            id="openButton"
         >
             ✨ Open it
         </a>
@@ -969,7 +1394,7 @@ h2 {
 
 
 <!-- =======================================================
-     PAGE 2 — BIRTHDAY
+     PAGE 2
 ======================================================= -->
 
 <section class="page" id="page2">
@@ -987,7 +1412,8 @@ h2 {
             </h2>
 
             <p class="subtitle">
-                Today is your day.<br>
+                Today is your day.
+                <br>
                 So let's make a little memory. 💜
             </p>
 
@@ -1068,7 +1494,7 @@ h2 {
 
 
 <!-- =======================================================
-     PAGE 3 — LETTER
+     PAGE 3
 ======================================================= -->
 
 <section class="page" id="page3">
@@ -1105,8 +1531,6 @@ h2 {
                 With a little bit of love ✨
             </div>
 
-            <br>
-
             <a
                 href="#page4"
                 class="button"
@@ -1123,7 +1547,7 @@ h2 {
 
 
 <!-- =======================================================
-     PAGE 4 — APPRECIATION
+     PAGE 4
 ======================================================= -->
 
 <section class="page" id="page4">
@@ -1140,7 +1564,6 @@ h2 {
 
 
         <div class="cards">
-
 
             <div class="appreciation-card">
 
@@ -1195,7 +1618,6 @@ h2 {
 
             </div>
 
-
         </div>
 
 
@@ -1213,7 +1635,7 @@ h2 {
 
 
 <!-- =======================================================
-     PAGE 5 — MEMORIES
+     PAGE 5
 ======================================================= -->
 
 <section class="page" id="page5">
@@ -1230,7 +1652,6 @@ h2 {
 
 
         <div class="memory-grid">
-
 
             <div class="memory">
 
@@ -1273,7 +1694,6 @@ h2 {
 
             </div>
 
-
         </div>
 
 
@@ -1291,7 +1711,7 @@ h2 {
 
 
 <!-- =======================================================
-     PAGE 6 — CANDLE
+     PAGE 6
 ======================================================= -->
 
 <section class="page" id="page6">
@@ -1305,7 +1725,8 @@ h2 {
             </h2>
 
             <p class="subtitle">
-                Close your eyes for a second.<br>
+                Close your eyes for a second.
+                <br>
                 Make a wish. ✨
             </p>
 
@@ -1323,9 +1744,13 @@ h2 {
             </div>
 
 
-            <p class="wish-message" id="wishMessage">
+            <p
+                class="wish-message"
+                id="wishMessage"
+            >
                 I hope this year brings you
-                more beautiful moments than you expect. 💜
+                more beautiful moments
+                than you expect. 💜
             </p>
 
 
@@ -1347,7 +1772,7 @@ h2 {
 
 
 <!-- =======================================================
-     PAGE 7 — GIFT
+     PAGE 7
 ======================================================= -->
 
 <section class="page" id="page7">
@@ -1376,7 +1801,6 @@ h2 {
                 <a
                     href="#page8"
                     class="button"
-                    id="yesButton"
                 >
                     Yes 💜
                 </a>
@@ -1401,7 +1825,7 @@ h2 {
 
 
 <!-- =======================================================
-     PAGE 8 — FINAL
+     PAGE 8
 ======================================================= -->
 
 <section class="page" id="page8">
@@ -1449,16 +1873,19 @@ h2 {
 
 
 <!-- =======================================================
-     MUSIC
+     AUDIO
 ======================================================= -->
 
 <audio
     id="music"
     src="song.mp3"
-    loop
     preload="auto"
+    loop
 ></audio>
 
+
+
+<!-- MUSIC CONTROL -->
 
 <button
     class="music-button"
@@ -1473,43 +1900,82 @@ h2 {
 <script>
 
 /* =========================================================
-   MUSIC
+   🎧 EARPHONE INTRO + MUSIC
 ========================================================= */
 
-const music = document.getElementById("music");
-const musicButton = document.getElementById("musicButton");
+const intro =
+    document.getElementById("earphoneIntro");
+
+const readyButton =
+    document.getElementById("readyButton");
+
+const music =
+    document.getElementById("music");
+
+const musicButton =
+    document.getElementById("musicButton");
+
 
 let musicPlaying = false;
 
 
 /*
-   Browsers usually block autoplay.
+   This is the important part.
 
-   We start music after the user clicks
-   "Open it".
+   The user clicks "I'm ready".
+
+   Because this is a real user interaction,
+   the browser allows the audio to start.
 */
 
-document.getElementById("openButton").addEventListener("click", () => {
+readyButton.addEventListener("click", async () => {
 
-    music.play()
-        .then(() => {
+    try {
 
-            musicPlaying = true;
+        await music.play();
 
-            musicButton.textContent = "🎶";
+        musicPlaying = true;
 
-        })
-        .catch(() => {
+        musicButton.textContent = "🎶";
 
-            // Browser blocked autoplay.
-            // User can press music button.
+    }
 
-        });
+    catch (error) {
+
+        console.log(
+            "Audio could not start:",
+            error
+        );
+
+    }
+
+
+    /*
+       Fade away the announcement.
+    */
+
+    intro.classList.add("hidden");
+
+
+    /*
+       After it disappears,
+       remove it completely.
+    */
+
+    setTimeout(() => {
+
+        intro.style.display = "none";
+
+    }, 1100);
 
 });
 
 
-musicButton.addEventListener("click", () => {
+/* =========================================================
+   MUSIC BUTTON
+========================================================= */
+
+musicButton.addEventListener("click", async () => {
 
     if (musicPlaying) {
 
@@ -1519,17 +1985,25 @@ musicButton.addEventListener("click", () => {
 
         musicButton.textContent = "🎵";
 
-    } else {
+    }
 
-        music.play()
-            .then(() => {
+    else {
 
-                musicPlaying = true;
+        try {
 
-                musicButton.textContent = "🎶";
+            await music.play();
 
-            })
-            .catch(() => {});
+            musicPlaying = true;
+
+            musicButton.textContent = "🎶";
+
+        }
+
+        catch (error) {
+
+            console.log(error);
+
+        }
 
     }
 
@@ -1541,19 +2015,20 @@ musicButton.addEventListener("click", () => {
    COUNTDOWN
 ========================================================= */
 
-/*
-   Change this date if needed.
-*/
-
 const birthdayDate =
-    new Date("2026-11-12T00:00:00").getTime();
+    new Date(
+        "2026-11-12T00:00:00"
+    ).getTime();
 
 
 function updateCountdown() {
 
-    const now = new Date().getTime();
+    const now =
+        new Date().getTime();
 
-    let difference = birthdayDate - now;
+
+    let difference =
+        birthdayDate - now;
 
 
     if (difference < 0) {
@@ -1592,24 +2067,34 @@ function updateCountdown() {
         );
 
 
-    document.getElementById("days").textContent =
-        days;
+    document.getElementById(
+        "days"
+    ).textContent = days;
 
-    document.getElementById("hours").textContent =
-        hours;
 
-    document.getElementById("minutes").textContent =
-        minutes;
+    document.getElementById(
+        "hours"
+    ).textContent = hours;
 
-    document.getElementById("seconds").textContent =
-        seconds;
+
+    document.getElementById(
+        "minutes"
+    ).textContent = minutes;
+
+
+    document.getElementById(
+        "seconds"
+    ).textContent = seconds;
 
 }
 
 
 updateCountdown();
 
-setInterval(updateCountdown, 1000);
+setInterval(
+    updateCountdown,
+    1000
+);
 
 
 
@@ -1632,13 +2117,21 @@ let candleBlown = false;
 
 candle.addEventListener("click", () => {
 
-    if (candleBlown) return;
+    if (candleBlown)
+        return;
+
 
     candleBlown = true;
 
-    flame.style.display = "none";
 
-    wishMessage.classList.add("show");
+    flame.style.display =
+        "none";
+
+
+    wishMessage.classList.add(
+        "show"
+    );
+
 
     createBurst(
         window.innerWidth / 2,
@@ -1650,7 +2143,7 @@ candle.addEventListener("click", () => {
 
 
 /* =========================================================
-   PLAYFUL "NO" BUTTON
+   NO BUTTON
 ========================================================= */
 
 const noButton =
@@ -1666,42 +2159,39 @@ noButton.addEventListener("click", () => {
 
     if (noClicks >= 4) {
 
-        noButton.style.opacity = "0";
+        noButton.style.opacity =
+            "0";
 
-        noButton.style.pointerEvents = "none";
+        noButton.style.pointerEvents =
+            "none";
+
 
         setTimeout(() => {
 
-            noButton.style.display = "none";
+            noButton.style.display =
+                "none";
 
         }, 400);
+
 
         return;
     }
 
 
-    const maxX =
-        Math.min(
-            130,
-            window.innerWidth * 0.25
-        );
-
-
-    const maxY =
-        Math.min(
-            100,
-            window.innerHeight * 0.15
-        );
-
-
     const x =
-        (Math.random() - 0.5) *
-        maxX * 2;
+        (Math.random() - .5) *
+        Math.min(
+            260,
+            window.innerWidth * .5
+        );
 
 
     const y =
-        (Math.random() - 0.5) *
-        maxY * 2;
+        (Math.random() - .5) *
+        Math.min(
+            160,
+            window.innerHeight * .3
+        );
 
 
     noButton.style.transform =
@@ -1712,108 +2202,66 @@ noButton.addEventListener("click", () => {
 
 
 /* =========================================================
-   CONFETTI
+   BURST PARTICLES
 ========================================================= */
 
-function createBurst(x, y) {
-
-    const particles = [];
+const burstParticles = [];
 
 
-    for (let i = 0; i < 45; i++) {
+function createBurst(x,y) {
 
-        particles.push({
+    for (
+        let i = 0;
+        i < 45;
+        i++
+    ) {
 
-            x: x,
+        burstParticles.push({
 
-            y: y,
+            x:x,
+
+            y:y,
 
             vx:
-                (Math.random() - 0.5) * 8,
+                (Math.random()-.5)*8,
 
             vy:
-                (Math.random() - 0.5) * 8 - 2,
+                (Math.random()-.5)*8-2,
 
             size:
-                Math.random() * 4 + 2,
+                Math.random()*4+2,
 
-            life: 1,
+            life:1,
 
             decay:
-                Math.random() * 0.02 + 0.015
+                Math.random()*.02+.015
 
         });
 
     }
 
-
-    magicBurstParticles.push(...particles);
-
 }
-
-
-const magicBurstParticles = [];
-
-
-function animateBurst() {
-
-    for (
-        let i = magicBurstParticles.length - 1;
-        i >= 0;
-        i--
-    ) {
-
-        const p =
-            magicBurstParticles[i];
-
-
-        p.x += p.vx;
-
-        p.y += p.vy;
-
-        p.vy += 0.08;
-
-        p.life -= p.decay;
-
-
-        if (p.life <= 0) {
-
-            magicBurstParticles.splice(i, 1);
-
-        }
-
-    }
-
-
-    requestAnimationFrame(animateBurst);
-
-}
-
-
-animateBurst();
 
 
 
 /* =========================================================
-   MAGICAL CURSOR / FINGER TRAIL
+   MAGIC CURSOR TRAIL
 ========================================================= */
 
 const canvas =
-    document.getElementById("sparkleCanvas");
+    document.getElementById(
+        "sparkleCanvas"
+    );
 
 const ctx =
     canvas.getContext("2d");
 
 
-let canvasWidth;
-let canvasHeight;
+let width;
+let height;
 
 let particles = [];
 
-
-/* ---------------------------------------------------------
-   Retina / High DPI support
---------------------------------------------------------- */
 
 function resizeCanvas() {
 
@@ -1824,25 +2272,25 @@ function resizeCanvas() {
         );
 
 
-    canvasWidth =
+    width =
         window.innerWidth;
 
-    canvasHeight =
+    height =
         window.innerHeight;
 
 
     canvas.width =
-        canvasWidth * dpr;
+        width*dpr;
 
     canvas.height =
-        canvasHeight * dpr;
+        height*dpr;
 
 
     canvas.style.width =
-        canvasWidth + "px";
+        width+"px";
 
     canvas.style.height =
-        canvasHeight + "px";
+        height+"px";
 
 
     ctx.setTransform(
@@ -1867,14 +2315,15 @@ window.addEventListener(
 
 
 
-/* ---------------------------------------------------------
-   Detect current page
---------------------------------------------------------- */
+/* =========================================================
+   CURRENT PAGE
+========================================================= */
 
-function getCurrentPage() {
+function currentPage() {
 
     const hash =
         window.location.hash;
+
 
     if (hash === "#page2")
         return 2;
@@ -1897,33 +2346,29 @@ function getCurrentPage() {
     if (hash === "#page8")
         return 8;
 
+
     return 1;
 }
 
 
 
-/* ---------------------------------------------------------
-   Particle types
---------------------------------------------------------- */
+/* =========================================================
+   CREATE TRAIL PARTICLE
+========================================================= */
 
-function createParticle(x, y) {
+function createParticle(x,y) {
 
     const page =
-        getCurrentPage();
+        currentPage();
 
 
     let type;
 
 
-    /*
-       Different pages get different
-       magical particles.
-    */
-
     if (page === 1) {
 
         type =
-            Math.random() < 0.75
+            Math.random()<.7
             ? "sparkle"
             : "petal";
 
@@ -1932,7 +2377,7 @@ function createParticle(x, y) {
     else if (page === 2) {
 
         type =
-            Math.random() < 0.5
+            Math.random()<.5
             ? "sparkle"
             : "heart";
 
@@ -1940,14 +2385,15 @@ function createParticle(x, y) {
 
     else if (page === 3) {
 
-        type = "heart";
+        type =
+            "heart";
 
     }
 
     else if (page === 4) {
 
         type =
-            Math.random() < 0.5
+            Math.random()<.5
             ? "sparkle"
             : "petal";
 
@@ -1955,32 +2401,24 @@ function createParticle(x, y) {
 
     else if (page === 5) {
 
-        type = "petal";
+        type =
+            "petal";
 
     }
 
     else if (page === 6) {
 
         type =
-            Math.random() < 0.6
+            Math.random()<.6
             ? "gold"
             : "sparkle";
-
-    }
-
-    else if (page === 7) {
-
-        type =
-            Math.random() < 0.5
-            ? "sparkle"
-            : "heart";
 
     }
 
     else {
 
         type =
-            Math.random() < 0.5
+            Math.random()<.5
             ? "heart"
             : "sparkle";
 
@@ -1990,45 +2428,35 @@ function createParticle(x, y) {
     particles.push({
 
         x:
-            x +
-            (Math.random() - 0.5) * 8,
+            x+
+            (Math.random()-.5)*8,
 
         y:
-            y +
-            (Math.random() - 0.5) * 8,
-
+            y+
+            (Math.random()-.5)*8,
 
         vx:
-            (Math.random() - 0.5) * 0.5,
+            (Math.random()-.5)*.5,
 
         vy:
-            (Math.random() - 0.8) * 0.7,
-
+            (Math.random()-.8)*.7,
 
         size:
-            Math.random() * 2.5 + 1,
+            Math.random()*2.5+1,
 
-
-        life: 1,
-
+        life:1,
 
         decay:
-            Math.random() * 0.018 +
-            0.015,
-
+            Math.random()*.018+.015,
 
         rotation:
-            Math.random() *
-            Math.PI *
-            2,
-
+            Math.random()*
+            Math.PI*2,
 
         rotationSpeed:
-            (Math.random() - 0.5) *
-            0.08,
+            (Math.random()-.5)*.08,
 
-
-        type: type
+        type:type
 
     });
 
@@ -2036,12 +2464,12 @@ function createParticle(x, y) {
 
 
 
-/* ---------------------------------------------------------
-   Mouse movement
---------------------------------------------------------- */
+/* =========================================================
+   MOUSE
+========================================================= */
 
-let lastMouseX = 0;
-let lastMouseY = 0;
+let lastX = 0;
+let lastY = 0;
 
 
 window.addEventListener(
@@ -2049,25 +2477,17 @@ window.addEventListener(
     (event) => {
 
         const dx =
-            event.clientX -
-            lastMouseX;
+            event.clientX-lastX;
 
         const dy =
-            event.clientY -
-            lastMouseY;
+            event.clientY-lastY;
 
 
         const distance =
             Math.sqrt(
-                dx * dx +
-                dy * dy
+                dx*dx+dy*dy
             );
 
-
-        /*
-           Don't create too many particles
-           when the mouse barely moves.
-        */
 
         if (distance > 3) {
 
@@ -2076,25 +2496,26 @@ window.addEventListener(
                 event.clientY
             );
 
-            lastMouseX =
+
+            lastX =
                 event.clientX;
 
-            lastMouseY =
+            lastY =
                 event.clientY;
 
         }
 
     },
     {
-        passive: true
+        passive:true
     }
 );
 
 
 
-/* ---------------------------------------------------------
-   Touch movement
---------------------------------------------------------- */
+/* =========================================================
+   TOUCH
+========================================================= */
 
 window.addEventListener(
     "touchmove",
@@ -2115,24 +2536,26 @@ window.addEventListener(
 
     },
     {
-        passive: true
+        passive:true
     }
 );
 
 
 
-/* ---------------------------------------------------------
-   Draw sparkle
---------------------------------------------------------- */
+/* =========================================================
+   DRAW SPARKLE
+========================================================= */
 
 function drawSparkle(p) {
 
     ctx.save();
 
+
     ctx.translate(
         p.x,
         p.y
     );
+
 
     ctx.rotate(
         p.rotation
@@ -2140,16 +2563,14 @@ function drawSparkle(p) {
 
 
     ctx.globalAlpha =
-        Math.max(
-            p.life,
-            0
-        );
+        p.life;
 
 
-    ctx.shadowBlur = 12;
+    ctx.shadowBlur =
+        12;
 
     ctx.shadowColor =
-        "rgba(220,180,255,0.9)";
+        "rgba(220,180,255,.9)";
 
 
     ctx.beginPath();
@@ -2157,49 +2578,42 @@ function drawSparkle(p) {
 
     ctx.moveTo(
         0,
-        -p.size * 2
+        -p.size*2
     );
 
-
     ctx.lineTo(
-        p.size * 0.6,
-        -p.size * 0.6
+        p.size*.6,
+        -p.size*.6
     );
 
-
     ctx.lineTo(
-        p.size * 2,
+        p.size*2,
         0
     );
 
-
     ctx.lineTo(
-        p.size * 0.6,
-        p.size * 0.6
+        p.size*.6,
+        p.size*.6
     );
-
 
     ctx.lineTo(
         0,
-        p.size * 2
+        p.size*2
     );
 
-
     ctx.lineTo(
-        -p.size * 0.6,
-        p.size * 0.6
+        -p.size*.6,
+        p.size*.6
     );
 
-
     ctx.lineTo(
-        -p.size * 2,
+        -p.size*2,
         0
     );
 
-
     ctx.lineTo(
-        -p.size * 0.6,
-        -p.size * 0.6
+        -p.size*.6,
+        -p.size*.6
     );
 
 
@@ -2207,7 +2621,7 @@ function drawSparkle(p) {
 
 
     ctx.fillStyle =
-        "rgba(225,195,255,0.95)";
+        "rgba(225,195,255,.95)";
 
 
     ctx.fill();
@@ -2219,18 +2633,20 @@ function drawSparkle(p) {
 
 
 
-/* ---------------------------------------------------------
-   Draw heart
---------------------------------------------------------- */
+/* =========================================================
+   DRAW HEART
+========================================================= */
 
 function drawHeart(p) {
 
     ctx.save();
 
+
     ctx.translate(
         p.x,
         p.y
     );
+
 
     ctx.rotate(
         p.rotation
@@ -2238,20 +2654,18 @@ function drawHeart(p) {
 
 
     ctx.globalAlpha =
-        Math.max(
-            p.life,
-            0
-        );
+        p.life;
 
 
-    ctx.shadowBlur = 10;
+    ctx.shadowBlur =
+        10;
 
     ctx.shadowColor =
-        "rgba(245,150,220,0.8)";
+        "rgba(245,150,220,.8)";
 
 
-    const size =
-        p.size * 1.7;
+    const s =
+        p.size*1.7;
 
 
     ctx.beginPath();
@@ -2259,32 +2673,32 @@ function drawHeart(p) {
 
     ctx.moveTo(
         0,
-        size * 0.8
+        s*.8
     );
 
 
     ctx.bezierCurveTo(
-        -size * 1.5,
-        -size * 0.1,
-        -size * 0.9,
-        -size * 1.3,
+        -s*1.5,
+        -s*.1,
+        -s*.9,
+        -s*1.3,
         0,
-        -size * 0.5
+        -s*.5
     );
 
 
     ctx.bezierCurveTo(
-        size * 0.9,
-        -size * 1.3,
-        size * 1.5,
-        -size * 0.1,
+        s*.9,
+        -s*1.3,
+        s*1.5,
+        -s*.1,
         0,
-        size * 0.8
+        s*.8
     );
 
 
     ctx.fillStyle =
-        "rgba(245,170,225,0.9)";
+        "rgba(245,170,225,.9)";
 
 
     ctx.fill();
@@ -2296,18 +2710,20 @@ function drawHeart(p) {
 
 
 
-/* ---------------------------------------------------------
-   Draw petal
---------------------------------------------------------- */
+/* =========================================================
+   DRAW PETAL
+========================================================= */
 
 function drawPetal(p) {
 
     ctx.save();
 
+
     ctx.translate(
         p.x,
         p.y
     );
+
 
     ctx.rotate(
         p.rotation
@@ -2315,16 +2731,14 @@ function drawPetal(p) {
 
 
     ctx.globalAlpha =
-        Math.max(
-            p.life,
-            0
-        );
+        p.life;
 
 
-    ctx.shadowBlur = 8;
+    ctx.shadowBlur =
+        8;
 
     ctx.shadowColor =
-        "rgba(215,170,255,0.7)";
+        "rgba(215,170,255,.7)";
 
 
     ctx.beginPath();
@@ -2333,16 +2747,16 @@ function drawPetal(p) {
     ctx.ellipse(
         0,
         0,
-        p.size * 0.8,
-        p.size * 1.8,
+        p.size*.8,
+        p.size*1.8,
         0,
         0,
-        Math.PI * 2
+        Math.PI*2
     );
 
 
     ctx.fillStyle =
-        "rgba(220,185,250,0.78)";
+        "rgba(220,185,250,.78)";
 
 
     ctx.fill();
@@ -2354,47 +2768,40 @@ function drawPetal(p) {
 
 
 
-/* ---------------------------------------------------------
-   Draw golden particle
---------------------------------------------------------- */
+/* =========================================================
+   DRAW GOLD
+========================================================= */
 
 function drawGold(p) {
 
     ctx.save();
 
-    ctx.translate(
-        p.x,
-        p.y
-    );
-
 
     ctx.globalAlpha =
-        Math.max(
-            p.life,
-            0
-        );
+        p.life;
 
 
-    ctx.shadowBlur = 14;
+    ctx.shadowBlur =
+        14;
 
     ctx.shadowColor =
-        "rgba(255,210,130,0.9)";
+        "rgba(255,210,130,.9)";
 
 
     ctx.beginPath();
 
 
     ctx.arc(
-        0,
-        0,
+        p.x,
+        p.y,
         p.size,
         0,
-        Math.PI * 2
+        Math.PI*2
     );
 
 
     ctx.fillStyle =
-        "rgba(255,220,150,0.95)";
+        "rgba(255,220,150,.95)";
 
 
     ctx.fill();
@@ -2406,25 +2813,23 @@ function drawGold(p) {
 
 
 
-/* ---------------------------------------------------------
-   Main animation
---------------------------------------------------------- */
+/* =========================================================
+   ANIMATE
+========================================================= */
 
-function animateCanvas() {
+function animate() {
 
     ctx.clearRect(
         0,
         0,
-        canvasWidth,
-        canvasHeight
+        width,
+        height
     );
 
 
-    /* Draw normal trail particles */
-
     for (
-        let i = particles.length - 1;
-        i >= 0;
+        let i=particles.length-1;
+        i>=0;
         i--
     ) {
 
@@ -2436,48 +2841,29 @@ function animateCanvas() {
 
         p.y += p.vy;
 
-
-        /*
-           Gentle floating motion.
-        */
-
-        p.vy += 0.004;
-
+        p.vy += .004;
 
         p.rotation +=
             p.rotationSpeed;
-
 
         p.life -=
             p.decay;
 
 
-        if (p.type === "sparkle") {
-
+        if (p.type==="sparkle")
             drawSparkle(p);
 
-        }
-
-        else if (p.type === "heart") {
-
+        else if (p.type==="heart")
             drawHeart(p);
 
-        }
-
-        else if (p.type === "petal") {
-
+        else if (p.type==="petal")
             drawPetal(p);
 
-        }
-
-        else if (p.type === "gold") {
-
+        else
             drawGold(p);
 
-        }
 
-
-        if (p.life <= 0) {
+        if (p.life<=0) {
 
             particles.splice(
                 i,
@@ -2489,85 +2875,89 @@ function animateCanvas() {
     }
 
 
-
-    /* Draw candle burst particles */
+    /* Burst */
 
     for (
-        let i = magicBurstParticles.length - 1;
-        i >= 0;
+        let i=burstParticles.length-1;
+        i>=0;
         i--
     ) {
 
         const p =
-            magicBurstParticles[i];
+            burstParticles[i];
+
+
+        p.x += p.vx;
+
+        p.y += p.vy;
+
+        p.vy += .08;
+
+        p.life -= p.decay;
 
 
         ctx.save();
 
-
         ctx.globalAlpha =
-            Math.max(
-                p.life,
-                0
-            );
+            p.life;
 
-
-        ctx.shadowBlur = 12;
+        ctx.shadowBlur =
+            12;
 
         ctx.shadowColor =
-            "rgba(220,170,255,0.9)";
-
+            "rgba(220,170,255,.9)";
 
         ctx.fillStyle =
-            "rgba(225,190,255,0.95)";
+            "rgba(225,190,255,.95)";
 
 
         ctx.beginPath();
-
 
         ctx.arc(
             p.x,
             p.y,
             p.size,
             0,
-            Math.PI * 2
+            Math.PI*2
         );
-
 
         ctx.fill();
 
-
         ctx.restore();
+
+
+        if (p.life<=0) {
+
+            burstParticles.splice(
+                i,
+                1
+            );
+
+        }
 
     }
 
 
+    /* Keep mobile performance smooth */
 
-    /*
-       Maximum number of particles.
-
-       This keeps the effect lightweight,
-       especially on phones.
-    */
-
-    if (particles.length > 160) {
+    if (particles.length>160) {
 
         particles.splice(
             0,
-            particles.length - 160
+            particles.length-160
         );
 
     }
 
 
     requestAnimationFrame(
-        animateCanvas
+        animate
     );
 
 }
 
 
-animateCanvas();
+animate();
 
 
 
@@ -2575,7 +2965,7 @@ animateCanvas();
    FLOATING EMOJIS
 ========================================================= */
 
-const floatingEmojis = [
+const emojis = [
     "💜",
     "✨",
     "🌸",
@@ -2585,7 +2975,7 @@ const floatingEmojis = [
 ];
 
 
-function createFloatingEmoji() {
+function floatingEmoji() {
 
     const element =
         document.createElement("div");
@@ -2596,26 +2986,27 @@ function createFloatingEmoji() {
 
 
     element.textContent =
-        floatingEmojis[
+        emojis[
             Math.floor(
-                Math.random() *
-                floatingEmojis.length
+                Math.random()*emojis.length
             )
         ];
 
 
     element.style.left =
-        Math.random() * 100 + "%";
+        Math.random()*100+"%";
 
 
     element.style.fontSize =
-        (Math.random() * 12 + 12) +
-        "px";
+        (
+            Math.random()*12+12
+        )+"px";
 
 
     element.style.animationDuration =
-        (Math.random() * 7 + 7) +
-        "s";
+        (
+            Math.random()*7+7
+        )+"s";
 
 
     document.body.appendChild(
@@ -2627,46 +3018,45 @@ function createFloatingEmoji() {
 
         element.remove();
 
-    }, 15000);
+    },15000);
 
 }
 
 
 setInterval(
-    createFloatingEmoji,
+    floatingEmoji,
     1200
 );
 
 
 
 /* =========================================================
-   CREATE EXTRA SPARKLES WHEN PAGE CHANGES
+   PAGE CHANGE MAGIC
 ========================================================= */
 
 window.addEventListener(
     "hashchange",
     () => {
 
-        /*
-           Small magical burst at the center
-           whenever she opens another page.
-        */
+        const x =
+            window.innerWidth/2;
 
-        const centerX =
-            window.innerWidth / 2;
-
-        const centerY =
-            window.innerHeight / 2;
+        const y =
+            window.innerHeight/2;
 
 
-        for (let i = 0; i < 12; i++) {
+        for (
+            let i=0;
+            i<12;
+            i++
+        ) {
 
             createParticle(
-                centerX +
-                (Math.random() - 0.5) * 150,
+                x+
+                (Math.random()-.5)*150,
 
-                centerY +
-                (Math.random() - 0.5) * 100
+                y+
+                (Math.random()-.5)*100
             );
 
         }
