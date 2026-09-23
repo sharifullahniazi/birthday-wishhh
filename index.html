@@ -5,21 +5,20 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>A Special Surprise 💜</title>
+<title>For You, With Love 💜</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link
-href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap"
-rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Dancing+Script:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
 
 <style>
 
-/* =====================================
+/* =========================================================
    RESET
-===================================== */
+========================================================= */
 
 * {
     box-sizing: border-box;
@@ -37,23 +36,33 @@ body {
 
     font-family: "Poppins", sans-serif;
 
+    color: #39243f;
+
     background:
+        radial-gradient(
+            circle at 20% 10%,
+            rgba(255,255,255,.9),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 90% 80%,
+            rgba(232,191,213,.55),
+            transparent 35%
+        ),
         linear-gradient(
             135deg,
             #faf7ff,
-            #e7d9ff,
-            #f1cce0
+            #eadcff 45%,
+            #f2d5e5
         );
-
-    color: #35213f;
 
     overflow-x: hidden;
 }
 
 
-/* =====================================
+/* =========================================================
    BACKGROUND
-===================================== */
+========================================================= */
 
 .background {
 
@@ -69,15 +78,49 @@ body {
 }
 
 
-.flower {
+.glow {
 
     position: absolute;
 
-    bottom: -40px;
+    width: 250px;
+    height: 250px;
 
-    animation: floatUp linear forwards;
+    border-radius: 50%;
 
-    opacity: 0.6;
+    filter: blur(70px);
+
+    opacity: .3;
+}
+
+
+.glow.one {
+
+    top: -100px;
+    left: -80px;
+
+    background: #cba3ed;
+}
+
+
+.glow.two {
+
+    right: -100px;
+    bottom: -80px;
+
+    background: #e8aeca;
+}
+
+
+.float {
+
+    position: absolute;
+
+    bottom: -50px;
+
+    opacity: 0;
+
+    animation:
+        floatUp linear forwards;
 }
 
 
@@ -87,81 +130,85 @@ body {
 
         transform:
             translateY(0)
-            rotate(0deg);
+            rotate(0deg)
+            scale(.8);
 
         opacity: 0;
 
     }
 
-    20% {
-        opacity: 0.7;
+    15% {
+        opacity: .65;
     }
 
     100% {
 
         transform:
-            translateY(-110vh)
-            rotate(360deg);
+            translateY(-115vh)
+            rotate(360deg)
+            scale(1.1);
 
         opacity: 0;
 
     }
-
 }
 
 
-/* =====================================
-   MUSIC BUTTON
-===================================== */
+/* =========================================================
+   MUSIC
+========================================================= */
 
-.music {
+.music-button {
 
     position: fixed;
 
     top: 18px;
     right: 18px;
 
-    width: 52px;
-    height: 52px;
+    width: 48px;
+    height: 48px;
 
     border-radius: 50%;
 
     border:
         1px solid
-        rgba(255,255,255,0.8);
+        rgba(255,255,255,.8);
 
     background:
-        rgba(255,255,255,0.4);
+        rgba(255,255,255,.45);
 
-    backdrop-filter: blur(12px);
+    backdrop-filter: blur(15px);
 
-    font-size: 24px;
+    box-shadow:
+        0 8px 25px
+        rgba(90,50,110,.15);
 
-    display: flex;
+    z-index: 999;
 
-    align-items: center;
-    justify-content: center;
+    font-size: 20px;
 
-    z-index: 100;
+    cursor: pointer;
 
 }
 
 
-/* =====================================
-   MAIN
-===================================== */
+/* =========================================================
+   MAIN WRAPPER
+========================================================= */
 
 .wrapper {
 
     width: 100%;
 
-    max-width: 450px;
+    max-width: 460px;
 
     min-height: 100vh;
 
     margin: auto;
 
-    padding: 20px 15px;
+    padding:
+        18px
+        14px;
 
     position: relative;
 
@@ -170,13 +217,18 @@ body {
 }
 
 
-/* =====================================
-   PAGE SYSTEM
-===================================== */
+/* =========================================================
+   PAGE NAVIGATION
+
+   IMPORTANT:
+   This is still based on normal anchor links.
+   JavaScript is NOT required for navigation.
+========================================================= */
 
 .page {
 
-    min-height: calc(100vh - 40px);
+    min-height:
+        calc(100vh - 36px);
 
     display: none;
 
@@ -184,18 +236,11 @@ body {
 
     justify-content: center;
 
+    padding:
+        30px 0;
+
 }
 
-
-/*
-   IMPORTANT:
-
-   Only the page whose ID is targeted
-   becomes visible.
-
-   Page 1 is visible when there is
-   no target in the URL.
-*/
 
 .page:target {
 
@@ -203,8 +248,6 @@ body {
 
 }
 
-
-/* Show page 1 initially */
 
 body:not(:has(.page:target))
 #page1 {
@@ -214,185 +257,403 @@ body:not(:has(.page:target))
 }
 
 
-/* =====================================
-   CARD
-===================================== */
+/* =========================================================
+   MAIN CARD
+========================================================= */
 
 .card {
 
     width: 100%;
 
-    padding: 45px 22px;
+    padding:
+        38px
+        22px;
 
-    border-radius: 28px;
+    border-radius: 30px;
 
     background:
-        rgba(255,255,255,0.9);
+        rgba(255,255,255,.78);
+
+    backdrop-filter:
+        blur(18px);
+
+    -webkit-backdrop-filter:
+        blur(18px);
 
     border:
         1px solid
-        rgba(255,255,255,0.8);
+        rgba(255,255,255,.85);
 
     box-shadow:
-        0 20px 50px
-        rgba(70,30,90,0.15);
+        0 25px 70px
+        rgba(78,42,90,.14);
 
     text-align: center;
 
-}
-
-
-/* =====================================
-   PAGE 1
-===================================== */
-
-.page1-card {
-
-    background:
-        linear-gradient(
-            135deg,
-            #2d1b36,
-            #4a2858
-        );
-
-    color: white;
-
-    border:
-        1px solid
-        rgba(255,255,255,0.25);
-
-    padding-top: 70px;
-
-    padding-bottom: 70px;
+    animation:
+        pageIn .7s ease;
 
 }
 
+
+@keyframes pageIn {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(18px)
+            scale(.98);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+    }
+
+}
+
+
+/* =========================================================
+   TYPOGRAPHY
+========================================================= */
 
 h1,
-h2 {
+h2,
+h3 {
 
     font-family:
         "Dancing Script",
         cursive;
 
-    color: #7b4fa3;
-
-    line-height: 1.2;
-
 }
 
 
-.page1-card h1 {
+h1 {
 
-    color: white;
+    font-size: 3.5rem;
 
-    font-size: 3.3rem;
-
-    margin-bottom: 15px;
-
-}
-
-
-.page1-card p {
-
-    color: white;
-
-    font-size: 1.05rem;
+    line-height: 1.05;
 
 }
 
 
 h2 {
 
-    font-size: 2.5rem;
+    color: #76479b;
+
+    font-size: 2.65rem;
+
+    line-height: 1.15;
 
     margin-bottom: 15px;
+
+}
+
+
+.subtitle {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 1.35rem;
+
+    line-height: 1.5;
 
 }
 
 
 p {
 
-    line-height: 1.65;
+    line-height: 1.7;
 
 }
 
 
-/* =====================================
-   BUTTON
-===================================== */
+/* =========================================================
+   PAGE 1
+========================================================= */
 
-.btn {
+.page1 {
+
+    background:
+        linear-gradient(
+            145deg,
+            #25152d,
+            #43234f 55%,
+            #60356e
+        );
+
+    color: white;
+
+    overflow: hidden;
+
+    position: relative;
+
+}
+
+
+.page1::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 250px;
+    height: 250px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(181,126,220,.2);
+
+    filter: blur(50px);
+
+    top: -100px;
+    right: -100px;
+
+}
+
+
+.page1::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 180px;
+    height: 180px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(232,191,213,.15);
+
+    filter: blur(45px);
+
+    bottom: -80px;
+    left: -60px;
+
+}
+
+
+.page1-content {
+
+    position: relative;
+
+    z-index: 2;
+
+}
+
+
+.small-intro {
+
+    font-size: .75rem;
+
+    letter-spacing:
+        4px;
+
+    text-transform:
+        uppercase;
+
+    opacity: .65;
+
+    margin-bottom: 20px;
+
+}
+
+
+.page1 h1 {
+
+    color: white;
+
+    text-shadow:
+        0 5px 30px
+        rgba(255,255,255,.12);
+
+}
+
+
+.page1 .subtitle {
+
+    color:
+        rgba(255,255,255,.88);
+
+    margin-top: 18px;
+
+}
+
+
+.heart {
 
     display: inline-block;
 
-    margin-top: 28px;
+    margin-top: 25px;
+
+    font-size: 30px;
+
+    animation:
+        heartbeat 1.7s ease-in-out infinite;
+
+}
+
+
+@keyframes heartbeat {
+
+    0%,100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.18);
+    }
+
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.btn {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-height: 50px;
 
     padding:
-        14px
-        28px;
+        13px
+        25px;
+
+    margin-top: 28px;
 
     border-radius: 50px;
 
-    background: #b57edc;
+    background:
+        linear-gradient(
+            135deg,
+            #b57edc,
+            #8c5ab2
+        );
 
     color: white;
 
     text-decoration: none;
 
-    font-family:
-        "Poppins",
-        sans-serif;
-
-    font-size: 1rem;
-
     font-weight: 600;
+
+    font-size: .95rem;
 
     border: none;
 
     cursor: pointer;
 
     box-shadow:
-        0 8px 25px
-        rgba(181,126,220,0.4);
+        0 10px 28px
+        rgba(123,79,163,.3);
 
     transition:
-        transform 0.2s ease;
+        transform .2s ease,
+        box-shadow .2s ease;
 
 }
 
 
 .btn:active {
 
-    transform: scale(0.94);
+    transform:
+        scale(.95);
 
 }
 
 
-.page1-card .btn {
+.btn-light {
 
-    font-size: 1.05rem;
+    background:
+        rgba(255,255,255,.75);
 
-    padding:
-        15px
-        30px;
+    color: #684080;
+
+    box-shadow:
+        0 8px 20px
+        rgba(70,40,80,.1);
 
 }
 
 
-/* =====================================
+/* =========================================================
+   BIRTHDAY PAGE
+========================================================= */
+
+.birthday-icon {
+
+    font-size: 58px;
+
+    margin-bottom: 12px;
+
+    animation:
+        gentleFloat 3s ease-in-out infinite;
+
+}
+
+
+@keyframes gentleFloat {
+
+    0%,100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-7px);
+    }
+
+}
+
+
+.divider {
+
+    width: 70px;
+
+    height: 2px;
+
+    margin:
+        20px auto;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #b57edc,
+            transparent
+        );
+
+}
+
+
+/* =========================================================
    COUNTDOWN
-===================================== */
+========================================================= */
 
 .timer {
 
     display: flex;
 
-    gap: 6px;
+    gap: 7px;
 
     margin:
-        25px
-        0;
+        25px 0;
 
 }
 
@@ -401,15 +662,18 @@ p {
 
     flex: 1;
 
-    padding: 10px 3px;
+    padding:
+        11px
+        3px;
 
-    background: #f8f4ff;
+    border-radius: 15px;
 
-    border-radius: 12px;
+    background:
+        rgba(255,255,255,.9);
 
-    color: #7b4fa3;
-
-    font-size: 0.75rem;
+    border:
+        1px solid
+        #eadfff;
 
 }
 
@@ -418,39 +682,82 @@ p {
 
     display: block;
 
-    font-size: 1.1rem;
+    color: #75489b;
+
+    font-size: 1.2rem;
 
 }
 
 
-/* =====================================
+.time span {
+
+    font-size: .65rem;
+
+    opacity: .6;
+
+}
+
+
+/* =========================================================
+   NOTE
+========================================================= */
+
+.note {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        1.35rem;
+
+    line-height:
+        1.65;
+
+}
+
+
+.note-line {
+
+    margin-top: 18px;
+
+}
+
+
+/* =========================================================
    REASONS
-===================================== */
+========================================================= */
 
 .reason {
 
     text-align: left;
 
-    background: white;
+    background:
+        rgba(255,255,255,.9);
 
-    padding: 17px;
+    padding:
+        17px;
 
-    margin-top: 14px;
+    margin-top: 13px;
 
-    border-radius: 15px;
+    border-radius: 17px;
 
     border-left:
         4px solid
         #b57edc;
 
     box-shadow:
-        0 5px 15px
-        rgba(50,20,70,0.06);
+        0 6px 20px
+        rgba(60,30,80,.06);
 
 }
 
 
-.reason small {
+.reason-number {
+
+    font-size: .68rem;
+
+    letter-spacing: 1.5px;
 
     color: #b57edc;
 
@@ -461,31 +768,50 @@ p {
 
 .reason h3 {
 
-    color: #7b4fa3;
+    color: #704494;
+
+    font-size: 1.35rem;
 
     margin:
-        4px 0;
+        3px 0 4px;
 
 }
 
 
-/* =====================================
-   MEMORIES
-===================================== */
+/* =========================================================
+   MEMORY
+========================================================= */
 
 .memory {
 
-    background: white;
-
-    padding: 10px 10px 15px;
-
     margin-top: 20px;
 
-    border-radius: 5px;
+    padding:
+        9px 9px 14px;
+
+    background: white;
+
+    border-radius: 7px;
 
     box-shadow:
-        0 8px 20px
-        rgba(50,20,70,0.1);
+        0 10px 25px
+        rgba(60,30,80,.1);
+
+}
+
+
+.memory:nth-child(odd) {
+
+    transform:
+        rotate(-1deg);
+
+}
+
+
+.memory:nth-child(even) {
+
+    transform:
+        rotate(1deg);
 
 }
 
@@ -496,58 +822,67 @@ p {
 
     width: 100%;
 
-    border-radius: 3px;
+    border-radius: 4px;
 
 }
 
 
-.memory p {
+.memory-caption {
 
     font-family:
         "Dancing Script",
         cursive;
 
-    font-size: 1.3rem;
+    font-size:
+        1.35rem;
 
-    margin-top: 8px;
+    margin-top: 9px;
 
 }
 
 
-/* =====================================
+/* =========================================================
    CANDLE
-===================================== */
+========================================================= */
 
 .candle-area {
 
-    margin-top: 65px;
+    margin:
+        70px auto
+        25px;
 
-    margin-bottom: 25px;
+    cursor: pointer;
 
 }
 
 
 .candle {
 
-    width: 40px;
+    width: 44px;
 
-    height: 115px;
+    height: 120px;
 
     margin: auto;
 
-    background:
-        linear-gradient(
-            #e6d7ff,
-            #e8bfd5
-        );
+    position: relative;
 
     border-radius:
-        8px
-        8px
-        2px
-        2px;
+        9px
+        9px
+        3px
+        3px;
 
-    position: relative;
+    background:
+        linear-gradient(
+            to right,
+            #e6d7ff,
+            #f2cce0,
+            #e6d7ff
+        );
+
+    box-shadow:
+        0 10px 20px
+        rgba(80,40,90,.12);
 
 }
 
@@ -562,9 +897,9 @@ p {
 
     background: #444;
 
-    left: 50%;
-
     top: -14px;
+
+    left: 50%;
 
     transform:
         translateX(-50%);
@@ -576,99 +911,254 @@ p {
 
     position: absolute;
 
-    width: 20px;
+    width: 22px;
 
-    height: 30px;
+    height: 34px;
 
-    background: #ffb703;
-
-    border-radius:
-        50%
-        50%
-        30%
-        30%;
+    top: -48px;
 
     left: 50%;
-
-    top: -43px;
 
     transform:
         translateX(-50%);
 
+    background:
+        linear-gradient(
+            #fff3a3,
+            #ff9800
+        );
+
+    border-radius:
+        50%
+        50%
+        35%
+        35%;
+
     box-shadow:
-        0 0 20px
+        0 0 25px
         #ffb703;
+
+    animation:
+        flame .18s
+        infinite
+        alternate;
 
 }
 
 
-@keyframes flicker {
+@keyframes flame {
 
     from {
         transform:
             translateX(-50%)
-            scale(1);
+            scale(1)
+            rotate(-2deg);
     }
 
     to {
         transform:
             translateX(-50%)
-            scale(1.12);
+            scale(1.12)
+            rotate(2deg);
     }
 
 }
 
 
-/* =====================================
-   LETTER
-===================================== */
+.wish {
 
-.letter {
+    display: none;
 
-    text-align: left;
+    font-family:
+        "Cormorant Garamond",
+        serif;
 
-    background: white;
+    font-size:
+        1.35rem;
 
-    padding: 25px 18px;
-
-    margin-top: 20px;
-
-    border-radius: 18px;
-
-    border:
-        1px solid
-        #e8bfd5;
-
-    line-height: 1.75;
+    line-height:
+        1.5;
 
 }
 
 
-/* =====================================
+/* =========================================================
+   GIFT QUESTION
+========================================================= */
+
+.gift-box {
+
+    font-size: 55px;
+
+    margin-bottom: 15px;
+
+}
+
+
+.question {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        1.45rem;
+
+    line-height: 1.5;
+
+}
+
+
+.button-area {
+
+    position: relative;
+
+    min-height: 125px;
+
+    margin-top: 10px;
+
+}
+
+
+#yesButton {
+
+    position: relative;
+
+    z-index: 5;
+
+}
+
+
+#noButton {
+
+    position: relative;
+
+    z-index: 4;
+
+    background:
+        #ead0df;
+
+    color:
+        #492c50;
+
+}
+
+
+.yes-message {
+
+    display: none;
+
+    animation:
+        pageIn .6s ease;
+
+}
+
+
+/* =========================================================
+   LETTER
+========================================================= */
+
+.letter {
+
+    position: relative;
+
+    text-align: left;
+
+    padding:
+        28px
+        20px;
+
+    margin-top: 20px;
+
+    background:
+        rgba(255,255,255,.92);
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 12px 30px
+        rgba(60,30,80,.08);
+
+}
+
+
+.letter::before {
+
+    content: "♥";
+
+    position: absolute;
+
+    top: 10px;
+    right: 15px;
+
+    color:
+        #d39ab9;
+
+    opacity: .45;
+
+}
+
+
+.letter p {
+
+    margin-bottom: 15px;
+
+}
+
+
+.signature {
+
+    text-align: right;
+
+    font-family:
+        "Dancing Script",
+        cursive;
+
+    font-size:
+        1.5rem;
+
+    color:
+        #75489b;
+
+}
+
+
+/* =========================================================
+   FOOTER TEXT
+========================================================= */
+
+.footer-note {
+
+    margin-top: 25px;
+
+    font-size: .72rem;
+
+    opacity: .5;
+
+}
+
+
+/* =========================================================
    MOBILE
-===================================== */
+========================================================= */
 
 @media(max-width:380px) {
 
     .wrapper {
-
-        padding:
-            10px;
-
+        padding: 10px;
     }
 
     .card {
-
         padding:
-            35px
-            17px;
-
+            32px 17px;
     }
 
-    .page1-card h1 {
+    .page1 h1 {
+        font-size: 3rem;
+    }
 
-        font-size: 2.8rem;
-
+    h2 {
+        font-size: 2.35rem;
     }
 
 }
@@ -681,89 +1171,95 @@ p {
 <body>
 
 
-<!-- =====================================
-     FLOATING BACKGROUND
-===================================== -->
+<!-- ========================================================
+     BACKGROUND
+======================================================== -->
 
 <div class="background">
 
-    <div class="flower"
-         style="left:10%;animation-duration:8s;">
-        🌸
-    </div>
-
-    <div class="flower"
-         style="left:30%;animation-duration:10s;">
-        ✨
-    </div>
-
-    <div class="flower"
-         style="left:55%;animation-duration:7s;">
-        💜
-    </div>
-
-    <div class="flower"
-         style="left:80%;animation-duration:9s;">
-        🪻
-    </div>
+    <div class="glow one"></div>
+    <div class="glow two"></div>
 
 </div>
 
 
-<!-- =====================================
-     MUSIC ICON
-===================================== -->
+<!-- ========================================================
+     MUSIC
+======================================================== -->
 
-<div class="music">
+<button
+    class="music-button"
+    id="musicButton"
+    aria-label="Music">
+
     🎵
-</div>
+
+</button>
+
+
+<audio
+    id="music"
+    src="song.mp3"
+    loop
+    preload="auto">
+</audio>
 
 
 <div class="wrapper">
 
 
-<!-- =====================================
+<!-- ========================================================
      PAGE 1
-===================================== -->
+======================================================== -->
 
 <section
     class="page"
     id="page1">
 
-    <div class="card page1-card">
+    <div class="card page1">
 
-        <h1>
-            Hey, you…
-        </h1>
+        <div class="page1-content">
 
-        <p>
-            I made something special for you.
-        </p>
+            <div class="small-intro">
+                A little something for you
+            </div>
 
-        <p style="font-size:1.6rem;margin-top:8px;">
-            💜
-        </p>
+            <h1>
+                Hey, you…
+            </h1>
 
+            <p class="subtitle">
+                I made something special.
+                <br>
+                Just for you. 💜
+            </p>
 
-        <!-- THIS IS NOW A NORMAL HTML LINK -->
+            <div class="heart">
+                ♡
+            </div>
 
-        <a
-            href="#page2"
-            class="btn">
+            <br>
 
-            ✨ Open it
+            <!-- RELIABLE NAVIGATION -->
+            <a
+                href="#page2"
+                class="btn"
+                id="openButton">
 
-        </a>
+                ✨ Open it
+
+            </a>
+
+        </div>
 
     </div>
 
 </section>
 
 
-
-<!-- =====================================
+<!-- ========================================================
      PAGE 2
-===================================== -->
+======================================================== -->
 
 <section
     class="page"
@@ -771,12 +1267,19 @@ p {
 
     <div class="card">
 
+        <div class="birthday-icon">
+            🎂
+        </div>
+
         <h2>
-            Happy Birthday! 🎂
+            Happy Birthday!
         </h2>
 
-        <p>
-            Today is all about celebrating you.
+        <div class="divider"></div>
+
+        <p class="subtitle">
+            Today is about celebrating
+            one very special person.
         </p>
 
 
@@ -784,29 +1287,29 @@ p {
 
             <div class="time">
                 <strong id="days">00</strong>
-                Days
+                <span>DAYS</span>
             </div>
 
             <div class="time">
                 <strong id="hours">00</strong>
-                Hours
+                <span>HOURS</span>
             </div>
 
             <div class="time">
                 <strong id="minutes">00</strong>
-                Mins
+                <span>MINS</span>
             </div>
 
             <div class="time">
                 <strong id="seconds">00</strong>
-                Secs
+                <span>SECS</span>
             </div>
 
         </div>
 
 
         <p>
-            Counting down to your special moment 🌸
+            ✨ Here's to another beautiful year of you. ✨
         </p>
 
 
@@ -814,7 +1317,7 @@ p {
             href="#page3"
             class="btn">
 
-            There's more… ✨
+            There's more… 💜
 
         </a>
 
@@ -823,10 +1326,9 @@ p {
 </section>
 
 
-
-<!-- =====================================
+<!-- ========================================================
      PAGE 3
-===================================== -->
+======================================================== -->
 
 <section
     class="page"
@@ -835,29 +1337,40 @@ p {
     <div class="card">
 
         <h2>
-            A Little Note 📜
+            A Little Note
         </h2>
 
+        <div class="divider"></div>
 
-        <p style="margin-top:25px;">
-            I don't know if I say this enough…
-        </p>
 
-        <p style="margin-top:18px;">
-            …but I'm really glad I got to know you. 💜
-        </p>
+        <div class="note">
 
-        <p style="margin-top:18px;">
-            You have a way of making ordinary
-            moments feel a little more special.
-        </p>
+            <p class="note-line">
+                I don't know if I say this enough…
+            </p>
+
+            <p class="note-line">
+                …but I'm really glad I got to know you. 💜
+            </p>
+
+            <p class="note-line">
+                Somehow, ordinary moments feel
+                a little more special when you're around.
+            </p>
+
+            <p class="note-line">
+                And honestly…
+                I'm grateful for every memory.
+            </p>
+
+        </div>
 
 
         <a
             href="#page4"
             class="btn">
 
-            Things I Appreciate 🌸
+            A Few Things I Appreciate 🌸
 
         </a>
 
@@ -866,10 +1379,9 @@ p {
 </section>
 
 
-
-<!-- =====================================
+<!-- ========================================================
      PAGE 4
-===================================== -->
+======================================================== -->
 
 <section
     class="page"
@@ -878,23 +1390,29 @@ p {
     <div class="card">
 
         <h2>
-            Things I Appreciate 💜
+            Things I Appreciate
         </h2>
+
+        <p>
+            Just a few things that make you,
+            well… you. 💜
+        </p>
 
 
         <div class="reason">
 
-            <small>
+            <div class="reason-number">
                 01 — YOUR SMILE
-            </small>
+            </div>
 
             <h3>
                 A Genuine Light
             </h3>
 
             <p>
-                It genuinely changes the mood
-                of a room whenever you're happy.
+                There's something about your smile
+                that can make everything feel
+                a little lighter.
             </p>
 
         </div>
@@ -902,18 +1420,17 @@ p {
 
         <div class="reason">
 
-            <small>
-                02 — YOUR TALKING STYLE
-            </small>
+            <div class="reason-number">
+                02 — YOUR WAY OF TALKING
+            </div>
 
             <h3>
                 Effortless Comfort
             </h3>
 
             <p>
-                There is something about the way
-                you explain things that makes
-                time fly.
+                Somehow conversations with you
+                can make time disappear.
             </p>
 
         </div>
@@ -921,18 +1438,18 @@ p {
 
         <div class="reason">
 
-            <small>
+            <div class="reason-number">
                 03 — THE LITTLE THINGS
-            </small>
+            </div>
 
             <h3>
-                Unnoticed Kindness
+                The Details
             </h3>
 
             <p>
-                The subtle, thoughtful things
-                you do that you probably don't
-                even notice.
+                The tiny thoughtful things you do
+                that you probably don't even realize
+                someone notices.
             </p>
 
         </div>
@@ -951,10 +1468,9 @@ p {
 </section>
 
 
-
-<!-- =====================================
+<!-- ========================================================
      PAGE 5
-===================================== -->
+======================================================== -->
 
 <section
     class="page"
@@ -963,363 +1479,27 @@ p {
     <div class="card">
 
         <h2>
-            Favorite Moments 📸
+            Little Memories
         </h2>
 
         <p>
-            A few memories to cherish.
+            Some moments are worth keeping forever.
         </p>
 
 
         <div class="memory">
 
             <img
-            src="https://i.postimg.cc/y6Zg9SHW/IMG-20260918-WA0030.jpg"
-            alt="Memory 1">
+                src="https://i.postimg.cc/y6Zg9SHW/IMG-20260918-WA0030.jpg"
+                alt="Memory 1">
 
-            <p>
+            <div class="memory-caption">
                 Precious Memories ✨
-            </p>
-
-        </div>
-
-
-        <div class="memory">
-
-            <img
-            src="https://i.postimg.cc/tJN9kbk2/IMG-20260918-WA0021.jpg"
-            alt="Memory 2">
-
-            <p>
-                Unforgettable Times 💖
-            </p>
-
-        </div>
-
-
-        <div class="memory">
-
-            <img
-            src="https://i.postimg.cc/J4pTkgm0/IMG-20260918-WA0017.jpg"
-            alt="Memory 3">
-
-            <p>
-                Best Moments Together 🌸
-            </p>
-
-        </div>
-
-
-        <a
-            href="#page6"
-            class="btn">
-
-            Make a Wish 🕯️
-
-        </a>
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================
-     PAGE 6
-===================================== -->
-
-<section
-    class="page"
-    id="page6">
-
-    <div class="card">
-
-        <h2>
-            Make a Wish 🕯️
-        </h2>
-
-        <p>
-            Tap the candle.
-        </p>
-
-
-        <div class="candle-area">
-
-            <div class="candle">
-
-                <div class="wick"></div>
-
-                <div
-                class="flame"
-                id="flame">
-                </div>
-
             </div>
 
         </div>
 
 
-        <p style="font-size:1.1rem;">
-            ✨ I hope this year gives you
-            a thousand reasons to smile. ✨
-        </p>
+        <div class="memory">
 
-
-        <a
-            href="#page7"
-            class="btn">
-
-            A Quick Question 🎁
-
-        </a>
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================
-     PAGE 7
-===================================== -->
-
-<section
-    class="page"
-    id="page7">
-
-    <div class="card">
-
-        <h2>
-            Special Delivery 🎁
-        </h2>
-
-
-        <p style="
-        color:#7b4fa3;
-        font-size:1.05rem;
-        margin-top:15px;
-        ">
-
-            I will send you a birthday gift.
-            <br>
-            Will you please collect it? 🥺💜
-
-        </p>
-
-
-        <div style="
-        margin-top:30px;
-        display:flex;
-        justify-content:center;
-        gap:15px;
-        ">
-
-
-            <a
-                href="#page8"
-                class="btn">
-
-                Yes 💜
-
-            </a>
-
-
-            <!-- For now, this also eventually leads
-                 to the answer -->
-
-            <a
-                href="#page8"
-                class="btn"
-                style="
-                background:#e8bfd5;
-                color:#35213f;
-                ">
-
-                No 😭
-
-            </a>
-
-        </div>
-
-
-        <p style="
-        margin-top:25px;
-        font-size:0.8rem;
-        opacity:0.6;
-        ">
-
-            👀 You already know which one
-            you're supposed to choose.
-
-        </p>
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================
-     PAGE 8
-===================================== -->
-
-<section
-    class="page"
-    id="page8">
-
-    <div class="card">
-
-        <h2>
-            One Last Thing… 💌
-        </h2>
-
-
-        <div class="letter">
-
-            <p style="margin-bottom:15px;">
-                Dearest,
-            </p>
-
-
-            <p style="margin-bottom:15px;">
-
-                Whatever this year brings,
-                I hope it is kind to you.
-
-                Keep smiling,
-                keep being yourself,
-                and keep making the world
-                a little brighter just by
-                being in it.
-
-            </p>
-
-
-            <p style="margin-bottom:15px;">
-                Happy birthday. 💜
-            </p>
-
-
-            <p style="
-            text-align:right;
-            font-weight:600;
-            ">
-
-                — Your Name
-
-            </p>
-
-        </div>
-
-
-        <p style="
-        font-size:0.78rem;
-        opacity:0.6;
-        margin-top:25px;
-        ">
-
-            Made with a little too much time
-            and a lot of thought. 😭💜
-
-        </p>
-
-    </div>
-
-</section>
-
-
-</div>
-
-
-<!-- =====================================
-     COUNTDOWN
-===================================== -->
-
-<script>
-
-const birthday =
-    new Date("2026-11-12T00:00:00").getTime();
-
-
-function updateCountdown() {
-
-    const now =
-        new Date().getTime();
-
-    const difference =
-        birthday - now;
-
-
-    if (difference <= 0) {
-        return;
-    }
-
-
-    const days =
-        Math.floor(
-            difference /
-            (1000 * 60 * 60 * 24)
-        );
-
-
-    const hours =
-        Math.floor(
-            (difference %
-            (1000 * 60 * 60 * 24))
-            /
-            (1000 * 60 * 60)
-        );
-
-
-    const minutes =
-        Math.floor(
-            (difference %
-            (1000 * 60 * 60))
-            /
-            (1000 * 60)
-        );
-
-
-    const seconds =
-        Math.floor(
-            (difference %
-            (1000 * 60))
-            /
-            1000
-        );
-
-
-    document.getElementById("days")
-        .textContent =
-        String(days).padStart(2,"0");
-
-
-    document.getElementById("hours")
-        .textContent =
-        String(hours).padStart(2,"0");
-
-
-    document.getElementById("minutes")
-        .textContent =
-        String(minutes).padStart(2,"0");
-
-
-    document.getElementById("seconds")
-        .textContent =
-        String(seconds).padStart(2,"0");
-
-}
-
-
-updateCountdown();
-
-setInterval(
-    updateCountdown,
-    1000
-);
-
-</script>
-
-
-</body>
-           </html>
+ 
